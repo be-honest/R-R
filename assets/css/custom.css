@@ -1,0 +1,58 @@
+body
+{
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16px;
+}
+
+.btn
+{
+	font-size: 16px;
+}
+
+.btn-primary{
+	background-color: #8D6E63;
+	border-color: #795548;
+}
+
+.btn-primary:hover
+{
+	color: #fff;
+	background-color: #795548;
+	border-color: #6D4C41;
+}
+
+.form-control:focus{
+	color: #000;
+	background-color: #fff;
+	box-shadow: none;
+	border-color: #795548;
+}
+
+.form-control 
+{
+	font-size: 16px;
+
+}
+
+a:hover
+{
+	color: #5D4037;
+}
+
+.navbar-inverse
+{
+	background-color: #00BCD4!important;
+	border-color: #00ACC1 !important;
+}
+
+.btn-sm
+{
+	background-color: #0097A7;
+	border-color: #00838F;
+}
+
+.btn-sm:hover
+{
+	background-color: #4DD0E1;
+	border-color: #26C6DA;
+}
