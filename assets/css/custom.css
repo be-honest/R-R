@@ -21,6 +21,36 @@ body
 	border-color: #6D4C41;
 }
 
+a{
+	color: #fff;
+}
+
+.btn-primary:active{
+	background-color: #795548;
+	border-color: #6D4C41;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #ffffff;
+  background-color: #795548;
+  border-color: #6D4C41;
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #ffffff;
+  background-color: #795548;
+  border-color: #6D4C41;
+}
+
 .form-control:focus{
 	color: #000;
 	background-color: #fff;
@@ -56,3 +86,4 @@ a:hover
 	background-color: #4DD0E1;
 	border-color: #26C6DA;
 }
+

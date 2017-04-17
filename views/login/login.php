@@ -48,6 +48,14 @@ $password=$_POST['password'];
         *width: 100%;
 		}
 
+    a.login{
+    color: #fff;
+    order-color: #6D4C41;
+    text-decoration: none;
+    }
+
+
+
 	</style>
   <link href="../../assets/css/custom.css" rel="stylesheet">
 </head>
@@ -59,7 +67,7 @@ $password=$_POST['password'];
 
     <form method="post" action="" name="login" role="form" class="m-x-auto text-center app-login-form">
 
-      <a href="/index.html" class="app-brand m-b-lg">
+      <a href="../../index.php" class="app-brand m-b-lg">
         <img src="../../assets/img/logo.png" alt="logo">
       </a>
 
@@ -88,6 +96,7 @@ $password=$_POST['password'];
     
 
       <div class="m-b-lg">
+
         <!-- <a href="../index.php"><button name="loginSubmit" value="Login" class="btn btn-primary">Log In</button></a> -->
         <input type="submit" class="btn btn-primary" name="loginSubmit" value="Login">
         <!-- <button nclass="btn btn-default">Register</button> -->
