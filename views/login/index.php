@@ -22,6 +22,14 @@
         *width: 100%;
 		}
 
+    a.login{
+    color: #fff;
+    order-color: #6D4C41;
+    text-decoration: none;
+    }
+
+
+
 	</style>
   <link href="../../assets/css/custom.css" rel="stylesheet">
 </head>
@@ -31,7 +39,7 @@
   <div class="container-content-middle">
     <form role="form" class="m-x-auto text-center app-login-form">
 
-      <a href="/index.html" class="app-brand m-b-lg">
+      <a href="../../index.php" class="app-brand m-b-lg">
         <img src="../../assets/img/logo.png" alt="logo">
       </a>
 
@@ -44,8 +52,7 @@
       </div>
 
       <div class="m-b-lg">
-        <a href="../index.php"><button class="btn btn-primary">Log In</button></a>
-        <button class="btn btn-default">Register</button>
+      <a type="button" class="btn btn-primary" href="../../index.php">Log In</a>
       </div>
 
       <footer class="screen-login">

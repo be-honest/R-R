@@ -50,7 +50,7 @@
 
         <ul class="nav navbar-nav hidden-xs">
           <li class="active">
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
           </li>
           <li>
             <a href="docs/index.html">Events</a>
