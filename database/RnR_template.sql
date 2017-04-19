@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.3.2 (64 bit)
-MySQL - 10.1.21-MariaDB : Database - restandrecreation
+MySQL - 10.1.21-MariaDB : Database - rnr
 *********************************************************************
 */
 
@@ -12,31 +12,157 @@ MySQL - 10.1.21-MariaDB : Database - restandrecreation
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`restandrecreation` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`rnr` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `restandrecreation`;
+USE `rnr`;
+
+/*Table structure for table `activities` */
+
+DROP TABLE IF EXISTS `activities`;
+
+CREATE TABLE `activities` (
+  `activity_id` int(10) NOT NULL AUTO_INCREMENT,
+  `event_id` int(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`activity_id`),
+  KEY `event_id` (`event_id`),
+  CONSTRAINT `activities_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `activities` */
+
+/*Table structure for table `checklist` */
+
+DROP TABLE IF EXISTS `checklist`;
+
+CREATE TABLE `checklist` (
+  `checklist_id` int(10) NOT NULL,
+  `event_id` int(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`checklist_id`),
+  KEY `event_id` (`event_id`),
+  CONSTRAINT `checklist_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `checklist` */
+
+/*Table structure for table `event_status` */
+
+DROP TABLE IF EXISTS `event_status`;
+
+CREATE TABLE `event_status` (
+  `event_status_id` int(10) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`event_status_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `event_status` */
+
+/*Table structure for table `event_votes` */
+
+DROP TABLE IF EXISTS `event_votes`;
+
+CREATE TABLE `event_votes` (
+  `event_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  PRIMARY KEY (`event_id`,`user_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `event_votes_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`),
+  CONSTRAINT `event_votes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `event_votes` */
+
+/*Table structure for table `event_voting_period` */
+
+DROP TABLE IF EXISTS `event_voting_period`;
+
+CREATE TABLE `event_voting_period` (
+  `evp_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) DEFAULT NULL,
+  `event_status_id` int(10) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `isOpen` tinyint(2) DEFAULT NULL,
+  PRIMARY KEY (`evp_id`),
+  KEY `user_id` (`user_id`),
+  KEY `event_status_id` (`event_status_id`),
+  CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `event_voting_period` */
+
+/*Table structure for table `events` */
+
+DROP TABLE IF EXISTS `events`;
+
+CREATE TABLE `events` (
+  `event_id` int(10) NOT NULL AUTO_INCREMENT,
+  `evp_id` int(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `location` text,
+  `image` text,
+  PRIMARY KEY (`event_id`),
+  KEY `evp_id` (`evp_id`),
+  CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `events` */
+
+/*Table structure for table `user_status` */
+
+DROP TABLE IF EXISTS `user_status`;
+
+CREATE TABLE `user_status` (
+  `status_id` int(10) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`status_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `user_status` */
+
+insert  into `user_status`(`status_id`,`description`) values 
+(1,'active');
+
+/*Table structure for table `user_type` */
+
+DROP TABLE IF EXISTS `user_type`;
+
+CREATE TABLE `user_type` (
+  `user_type_id` int(10) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `user_type` */
+
+insert  into `user_type`(`user_type_id`,`description`) values 
+(1,NULL);
 
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) DEFAULT NULL,
-  `email` varchar(120) DEFAULT NULL,
-  `password` varchar(200) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `profile_pic` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `user_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'User ID',
+  `user_type_id` int(10) DEFAULT NULL,
+  `status_id` int(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `user_type_id` (`user_type_id`),
+  KEY `status_id` (`status_id`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`),
+  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `user_status` (`status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`uid`,`username`,`email`,`password`,`name`,`profile_pic`) values 
-(1,'kemezike','kemartus@gmail.com','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','Kryce Earl Martus',NULL),
-(2,'johnM','jandm@gmail.com','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','John Mikes',NULL),
-(3,'haguanta','ha@gmail.com','e6193a1d9da8b080746e08cb1c9c9225651e82315b8fffcbb2f87b8c1b93575d','Honest',NULL),
-(4,'kemezike123','Keme@gmail.com','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','Kryfce Earl',NULL);
+insert  into `users`(`user_id`,`user_type_id`,`status_id`,`name`,`username`,`password`) values 
+(1,1,1,'Kryce Earl Martus','kemezike','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
