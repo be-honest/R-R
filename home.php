@@ -12,7 +12,7 @@ $userDetails=$userClass->userDetails($session_uid);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home &middot;</title>
+    <title>Rest and Recreation Portal </title>
 
     <!-- Include the CSS -->
     <link href="dist/toolkit.min.css" rel="stylesheet">
@@ -56,10 +56,16 @@ $userDetails=$userClass->userDetails($session_uid);
 
         <ul class="nav navbar-nav hidden-xs">
           <li class="active">
-            <a href="index.html">Home</a>
+            <a href="home.php">Home</a>
           </li>
           <li>
-            <a href="docs/index.html">Events</a>
+            <a href="#">Profile</a>
+          </li>
+          <li>
+            <a href="admin.php">Users</a>
+          </li>
+          <li>
+            <a href="#">Events</a>
           </li>
           <li>
             <a data-toggle="modal" href="#msgModal">Polls</a>
@@ -85,19 +91,19 @@ $userDetails=$userClass->userDetails($session_uid);
           </div>
         </form>
 
+    
         <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
           <li><a href="index.html">Home</a></li>
           <li><a href="profile/index.html">Profile</a></li>
-          <li><a href="notifications/index.html">Notifications</a></li>
-          <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
-          <li><a href="docs/index.html">Docs</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="http://localhost/r-r/logout.php">Logout</a></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="docs/index.html">Events</a></li>
+          <li><a data-toggle="modal" href="#msgModal">Polls</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
 
         <ul class="nav navbar-nav hidden">
           <li><a href="#" data-action="growl">Profile</a></li>
-          <li><a href="http://localhost/r-r/logout.php">Logout</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
       </div>
   </div>

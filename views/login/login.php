@@ -54,6 +54,11 @@ $password=$_POST['password'];
     text-decoration: none;
     }
 
+    .app-brand img{
+
+    width: 200%;
+  }
+
 
 
 	</style>
@@ -68,7 +73,7 @@ $password=$_POST['password'];
     <form method="post" action="" name="login" role="form" class="m-x-auto text-center app-login-form">
 
       <a href="../../index.php" class="app-brand m-b-lg">
-        <img src="../../assets/img/logo.png" alt="logo">
+        <img src="../../assets/img/logo2.png" alt="logo">
       </a>
 
       <div class="form-group">
@@ -83,7 +88,7 @@ $password=$_POST['password'];
       if($errorMsgLogin)
       { 
         ?>
-      <div class="alert alert-danger alert-dismissable">
+      <div class="alert alert-danger alert-dismissable" role="alert">
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">×</span>
     </button>
@@ -99,7 +104,7 @@ $password=$_POST['password'];
 
         <!-- <a href="../index.php"><button name="loginSubmit" value="Login" class="btn btn-primary">Log In</button></a> -->
         <input type="submit" class="btn btn-primary" name="loginSubmit" value="Login">
-        <!-- <button nclass="btn btn-default">Register</button> -->
+     <!--    <button class="btn btn-default">Create User</button>  -->
       </div>
 
       <!-- <footer class="screen-login">
@@ -107,13 +112,13 @@ $password=$_POST['password'];
       </footer> -->
     </form>
 
-
+s
 
   </div>
 </div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/chart.js"></script>
-    <script src="../assets/js/toolkit.js"></script>
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/chart.js"></script>
+    <script src="../../assets/js/toolkit.js"></script>
     <script src="../assets/js/application.js"></script>
     <script>
       // execute/clear BS loaders for docs

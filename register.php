@@ -39,6 +39,7 @@ if (!empty($_POST['signupSubmit']))
 <!DOCTYPE html>
 <html>
 <head>
+    <title> Registration </title>
     <style>
         #container{width: 700px}
         #login,#signup{width: 300px; border: 1px solid #d6d7da; padding: 0px 15px 15px 15px; border-radius: 5px;font-family: arial; line-height: 16px;color: #333333; font-size: 14px; background: #ffffff;rgba(200,200,200,0.7) 0 4px 10px -1px}
@@ -57,27 +58,44 @@ if (!empty($_POST['signupSubmit']))
             color: #ffffff;
         }
         .errorMsg{color: #cc0000;margin-bottom: 10px}
+        .radio{width:100%;}
     </style>
+</head>
     <body>
         <div id="container">
             <div id="signup">
-                <h3>Registration</h3>
+                <h3>Add an Admin </h3>
                 <form method="post" action="" name="signup">
-                    <label>Name</label>
-                    <input type="text" name="nameReg" autocomplete="off" />
-                    <label>Email</label>
-                    <input type="text" name="emailReg" autocomplete="off" />
+                    <label>Full Name</label>
+                    <input type="text" name="nameReg" autocomplete="off" required/>
                     <label>Username</label>
                     <input type="text" name="usernameReg" autocomplete="off" />
-
                     <label>Password</label>
                     <input type="password" name="passwordReg" autocomplete="off"/>
+                    <label>Status</label>
+                        <div class="radio custom-control custom-radio">
+                              <label>
+                                <input type="radio" id="radio1" name="radio">
+                                <span class="custom-control-indicator"></span>
+                                Active
+                              </label>
+                            </div>
+                            <div class="radio custom-control custom-radio">
+                              <label>
+                                <input type="radio" id="radio2" name="radio">
+                                <span class="custom-control-indicator"></span>
+                               Inactive
+                              </label>
+                            </div> 
+
                     <div class="errorMsg"><?php echo $errorMsgReg; ?></div>
                     <input type="submit" class="button" name="signupSubmit" value="Signup">
                 </form>
             </div>
 
         </div>
+
+
 
     </body>
     </html>
