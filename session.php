@@ -1,7 +1,7 @@
  <?php
-if(!empty($_SESSION['uid']))
+if(!empty($_SESSION['user_id']))
 {
-$session_uid=$_SESSION['uid'];
+$session_uid=$_SESSION['user_id'];
 include('class/userClass.php');
 $userClass = new userClass();
 }

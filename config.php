@@ -4,8 +4,8 @@ session_start();
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_DATABASE', 'restandrecreation');
-define("BASE_URL", "http://localhost/R-R/"); // Eg. http://yourwebsite.com
+define('DB_DATABASE', 'rnr');
+define("BASE_URL", "http://localhost/RandR/"); // Eg. http://yourwebsite.com
 
 
 function getDB() 

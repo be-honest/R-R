@@ -7,12 +7,12 @@ $errorMsgReg='';
 $errorMsgLogin='';
 if (!empty($_POST['loginSubmit'])) 
 {
-$usernameEmail=$_POST['usernameEmail'];
+$username=$_POST['username'];
 $password=$_POST['password'];
- if(strlen(trim($usernameEmail))>1 && strlen(trim($password))>1 )
+ if(strlen(trim($username))>1 && strlen(trim($password))>1 )
    {
-    $uid=$userClass->userLogin($usernameEmail,$password);
-    if($uid)
+    $user_id=$userClass->userLogin($username,$password);
+    if($user_id)
     {
         $url=BASE_URL.'home.php';
         header("Location: $url");
@@ -72,7 +72,7 @@ $password=$_POST['password'];
       </a>
 
       <div class="form-group">
-        <input class="form-control" placeholder="Username" name="usernameEmail">
+        <input class="form-control" placeholder="Username" name="username">
       </div>
 
       <div class="form-group m-b-md">

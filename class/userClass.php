@@ -2,13 +2,13 @@
 class userClass
 {
 	 /* User Login */
-     public function userLogin($usernameEmail,$password)
+     public function userLogin($username,$password)
      {
 
           $db = getDB();
           $hash_password= hash('sha256', $password);
-          $stmt = $db->prepare("SELECT uid FROM users WHERE  (username=:usernameEmail or email=:usernameEmail) AND  password=:hash_password");  
-          $stmt->bindParam("usernameEmail", $usernameEmail,PDO::PARAM_STR) ;
+          $stmt = $db->prepare("SELECT user_id FROM users WHERE username=:username AND  password=:hash_password");  
+          $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
           $stmt->bindParam("hash_password", $hash_password,PDO::PARAM_STR) ;
           $stmt->execute();
           $count=$stmt->rowCount();
@@ -16,7 +16,7 @@ class userClass
           $db = null;
           if($count)
           {
-                $_SESSION['uid']=$data->uid;
+                $_SESSION['user_id']=$data->user_id;
                 return true;
           }
           else
@@ -26,7 +26,7 @@ class userClass
      }
 
      /* User Registration */
-     public function userRegistration($username,$password,$email,$name)
+     public function userRegistration($username,$password,$name)
      {
           try{
           $db = getDB();
@@ -64,12 +64,12 @@ class userClass
      }
      
      /* User Details */
-     public function userDetails($uid)
+     public function userDetails($user_id)
      {
         try{
           $db = getDB();
-          $stmt = $db->prepare("SELECT email,username,name FROM users WHERE uid=:uid");  
-          $stmt->bindParam("uid", $uid,PDO::PARAM_INT);
+          $stmt = $db->prepare("SELECT username,name FROM users WHERE user_id=:user_id");  
+          $stmt->bindParam("user_id", $user_id,PDO::PARAM_INT);
           $stmt->execute();
           $data = $stmt->fetch(PDO::FETCH_OBJ);
           return $data;

@@ -92,12 +92,12 @@ $userDetails=$userClass->userDetails($session_uid);
           <li><a data-toggle="modal" href="#msgModal">Messages</a></li>
           <li><a href="docs/index.html">Docs</a></li>
           <li><a href="#">Profile</a></li>
-          <li><a href="http://localhost/r-r/logout.php">Logout</a></li>
+          <li><a href="http://localhost/randr/logout.php">Logout</a></li>
         </ul>
 
         <ul class="nav navbar-nav hidden">
           <li><a href="#" data-action="growl">Profile</a></li>
-          <li><a href="http://localhost/r-r/logout.php">Logout</a></li>
+          <li><a href="http://localhost/randr/logout.php">Logout</a></li>
         </ul>
       </div>
   </div>
@@ -114,11 +114,6 @@ $userDetails=$userClass->userDetails($session_uid);
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 
