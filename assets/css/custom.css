@@ -22,7 +22,7 @@ body
 }
 
 a{
-	color: #fff;
+	color: #00BCD4;
 }
 
 .btn-primary:active{
@@ -85,5 +85,19 @@ a:hover
 {
 	background-color: #4DD0E1;
 	border-color: #26C6DA;
+}
+
+
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
 }
 

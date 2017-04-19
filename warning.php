@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Redirecting..</title>
+	<title>Redirecting...</title>
 </head>
 <body>
 <?php 
 
 	echo "Please Log in";
-	$url="http://localhost/RandR/index.php";
+
+	$url="index.php";
 	header("refresh:5;url=$url");
 	?>
 

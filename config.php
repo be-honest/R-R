@@ -5,6 +5,7 @@ define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'rnr');
+
 define("BASE_URL", "http://localhost/RandR/"); // Eg. http://yourwebsite.com
 
 
