@@ -6,17 +6,16 @@ class userClass
      {
 
           $db = getDB();
-          $hash_password= hash('sha256', $password);
-          $stmt = $db->prepare("SELECT user_id FROM users WHERE username=:username AND  password=:hash_password");  
+          $stmt = $db->prepare("SELECT id FROM users WHERE username=:username AND  password=:password");  
           $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
-          $stmt->bindParam("hash_password", $hash_password,PDO::PARAM_STR) ;
+          $stmt->bindParam("password", $password,PDO::PARAM_STR) ;
           $stmt->execute();
           $count=$stmt->rowCount();
           $data=$stmt->fetch(PDO::FETCH_OBJ);
           $db = null;
           if($count)
           {
-                $_SESSION['user_id']=$data->user_id;
+                $_SESSION['user_id']=$data->id;
                 return true;
           }
           else
@@ -68,7 +67,7 @@ class userClass
      {
         try{
           $db = getDB();
-          $stmt = $db->prepare("SELECT username,name FROM users WHERE user_id=:user_id");  
+          $stmt = $db->prepare("SELECT username,last_name FROM users WHERE id=:user_id");  
           $stmt->bindParam("user_id", $user_id,PDO::PARAM_INT);
           $stmt->execute();
           $data = $stmt->fetch(PDO::FETCH_OBJ);

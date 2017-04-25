@@ -1,5 +1,3 @@
 <?php
-$url = "views/login/login.php";
-header('Location:'. $url);
-exit;
+include('views/login/login.php');
 ?>

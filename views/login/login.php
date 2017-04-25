@@ -1,7 +1,16 @@
 <?php 
-include("../../config.php");
-include('../../class/userClass.php');
+include("config.php");
+include('class/userClass.php');
+
 $userClass = new userClass();
+
+
+if(!empty($_SESSION['user_id']))
+{
+$url=BASE_URL.'home.php';
+header("Location: $url");
+}
+
 
 $errorMsgReg='';
 $errorMsgLogin='';
@@ -38,8 +47,8 @@ $password=$_POST['password'];
 	<title>Login</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
-	<link href="../../assets/css/toolkit.css" rel="stylesheet">
-  <link href="../../assets/css/application.css" rel="stylesheet">
+	<link href="assets/css/toolkit.css" rel="stylesheet">
+  <link href="assets/css/application.css" rel="stylesheet">
 
 	<style>
 		body{
@@ -62,7 +71,7 @@ $password=$_POST['password'];
 
 
 	</style>
-  <link href="../../assets/css/custom.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 </head>
 <body>
 
@@ -72,16 +81,16 @@ $password=$_POST['password'];
 
     <form method="post" action="" name="login" role="form" class="m-x-auto text-center app-login-form">
 
-      <a href="../../index.php" class="app-brand m-b-lg">
-        <img src="../../assets/img/logo2.png" alt="logo">
+      <a href="index.php" class="app-brand m-b-lg">
+        <img src="assets/img/logo2.png" alt="logo">
       </a>
 
       <div class="form-group">
-        <input class="form-control" placeholder="Username" name="username">
+        <input class="form-control" placeholder="Username" value="admin1" name="username">
       </div>
 
       <div class="form-group m-b-md">
-        <input type="password" class="form-control" placeholder="Password" name="password">
+        <input type="password" class="form-control" value="admin1" placeholder="Password" name="password">
       </div>
 
       <?php 
@@ -116,10 +125,10 @@ s
 
   </div>
 </div>
-    <script src="../../assets/js/jquery.min.js"></script>
-    <script src="../../assets/js/chart.js"></script>
-    <script src="../../assets/js/toolkit.js"></script>
-    <script src="../assets/js/application.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js"></script>
     <script>
       // execute/clear BS loaders for docs
       $(function(){
