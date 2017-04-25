@@ -31,6 +31,23 @@ $userDetails=$userClass->userDetails($session_uid);
         min-width: 100%;
         *width: 100%;
       }
+      
+    .h4
+    {
+       color: #ffffff;
+    }
+
+      .block-inverse
+      {
+          color: #616161;
+          background-color: #B2EBF2;
+      }
+
+      .btn-primary {
+        color: #ffffff;
+        background-color: #685d9f;
+        border-color: #5d548f;
+      }
 
     </style>
       <link href="assets/css/custom.css" rel="stylesheet">
@@ -62,7 +79,7 @@ $userDetails=$userClass->userDetails($session_uid);
             <a href="#">Profile</a>
           </li>
           <li>
-            <a href="admin.php">Users</a>
+            <a href="views/Users/UserType.php">Users</a>
           </li>
           <li>
             <a href="#">Events</a>
@@ -122,7 +139,11 @@ $userDetails=$userClass->userDetails($session_uid);
   </div>
 </div>
 
-
+<div class="block block-inverse text-center">
+  <h1 class="block-title">Rest and Recreation Portal</h1>
+  <h4 class="text-muted">coreDev Solutions, Inc.</h4>
+  <button class="btn btn-primary m-t">Start creating an event.</button>
+</div>
 
 
 

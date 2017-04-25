@@ -11,8 +11,8 @@
 	<title>Rest and Recreation Portal</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
-	<link href="assets/css/toolkit.css" rel="stylesheet">
-  	<link href="assets/css/application.css" rel="stylesheet">
+	<link href="../../assets/css/toolkit.css" rel="stylesheet">
+  	<link href="../../assets/css/application.css" rel="stylesheet">
 
 	<style>
 		body{
@@ -22,7 +22,7 @@
 		}
 	</style>
 
-  <link href="assets/css/custom.css" rel="stylesheet">
+  <link href="../../assets/css/custom.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.14/css/jquery.dataTables.min.css">
 </head>
 <body class="with-top-navbar">
