@@ -1,19 +1,14 @@
 <?php 
-include("config.php");
+
 include('class/userClass.php');
 
 $userClass = new userClass();
 
-
-if(!empty($_SESSION['user_id']))
-{
-$url=BASE_URL.'home.php';
-header("Location: $url");
-}
-
+include('checksession.php');
 
 $errorMsgReg='';
 $errorMsgLogin='';
+
 if (!empty($_POST['loginSubmit'])) 
 {
 $username=$_POST['username'];

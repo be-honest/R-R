@@ -9,7 +9,7 @@ $userClass = new userClass();
 
 if(empty($session_uid))
 {
-$url=BASE_URL.'warning.php';
+$url='warning.php';
 header("Location: $url");
 }
 

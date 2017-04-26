@@ -1,8 +1,12 @@
 <?php 
-require_once '../layouts/header.php';
-require_once '../layouts/nav.php';
-?>
 
+
+$userClass = new userClass();
+$users = $userClass->getAllUsers();
+// print_r($users);
+require_once 'views/layouts/header.php';
+require_once 'views/layouts/nav.php';
+?>
 
 
 <div class="container p-t-lg">
@@ -15,13 +19,13 @@ require_once '../layouts/nav.php';
 				<div class="panel-body">
 					<ul class="nav nav-pills">
 						<li class="active">
-						    <a href="add-admin.php">
+						    <a href="register-admin.php">
 						      <span class="icon icon-add-user"></span>
 						   			ADMIN
 						    </a>
 						  </li>
 						  <li class="active">
-						    <a href="add-user.php">
+							    <a href="register-user.php">
 						      <span class="icon icon-users"></span>
 						     	USER
 						    </a>
@@ -51,23 +55,21 @@ require_once '../layouts/nav.php';
 								</tr>
 							</thead>
 							<tbody>
-									<tr>
-										<td>admin</td>
-										<td>honest123</td>
-										<td>coredev</td>
-										<td>active</td>
-										<td>honest aguanta</td>
-									</tr>
+									<?php 
+										foreach($users as $user)
+										{
+											?> <tr>
+												<td><?php echo $user['user_type_id'];?></td>
+												<td><?php echo $user['username'];?></td>
+												<td><?php echo $user['password'];?></td>
+												<td><?php echo $user['status_id'];?></td>
+												<td><?php echo $user['first_name'];?></td>
+												</tr>
+										<?php  } ?>
+
+								
 							</tbody>
-							<tbody>
-									<tr>
-										<td>user</td>
-										<td>dummy</td>
-										<td>123456</td>
-										<td>active</td>
-										<td>...</td>
-									</tr>
-							</tbody>
+							
 						</table>
 	                </div>
                 </div>
@@ -78,5 +80,5 @@ require_once '../layouts/nav.php';
 
 
 <?php
-require_once '../layouts/footer.php';
+require_once 'views/layouts/footer.php';
 ?>

@@ -1,6 +1,6 @@
  <?php 
-require_once '../layouts/header.php';
-require_once '../layouts/nav.php';
+require_once 'views/layouts/header.php';
+require_once 'views/layouts/nav.php';
 ?>
 
 
@@ -11,7 +11,7 @@ require_once '../layouts/nav.php';
  <head>
  	<meta charset="UTF-8">
  	<title>Add Admin</title>
- 	<link rel="stylesheet" href="admin.css">
+ 	<link rel="stylesheet" href="assets/css/admin.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
  </head>
  <body>
@@ -20,7 +20,7 @@ require_once '../layouts/nav.php';
             <form class="form-horizontal" role="form">
                <h2>Registration</h2>
                <hr>
-                <div class="form-group">
+                <div class="form-group">    
                     <label for="firstName" class="col-sm-3 control-label">First Name</label>
                     <div class="col-sm-9">
                         <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>           
@@ -97,5 +97,5 @@ require_once '../layouts/nav.php';
  </html>
 
  <?php 
-require_once '../layouts/footer.php'
+require_once 'views/layouts/footer.php'
  ?>
