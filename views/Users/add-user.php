@@ -19,17 +19,24 @@ require_once '../layouts/nav.php';
  	<div class="container">
             <form class="form-horizontal" role="form">
                <h2>Registration</h2>
+               <hr>
                 <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
                     <div class="col-sm-9">
-                        <input type="text" id="firstName" placeholder="Full Name" class="form-control" autofocus>
-                        <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>           
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <label for="lasttName" class="col-sm-3 control-label">Last Name</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control">
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="username" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="username" placeholder="Username" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -79,10 +86,10 @@ require_once '../layouts/nav.php';
                 </div> <!-- /.form-group -->
         
                 <div class="form-group">
-                    <div class="col-sm-5 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary-outline btn-block">Create User</button>
-                        <button type="submit" class="btn btn-warning-outline btn-block">Cancel</button>
+                    <div class="btn-group col-sm-5 col-sm-offset-3">
+                        <button type="button" class="btn btn-primary-outline ">Create User</button>
                     </div>
+                        <button type="button" class="btn btn-warning-outline ">Cancel</button>
                 </div>
             </form> <!-- /form -->
         </div> <!-- ./container -->

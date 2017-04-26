@@ -139,9 +139,9 @@ $userDetails=$userClass->userDetails($session_uid);
   </div>
 </div>
 
-<div class="block block-inverse text-center">
-  <h1 class="block-title">Rest and Recreation Portal</h1>
-  <h4 class="text-muted">coreDev Solutions, Inc.</h4>
+<div class="block block-inverse text-center p-b">
+  <h1 class="block-title p-a" >Rest and Recreation Portal</h1>
+  <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
   <button class="btn btn-primary m-t">Start creating an event.</button>
 </div>
 
