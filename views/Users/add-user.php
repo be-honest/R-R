@@ -92,7 +92,7 @@ if (isset($_POST['registerUser']))
 
                 <div class="form-group">
                     <label class="control-label col-sm-3">Status</label>
-                    <!-- <div class="col-sm-6">
+                    <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
@@ -105,25 +105,17 @@ if (isset($_POST['registerUser']))
                                 </label>
                             </div>
                         </div>
-<<<<<<< HEAD
-                    </div> -->
-                </div> <!-- /.form-group -->
-        
-                <div class="form-group">
-                    <div class="btn-group button col-sm-5 col-sm-offset-3" role="group">
-                        <button type="submit" class="btn btn-primary-outline" name="registerUser">Create Admin</button>
+
                     </div>
-                        <button type="button" class="btn btn-warning-outline">Cancel</button>
-=======
-                    </div>
-                </div>
-        
-                <div class="form-group">
+<div class="form-group">
                     <div class="col-sm-5 col-sm-offset-3">
                         <button type="button" class="btn btn-primary ">Create User</button>
                         <button type="button" class="btn btn-warning" style="float:right;" >Cancel</button>
                     </div>
->>>>>>> 4c55eafbe33fb3518fe2bdd1edfb510c3a60a7e9
+                    </div>
+                </div>
+        
+
                 </div>
             </form> 
         </div> 
