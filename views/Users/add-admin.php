@@ -149,6 +149,19 @@ if (isset($_POST['registerAdmin']))
                                         </div>
                                 </div>
                                 
+                                <div class="form-group">
+                                <label class="col-md-2 control-label">Date</label>
+                                    <div class="col-md-4">
+                                        <div class="input-append date" id="datetimepicker1">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-addon">
+                                               <span class="icon icon-calendar">
+                                               </span>
+                                           </span>
+                                       </div>
+                                    </div>
+                                </div>
+
 <!-- date time picker -->
  <!--            <div class="form-group">
                 <label class="col-md-2 control-label">Date</label>

@@ -1,6 +1,44 @@
  <?php 
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
+
+
+
+include('config.php');
+include('class/userClass.php');
+
+$userClass = new userClass();
+
+if (isset($_POST['registerUser'])) 
+{
+
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    $firstName=$_POST['firstName'];
+    $lastName=$_POST['lastName'];
+    $middleName=$_POST['middleName'];
+    $userStatus=$_POST['userStatus'];
+
+    $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
+    $password_check = preg_match('~^[A-Za-z0-9!@#$%^&*()_]{6,20}$~i', $password);
+
+    if($username_check && $password_check) 
+    {
+   $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
+    if($uid)
+    {
+        // print_r($uid);
+        // exit();
+        $url='home.php';
+        header("Location: $url");
+    }
+    else
+    {
+      $errorMsgReg="Username already exits.";
+    }
+    
+    }
+}
 ?>
 
 
@@ -17,6 +55,7 @@ require_once 'views/layouts/nav.php';
  <body>
     <br>
  	<div class="container">
+
             <form class="form-horizontal" role="form">
                <h2 style="font-size: 50px;">Registration Form</h2>
                <hr width="750">
@@ -27,7 +66,7 @@ require_once 'views/layouts/nav.php';
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lasttName" class="col-sm-4 control-label">Last Name</label>
+                    <label for="lastName" class="col-sm-4 control-label">Last Name</label>
                     <div class="col-sm-5">
                         <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
                     </div>
@@ -42,6 +81,7 @@ require_once 'views/layouts/nav.php';
 
                 <hr width="750">
                 <div class="form-group">
+
                     <label for="username" class="col-sm-4 control-label">Username</label>
                     <div class="col-sm-5">
                         <input type="text" id="username" placeholder="Username" class="form-control">
@@ -51,12 +91,15 @@ require_once 'views/layouts/nav.php';
                     <label for="password" class="col-sm-4 control-label">Password</label>
                     <div class="col-sm-5">
                         <input type="password" id="password" placeholder="Password" class="form-control">
+
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-4">Status</label>
                     <div class="col-sm-5">
+
+
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
@@ -77,6 +120,7 @@ require_once 'views/layouts/nav.php';
                         <button type="button" class="btn btn-primary ">Create User</button>
                         <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
                     </div>
+
                 </div>
             </form> 
         </div> 
