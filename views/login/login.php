@@ -107,7 +107,7 @@ $password=$_POST['password'];
       <div class="m-b-lg">
 
         <!-- <a href="../index.php"><button name="loginSubmit" value="Login" class="btn btn-primary">Log In</button></a> -->
-        <input type="submit" class="btn btn-primary" name="loginSubmit" value="Login">
+        <input type="submit" class="btn btn-primary" id="login" name="loginSubmit" value="Login">
      <!--    <button class="btn btn-default">Create User</button>  -->
       </div>
 
@@ -115,8 +115,7 @@ $password=$_POST['password'];
         <a href="#" class="text-muted">Forgot password?</a>
       </footer> -->
     </form>
-
-s
+ 
 
   </div>
 </div>

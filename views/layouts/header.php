@@ -11,8 +11,10 @@
 	<title>Rest and Recreation Portal</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link href="assets/css/toolkit.css" rel="stylesheet">
-  	<link href="assets/css/application.css" rel="stylesheet">
+  <link href="assets/css/application.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
 
 	<style>
 		body{
