@@ -16,7 +16,7 @@ $userDetails=$userClass->userDetails($session_uid);
 
     <!-- Include the CSS -->
     <link href="dist/toolkit.min.css" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
     <link href="assets/css/toolkit.css" rel="stylesheet">
     
     <link href="assets/css/application.css" rel="stylesheet">

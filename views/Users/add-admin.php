@@ -45,84 +45,77 @@ if (isset($_POST['registerAdmin']))
  <head>
  	<meta charset="UTF-8">
  	<title>Add Admin</title>
-   <!--   <style>
+
+     <style>
           a.button{
             text-decoration: non;
           }
-      </style> -->
+      </style>
  	<link rel="stylesheet" href="assets/css/admin.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+      
      
  </head>
  <body>
     <br>
  	<div class="container">
             <form method="post" name="AddAdmin" class="form-horizontal" role="form">
-               <h2>Registration</h2>
-               <hr>
+               <h2 style="font-size: 50px;">Registration Form</h2>
+               <hr width="750">
                 <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
-                    <div class="col-sm-9">
+                    <label for="firstName" class="col-sm-4 control-label">First Name</label>
+                    <div class="col-sm-5">
                         <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus>
                         <!-- <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span> -->
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
-                    <div class="col-sm-9">
+                    <label for="lastName" class="col-sm-4 control-label">Last Name</label>
+                    <div class="col-sm-5">
                         <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>
                     </div>
                 </div>
                  <div class="form-group">
-                    <label for="middleName" class="col-sm-3 control-label">Middle Name</label>
-                    <div class="col-sm-9">
+                    <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
+                    <div class="col-sm-5">
                         <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" autofocus>
                     </div>
                 </div>
 
-                <hr>
+                <hr width="750">
                 <div class="form-group">
-                    <label for="username" class="col-sm-3 control-label">Username</label>
-                    <div class="col-sm-9">
+                    <label for="username" class="col-sm-4 control-label">Username</label>
+                    <div class="col-sm-5">
                         <input type="text" id="username" name="username" placeholder="Username" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
+                    <label for="password" class="col-sm-4 control-label">Password</label>
+                    <div class="col-sm-5">
                         <input type="password" id="password" name="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
-              <!--   <div class="form-group">
-                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
-                    <div class="col-sm-9">
-                        <input type="date" id="birthDate" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="country" class="col-sm-3 control-label">Country</label>
-                    <div class="col-sm-9">
-                        <select id="country" class="form-control">
-                            <option>Afghanistan</option>
-                            <option>Bahamas</option>
-                            <option>Cambodia</option>
-                            <option>Denmark</option>
-                            <option>Ecuador</option>
-                            <option>Fiji</option>
-                            <option>Gabon</option>
-                            <option>Haiti</option>
-                        </select>
-                    </div>
-                </div> /.form-group --> 
 
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Status</label>
-                 
+                    <label class="control-label col-sm-4">Status</label>
 
-                   
-                   
-                </div> <!-- /.form-group -->
-             
+                    <div class="col-sm-5">
+                        <div class="row">
+                           
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="active" name="optradio" value="1" >Active
+                                    </label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="inactive" name="optradio" value="0">Inactive
+                                    </label>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div> 
              <!--    <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
                         <div class="checkbox">
@@ -132,14 +125,59 @@ if (isset($_POST['registerAdmin']))
                         </div>
                     </div>
                 </div>  /.form-group --> 
-                <div class="form-group">
-                    <div class="btn-group button col-sm-5 col-sm-offset-3" role="group">
-                        <button type="submit" class="btn btn-primary-outline" name="registerAdmin">Create Admin</button>
-                    </div>
-                        <button type="button" class="btn btn-warning-outline">Cancel</button>
+
+                   <div class="form-group">
+                       <div class="col-sm-4 col-sm-offset-4">
+                           <button type="button" class="btn btn-primary ">Create Admin</button>
+                           <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
+                       </div>
+                   </div>
                 </div>
-            </form> <!-- /form -->
-        </div> <!-- ./container -->
+            </form> 
+        </div> 
+
+        <!-- event form -->
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md coloffset-1">
+                    <form action="method="post" name="createEvent" class="form-horizontal" role="form"">
+                        <fieldset>
+                            <legend style="font-size: 50px;" >Event Form</legend>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Name</label>
+                                        <div class="col-md-4">
+                                            <input type="input" id="event_name" placeholder="Event Name" class="form-control" />
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="textarea">Description</label>
+                                        <div class="col-md-4">
+                                            <textarea class="form-control" id="textarea" name="textarea"></textarea>
+                                        </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Date</label>
+                                        <div class="col-md-4">
+                                            <div class="input-group date" id="datetimepicker1">
+                                                <input type="text" class="form-control">
+                                                <span class="input-group-addon">
+                                                     <span class="icon icon-calendar">
+                                                     </span>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </fieldset>
+                        <!-- <h1 style="font-size: 50px;" align="justify">Event Form</h1> -->
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        
 
  </body>
  </html>

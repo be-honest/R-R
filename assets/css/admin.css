@@ -3,7 +3,7 @@ body {
 }
 
 *[role="form"] {
-    max-width: 530px;
+    max-width: 1000px;
     padding: 15px;
     margin: 0 auto;
     background-color: #fff;
@@ -11,9 +11,10 @@ body {
 }
 
 *[role="form"] h2 {
-    margin-left: 5em;
+    margin-left: 6em;
     margin-bottom: 1em;
 }
+
 
 a.button
 {
@@ -56,4 +57,23 @@ a.button
   color: #ffffff;
   background-color: #0097A7;
   border-color: #00838F;
+}
+
+.btn-primary,
+.btn-info{
+  font-size: 18px;
+}
+
+a.hover{
+  color:#3097d1;
+}
+
+a.hover , a.focus, a.button
+{
+  color:#3097d1;
+  text-decoration: none;
+}
+
+.input-group.date .input-group-addon {
+    cursor: pointer;
 }

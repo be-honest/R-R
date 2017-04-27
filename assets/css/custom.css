@@ -1,7 +1,7 @@
 body
 {
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .btn
@@ -9,7 +9,7 @@ body
 	font-size: 16px;
 }
 
-.btn-primary{
+.btn-primary, .login{
 	background-color: #8D6E63;
 	border-color: #795548;
 }
@@ -51,12 +51,26 @@ a{
   border-color: #6D4C41;
 }
 
-.form-control:focus{
+.form-control:focus,
+.login{
 	color: #000;
 	background-color: #fff;
 	box-shadow: none;
 	border-color: #795548;
 }
+
+.app-navbar .form-control {
+    border-color: #7da8c3;
+}
+
+.app-navvar, .form-control:focus,
+{
+	color: #000;
+	background-color: #fff;
+	box-shadow: none;
+	border-color: #00BCD4;
+}
+
 
 .form-control 
 {

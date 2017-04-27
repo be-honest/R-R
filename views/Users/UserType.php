@@ -11,25 +11,28 @@ require_once 'views/layouts/nav.php';
 
 <div class="container p-t-lg">
 	<div class="row">
-		<div class="col col-md-8 col-md-offset-2">
+		<div class="col col-md-10 col-md-offset-1">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h4>USERS</h4>
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills">
-						<li class="active">
-						    <a href="register-admin.php">
+						<!-- <li class="btn-outline"> -->
+						<a href="register-admin.php" class="button">
+						  <button type="submit" class=" btn btn-info">	
 						      <span class="icon icon-add-user"></span>
 						   			ADMIN
-						    </a>
-						  </li>
-						  <li class="active">
-							    <a href="register-user.php">
-						      <span class="icon icon-users"></span>
-						     	USER
-						    </a>
-						</li>
+						  </button>
+						   </a>
+						  <!-- </li> -->
+						
+						<a href="register-user.php">
+							  	<button type="submit" class=" btn btn-info">	
+						     		<span class="icon icon-users"></span>
+						     		USER
+								</button>
+						</a>
 					</ul>
 				</div>
 			</div>
@@ -40,7 +43,7 @@ require_once 'views/layouts/nav.php';
 
 <div class="container">
 	<div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-10 col-sm-offset-1">
             <div id="imaginary_container"> 
             	<div class="panel panel-info">
             		<div class="panel-body">
@@ -66,10 +69,7 @@ require_once 'views/layouts/nav.php';
 												<td><?php echo $user['first_name'];?></td>
 												</tr>
 										<?php  } ?>
-
-								
 							</tbody>
-							
 						</table>
 	                </div>
                 </div>
