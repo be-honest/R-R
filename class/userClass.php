@@ -1,8 +1,9 @@
 <?php
-class userClass
-{
+class userClass 
+{    
 	 /* User Login */
      public function userLogin($username,$password)
+     
      {
 
           $db = getDB();
@@ -24,28 +25,31 @@ class userClass
           }    
      }
 
-     /* User Registration */
-     public function userRegistration($username,$password,$name)
+     /* admin Registration */
+     public function adminRegistration($username,$password,$first_name,$last_name,$middle_name,$status_id)
      {
           try{
+
           $db = getDB();
-          $st = $db->prepare("SELECT uid FROM users WHERE username=:username OR email=:email");  
+          $st = $db->prepare("SELECT id FROM users WHERE username=:username");  
           $st->bindParam("username", $username,PDO::PARAM_STR);
-          $st->bindParam("email", $email,PDO::PARAM_STR);
           $st->execute();
           $count=$st->rowCount();
+          $user_type_id = 1;
           if($count<1)
           {
-          $stmt = $db->prepare("INSERT INTO users(username,password,email,name) VALUES (:username,:hash_password,:email,:name)");  
+          $stmt = $db->prepare("INSERT INTO users(user_type_id,username,password,first_name,last_name,middle_name,status_id) VALUES (?,?,?,?,?,?,?)");  
+          /*$stmt->bindParam("user_type_id", $user_type_id,PDO::PARAM_STR) ;
           $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
-          $hash_password= hash('sha256', $password);
-          $stmt->bindParam("hash_password", $hash_password,PDO::PARAM_STR) ;
-          $stmt->bindParam("email", $email,PDO::PARAM_STR) ;
-          $stmt->bindParam("name", $name,PDO::PARAM_STR) ;
-          $stmt->execute();
+          $stmt->bindParam("password", $password,PDO::PARAM_STR) ;
+          $stmt->bindParam("first_name", $first_name,PDO::PARAM_STR) ;
+          $stmt->bindParam("last_name", $last_name,PDO::PARAM_STR) ;
+          $stmt->bindParam("status_id", $status_id,PDO::PARAM_STR) ;*/
+
+          $stmt->execute(array($user_type_id,$username,$password,$first_name,$last_name,$middle_name,$status_id));
           $uid=$db->lastInsertId();
           $db = null;
-          $_SESSION['uid']=$uid;
+          // $_SESSION['uid']=$uid;
           return true;
 
           }
@@ -62,6 +66,29 @@ class userClass
           }
      }
      
+     public function getAllUsers()
+     {
+     try {
+          $db = getDB();
+          $st = $db->prepare("SELECT * FROM users");  
+          $st->execute();
+          $data=$st->fetchAll();
+
+
+
+          } catch (PDOException $e) {
+     
+          }
+          return $data;
+     }
+
+
+
+
+
+
+
+
      /* User Details */
      public function userDetails($user_id)
      {

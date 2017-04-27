@@ -7,21 +7,21 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html">
-				<img class="brand" src="../../assets/img/mountain1.png" alt="logo">
+			<a class="navbar-brand" href="index.php">
+				<img class="brand" src="assets/img/mountain1.png" alt="logo">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-collapse-main">
 
 			<ul class="nav navbar-nav hidden-xs">
 				<li class="active">
-					<a href="../../home.php">Home</a>
+					<a href="home.php">Home</a>
 				</li>
 				<li>
          		   <a href="#">Profile</a>
         		</li>
 				<li>
-					<a href="../Users/UserType.php">Users</a>
+					<a href="users.php">Users</a>
 				</li>
 				<li>
 					<a href="#">Events</a>
@@ -39,7 +39,7 @@
 				</li>
 				<li>
 					<button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-						<img class="img-circle" src="../../assets/img/avatar-dhg.png">
+						<img class="img-circle" src="assets/img/avatar-dhg.png">
 					</button>
 				</li>
 			</ul>
@@ -56,12 +56,12 @@
 				<li><a href="#">Users</a></li>
 				<li><a href="docs/index.html">Events</a></li>
 				<li><a data-toggle="modal" href="#msgModal">Polls</a></li>
-				<li><a href="../../logout.php">Logout</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav hidden">
 				<li><a href="#" data-action="growl">Profile</a></li>
-				<li><a href="../../logout.php">Logout</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
 	</div>	
