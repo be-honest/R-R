@@ -18,37 +18,45 @@ require_once 'views/layouts/nav.php';
     <br>
  	<div class="container">
             <form class="form-horizontal" role="form">
-               <h2>Registration</h2>
-               <hr>
+               <h2 style="font-size: 50px;">Registration Form</h2>
+               <hr width="750">
                 <div class="form-group">    
-                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
-                    <div class="col-sm-9">
+                    <label for="firstName" class="col-sm-4 control-label">First Name</label>
+                    <div class="col-sm-5">
                         <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>           
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lasttName" class="col-sm-3 control-label">Last Name</label>
-                    <div class="col-sm-9">
+                    <label for="lasttName" class="col-sm-4 control-label">Last Name</label>
+                    <div class="col-sm-5">
                         <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
                     </div>
                 </div>
-                <hr>
+                 <div class="form-group">
+                    <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" autofocus>
+                    </div>
+                </div>
+
+
+                <hr width="750">
                 <div class="form-group">
-                    <label for="username" class="col-sm-3 control-label">Username</label>
-                    <div class="col-sm-9">
+                    <label for="username" class="col-sm-4 control-label">Username</label>
+                    <div class="col-sm-5">
                         <input type="text" id="username" placeholder="Username" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password</label>
-                    <div class="col-sm-9">
+                    <label for="password" class="col-sm-4 control-label">Password</label>
+                    <div class="col-sm-5">
                         <input type="password" id="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Status</label>
-                    <div class="col-sm-6">
+                    <label class="control-label col-sm-4">Status</label>
+                    <div class="col-sm-5">
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
@@ -65,9 +73,9 @@ require_once 'views/layouts/nav.php';
                 </div>
         
                 <div class="form-group">
-                    <div class="col-sm-5 col-sm-offset-3">
+                    <div class="col-sm-4 col-sm-offset-4">
                         <button type="button" class="btn btn-primary ">Create User</button>
-                        <button type="button" class="btn btn-warning" style="float:right;" >Cancel</button>
+                        <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
                     </div>
                 </div>
             </form> 

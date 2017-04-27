@@ -15,7 +15,9 @@
 	<link href="assets/css/toolkit.css" rel="stylesheet">
   <link href="assets/css/application.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/admin.css">
-
+  <!-- date time picker -->
+<!--   <link rel="stylesheet" type="text/css" media="screen"
+   href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"> -->
 	<style>
 		body{
 		width: 1px;

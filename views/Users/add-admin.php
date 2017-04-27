@@ -116,15 +116,6 @@ if (isset($_POST['registerAdmin']))
                         </div>
                     </div>
                 </div> 
-             <!--    <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">I accept <a href="#">terms</a>
-                            </label>
-                        </div>
-                    </div>
-                </div>  /.form-group --> 
 
                    <div class="form-group">
                        <div class="col-sm-4 col-sm-offset-4">
@@ -157,19 +148,41 @@ if (isset($_POST['registerAdmin']))
                                             <textarea class="form-control" id="textarea" name="textarea"></textarea>
                                         </div>
                                 </div>
+                                
+<!-- date time picker -->
+ <!--            <div class="form-group">
+                <label class="col-md-2 control-label">Date</label>
+                <div class="col-md-4">
+                   <div id="datetimepicker" class="input-append date">
+                     <input type="text" class="form-control"></input>
+                     <span class="add-on">
+                        <span class="icon icon-calendar"></span>
+                     </span>
+                   </div>
+                </div>
+            </div> -->
+                <!-- DTP script -->
+      <!--              <script type="text/javascript"
+                    src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+                   </script> 
+                   <script type="text/javascript"
+                    src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+                   </script>
+                   <script type="text/javascript"
+                    src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+                   </script>
+                   <script type="text/javascript"
+                    src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+                   </script>
+                   <script type="text/javascript">
+                     $('#datetimepicker').datetimepicker({
+                       format: 'dd/MM/yyyy hh:mm:ss',
+                       language: 'en',
+                       pickTime: false
+                     });
+                   </script> -->
+<!-- end of date picker -->
 
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">Date</label>
-                                        <div class="col-md-4">
-                                            <div class="input-group date" id="datetimepicker1">
-                                                <input type="text" class="form-control">
-                                                <span class="input-group-addon">
-                                                     <span class="icon icon-calendar">
-                                                     </span>
-                                                </span>
-                                        </div>
-                                    </div>
-                                </div>
                         </fieldset>
                         <!-- <h1 style="font-size: 50px;" align="justify">Event Form</h1> -->
                     </form>
@@ -178,7 +191,6 @@ if (isset($_POST['registerAdmin']))
             </div>
         </div>
         
-
  </body>
  </html>
 
