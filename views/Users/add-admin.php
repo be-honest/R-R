@@ -11,12 +11,8 @@ require_once '../layouts/nav.php';
  <head>
  	<meta charset="UTF-8">
  	<title>Add Admin</title>
-   <!--   <style>
-          a.button{
-            text-decoration: non;
-          }
-      </style> -->
- 	<link rel="stylesheet" href="admin.css">
+    
+ 	  <link rel="stylesheet" href="admin.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
      
  </head>
@@ -52,45 +48,26 @@ require_once '../layouts/nav.php';
                         <input type="password" id="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
-              <!--   <div class="form-group">
-                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
-                    <div class="col-sm-9">
-                        <input type="date" id="birthDate" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="country" class="col-sm-3 control-label">Country</label>
-                    <div class="col-sm-9">
-                        <select id="country" class="form-control">
-                            <option>Afghanistan</option>
-                            <option>Bahamas</option>
-                            <option>Cambodia</option>
-                            <option>Denmark</option>
-                            <option>Ecuador</option>
-                            <option>Fiji</option>
-                            <option>Gabon</option>
-                            <option>Haiti</option>
-                        </select>
-                    </div>
-                </div> /.form-group --> 
 
                 <div class="form-group">
                     <label class="control-label col-sm-3">Status</label>
                     <div class="col-sm-6">
-                        <div class="row radio-group">
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" id="active" value="active">Active
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" id="inactive" value="inactive">Inactive
-                                </label>
-                            </div>
+                        <div class="row">
+                           
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="active" name="optradio" value="1" >Active
+                                    </label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" id="inactive" name="optradio" value="0">Inactive
+                                    </label>
+                                </div>
+                            
                         </div>
                     </div>
-                </div> <!-- /.form-group -->
+                </div> 
              
              <!--    <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
@@ -101,14 +78,16 @@ require_once '../layouts/nav.php';
                         </div>
                     </div>
                 </div>  /.form-group --> 
+
                 <div class="form-group">
-                    <div class="btn-group button col-sm-5 col-sm-offset-3" role="group">
-                        <button type="button" class="btn btn-primary-outline">Create Admin</button>
+                    <div class="col-sm-5 col-sm-offset-3" role="group">
+                        <button type="submit" class="btn btn-primary">Create Admin</button>
+                        <button type="submit" class="btn btn-warning" style="float:right;">Cancel</button>
                     </div>
-                        <button type="button" class="btn btn-warning-outline">Cancel</button>
+                   
                 </div>
-            </form> <!-- /form -->
-        </div> <!-- ./container -->
+            </form> 
+        </div> 
 
  </body>
  </html>
