@@ -56,6 +56,7 @@ if (isset($_POST['registerUser']))
     <br>
  	<div class="container">
 
+
             <form class="form-horizontal" role="form">
                <h2 style="font-size: 50px;">Registration Form</h2>
                <hr width="750">
@@ -69,6 +70,7 @@ if (isset($_POST['registerUser']))
                     <label for="lastName" class="col-sm-4 control-label">Last Name</label>
                     <div class="col-sm-5">
                         <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+
                     </div>
                 </div>
                  <div class="form-group">
@@ -82,6 +84,7 @@ if (isset($_POST['registerUser']))
                 <hr width="750">
                 <div class="form-group">
 
+
                     <label for="username" class="col-sm-4 control-label">Username</label>
                     <div class="col-sm-5">
                         <input type="text" id="username" placeholder="Username" class="form-control">
@@ -91,6 +94,7 @@ if (isset($_POST['registerUser']))
                     <label for="password" class="col-sm-4 control-label">Password</label>
                     <div class="col-sm-5">
                         <input type="password" id="password" placeholder="Password" class="form-control">
+
 
                     </div>
                 </div>
@@ -112,11 +116,14 @@ if (isset($_POST['registerUser']))
                                 </label>
                             </div>
                         </div>
+
                     </div>
+
                 </div>
         
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
+
                         <button type="button" class="btn btn-primary ">Create User</button>
                         <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
                     </div>
