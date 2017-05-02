@@ -17,17 +17,23 @@
 				<li class="active">
 					<a href="home.php">Home</a>
 				</li>
-				<li>
-         		   <a href="#">Profile</a>
+				<li class="dropdown">
+         		   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
+         		   		<span class="caret"></span></a>
+         		   		<ul class="dropdown-menu">
+         		   			<li><a href="#">View Profile</a></li>
+         		   			<li><a href="#">Edit Profile</a></li>
+         		   		</ul>
         		</li>
 				<li>
 					<a href="users.php">Users</a>
 				</li>
 				<li>
-					<a href="#">Events</a>
+					<a href="Events.php">Events</a>
 				</li>
 				<li>
-					<a data-toggle="modal" href="#msgModal">Polls</a>
+					<a href="eventPoll.php">Poll</a>
+					<!-- <a data-toggle="modal" href="#msgModal">Polls</a> -->
 				</li>
 			</ul>
 
