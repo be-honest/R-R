@@ -18,7 +18,6 @@ $userDetails=$userClass->userDetails($session_uid);
     <link href="dist/toolkit.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
     <link href="assets/css/toolkit.css" rel="stylesheet">
-    
     <link href="assets/css/application.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -73,7 +72,9 @@ $userDetails=$userClass->userDetails($session_uid);
 <div class="block block-inverse text-center p-b">
   <h1 class="block-title p-a" >Rest and Recreation Portal</h1>
   <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
-  <button class="btn btn-primary m-t">Start creating an event.</button>
+    <a href="Events.php">
+      <button class="btn btn-info m-t">Start creating an event.</button>
+    </a>
 </div>
 
 

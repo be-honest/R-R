@@ -1,6 +1,6 @@
 <?php 
-  require_once '../layouts/header.php';
-  require_once '../layouts/nav.php';
+  require_once 'views/layouts/header.php';
+  require_once 'views/layouts/nav.php';
  ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Polls | </title>
-	<link rel="stylesheet" href="polls.css">
+	<link rel="stylesheet" href="assets/css/polls.css">
 </head>
 <body>
 
@@ -61,5 +61,5 @@
 </html>
 
 <?php
-require_once '../layouts/footer.php'; 
+require_once 'views/layouts/footer.php'; 
 ?>

@@ -12,12 +12,15 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="assets/css/toolkit.css" rel="stylesheet">
   <link href="assets/css/application.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/admin.css">
+  <!-- tags input -->
+  <link rel="stylesheet" href="assets/src/bootstrap-tagsinput.css">
   <!-- date time picker -->
-<!--   <link rel="stylesheet" type="text/css" media="screen"
-   href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"> -->
+  <link rel="stylesheet" type="text/css" media="screen"
+   href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 	<style>
 		body{
 		width: 1px;
