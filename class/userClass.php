@@ -74,7 +74,7 @@ class userClass
           $st = $db->prepare("SELECT id FROM users WHERE username=:username");  
           $st->bindParam("username", $username,PDO::PARAM_STR);
           $st->execute();
-          $count=$st->rowCount();
+          $count=$st->rowCount();  
           $user_type_id = 2;
           if($count<1)
           {

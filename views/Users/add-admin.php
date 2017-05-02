@@ -4,7 +4,7 @@
 
  include('config.php');
  include('class/userClass.php');
-
+ $errorMsgReg="";
  $userClass = new userClass();
  if (isset($_POST['registerAdmin'])) 
  {
@@ -29,15 +29,20 @@
        // print_r($uid);
        //  exit();
       // redirect('home.php');
-      $url='index.php';
+      $url='home.php';
       header("Location: $url");
     }
     else
     {
       $errorMsgReg="Username already exits.";
     }
-    
   }
+  // elseif($username_check=true && $password_check=false)
+  //    $errorMsgReg="1 0";
+  // elseif($username_check=false && $password_check=true)
+  //   $errorMsgReg="0 1";
+  // else
+  //   $errorMsgReg="0 0";
 }
 
 
@@ -69,20 +74,20 @@
      <div class="form-group">
       <label for="firstName" class="col-sm-4 control-label">First Name</label>
       <div class="col-sm-5">
-        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus>
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus value="Kryce Earl">
         <!-- <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span> -->
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-4 control-label">Last Name</label>
       <div class="col-sm-5">
-        <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus value="Martus">
       </div>
     </div>
     <div class="form-group">
       <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
       <div class="col-sm-5">
-        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" autofocus>
+        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" autofocus value="Arcena">
       </div>
     </div>
 
@@ -90,13 +95,13 @@
     <div class="form-group">
       <label for="username" class="col-sm-4 control-label">Username</label>
       <div class="col-sm-5">
-        <input type="text" id="username" name="username" placeholder="Username" class="form-control">
-      </div>
+        <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="admin">
+      </div> 
     </div>
     <div class="form-group">
       <label for="password" class="col-sm-4 control-label">Password</label>
       <div class="col-sm-5">
-        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+        <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="admin">
       </div>
     </div>
 
@@ -120,7 +125,7 @@
 
           <div class="col-sm-4">
             <label class="radio-inline">
-              <input type="radio" id="active" name="optradio" value="1" >Active
+              <input type="radio" id="active" name="optradio" value="1" checked="true">Active
             </label>
           </div>
           <div class="col-sm-4">
@@ -136,7 +141,22 @@
      <div class="col-sm-4 col-sm-offset-4">
        <button type="submit" class="btn btn-primary" name="registerAdmin" >Create Admin</button>
        <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
+
+       <?php 
+      if($errorMsgReg)
+      { 
+        ?>
+      <div class="alert alert-danger alert-dismissable" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+      <strong>Error!</strong> <?php echo $errorMsgReg; ?>
+      </div>
+      <?php 
+      }
+       ?> 
      </div>
+  
    </div>
     </div> 
 
