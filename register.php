@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("config.php");
 include('class/userClass.php');
 $userClass = new userClass();

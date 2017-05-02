@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start(); 
 include('config.php');
 
 include('session.php'); //below is specified session for user page. please refactor session soon to be accessable to every page 

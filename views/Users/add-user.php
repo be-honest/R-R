@@ -2,8 +2,6 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 
-
-
 include('config.php');
 include('class/userClass.php');
 
@@ -24,11 +22,11 @@ if (isset($_POST['registerUser']))
 
     if($username_check && $password_check) 
     {
-   $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
+    $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
     if($uid)
     {
-        // print_r($uid);
-        // exit();
+        print_r($uid);
+        
         $url='home.php';
         header("Location: $url");
     }

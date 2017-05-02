@@ -1,6 +1,5 @@
 <?php 
 
-
 $userClass = new userClass();
 $users = $userClass->getAllUsers();
 // print_r($users);

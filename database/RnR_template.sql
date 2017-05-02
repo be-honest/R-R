@@ -68,7 +68,7 @@ CREATE TABLE `event_votes` (
   PRIMARY KEY (`event_id`,`user_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `event_votes_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`),
-  CONSTRAINT `event_votes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+  CONSTRAINT `event_votes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_votes` */
@@ -87,7 +87,7 @@ CREATE TABLE `event_voting_period` (
   PRIMARY KEY (`evp_id`),
   KEY `user_id` (`user_id`),
   KEY `event_status_id` (`event_status_id`),
-  CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -124,7 +124,8 @@ CREATE TABLE `user_status` (
 /*Data for the table `user_status` */
 
 insert  into `user_status`(`status_id`,`description`) values 
-(1,'active');
+(1,'active'),
+(2,'inactive');
 
 /*Table structure for table `user_type` */
 
@@ -139,30 +140,34 @@ CREATE TABLE `user_type` (
 /*Data for the table `user_type` */
 
 insert  into `user_type`(`user_type_id`,`description`) values 
-(1,NULL);
+(1,'admin'),
+(2,'user');
 
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `user_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'User ID',
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'User ID',
   `user_type_id` int(10) DEFAULT NULL,
   `status_id` int(10) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
+  `last_name` varchar(255) DEFAULT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `user_type_id` (`user_type_id`),
   KEY `status_id` (`status_id`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`),
   CONSTRAINT `users_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `user_status` (`status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`user_id`,`user_type_id`,`status_id`,`name`,`username`,`password`) values 
-(1,1,1,'Kryce Earl Martus','kemezike','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92');
+insert  into `users`(`id`,`user_type_id`,`status_id`,`first_name`,`username`,`password`,`last_name`,`middle_name`) values 
+(1,1,1,'Kryce Earl','admin1','admin1','Martus','Arcena'),
+(2,1,1,'Honest','admin2','admin2','Aguanta',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
