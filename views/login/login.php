@@ -3,7 +3,7 @@
 include('class/userClass.php');
 
 $userClass = new userClass();
-
+$url='home.php';
 include('checksession.php');
 
 $errorMsgReg='';

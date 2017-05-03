@@ -37,12 +37,12 @@
       $errorMsgReg="Username already exits.";
     }
   }
-  // elseif($username_check=true && $password_check=false)
-  //    $errorMsgReg="1 0";
-  // elseif($username_check=false && $password_check=true)
-  //   $errorMsgReg="0 1";
-  // else
-  //   $errorMsgReg="0 0";
+  elseif($username_check=true && $password_check=false)
+     $errorMsgReg="1 0";
+  elseif($username_check=false && $password_check=true)
+    $errorMsgReg="0 1";
+  else
+    $errorMsgReg="0 0";
 }
 
 
@@ -141,7 +141,8 @@
      <div class="col-sm-4 col-sm-offset-4">
        <button type="submit" class="btn btn-primary" name="registerAdmin" >Create Admin</button>
        <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
-
+<br>
+  <br>
        <?php 
       if($errorMsgReg)
       { 
