@@ -30,7 +30,7 @@ require_once 'views/layouts/nav.php';
 						<a href="register-user.php">
 							  	<button type="submit" class=" btn btn-info">	
 						     		<span class="icon icon-users"></span>
-						     		USER
+						     		MEMBER
 								</button>
 						</a>
 					</ul>

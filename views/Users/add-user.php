@@ -119,7 +119,7 @@ if (isset($_POST['registerUser']))
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
 
-                        <button type="submit" class="btn btn-primary" name="registerUser">Create User</button>
+                        <button type="submit" class="btn btn-primary" name="registerUser">Create Member</button>
                         <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
                          <?php 
       if($errorMsgReg)
