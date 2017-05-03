@@ -24,6 +24,7 @@
           $("#datetimepicker1").datetimepicker();
       });
     </script>
+  
     <!-- date time picker script -->
     <!-- <script type="text/javascript"
     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">

@@ -18,16 +18,22 @@
 					<a href="home.php">Home</a>
 				</li>
 				<li class="dropdown">
-         		   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
-         		   		<span class="caret"></span></a>
-         		   		<ul class="dropdown-menu">
-         		   			<li><a href="#">View Profile</a></li>
-         		   			<li><a href="#">Edit Profile</a></li>
-         		   		</ul>
+         		   <a class="dropbtn" href="#">Profile</a>
+         		   		<!-- <span class="caret"></span> -->
+         		   		<div class="dropdown-content">
+         		   			<a href="Profile.php">View Profile</a>
+         		   			<a href="#">Edit Profile</a>
+         		   		</div>
+         		   			
+         		   		
         		</li>
-				<li>
-					<a href="users.php">Users</a>
-				</li>
+				<li class="dropdown">
+         		   <a class="dropbtn" href="users.php">Users</a>
+         		   		<div class="dropdown-content">
+         		   			<a href="register-admin.php">Administrator</a>
+         		   			<a href="register-user.php">Member</a>
+         		   		</div>
+        		</li>
 				<li>
 					<a href="Events.php">Events</a>
 				</li>

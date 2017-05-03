@@ -1,3 +1,6 @@
+html{
+	height: 100%;
+}
 body
 {
 	font-family: 'Josefin Sans', sans-serif;
@@ -126,4 +129,57 @@ a:hover
     text-align: center;
     background-size: cover;
     border: 0
+}
+
+/*custom for data tables*/
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+	border: 1px solid #00838F; 
+	background-color: #0097A7;
+	background: linear-gradient(to bottom, #111 0%, #3097d1 100%);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active{
+	border: 1px solid #00838F; 
+	background-color: #0097A7;
+}
+/*dropdown*/
+.dropbtn {
+    background-color: #00BCD4;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #4DD0E1;
 }

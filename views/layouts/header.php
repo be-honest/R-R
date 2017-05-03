@@ -19,8 +19,8 @@
   <!-- tags input -->
   <link rel="stylesheet" href="assets/src/bootstrap-tagsinput.css">
   <!-- date time picker -->
-  <link rel="stylesheet" type="text/css" media="screen"
-   href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  <!-- <link rel="stylesheet" type="text/css" media="screen"
+   href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"> -->
 	<style>
 		body{
 		width: 1px;
