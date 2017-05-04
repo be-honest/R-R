@@ -3,7 +3,6 @@ class userClass
 {    
 	 /* User Login */
      public function userLogin($username,$password)
-     
      {
 
           $db = getDB();
