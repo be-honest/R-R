@@ -16,29 +16,35 @@ if (isset($_POST['registerUser']))
     $middleName=$_POST['middleName'];
     $userStatus=$_POST['optradio'];
     $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
-    $password_check = preg_match('~^[A-Za-z0-9!@#$%^&*()_]{6,20}$~i', $password);
+    $password_check = preg_match('~^[A-Za-z0-9_]{6,20}$~i', $password);
 
     if($username_check && $password_check) 
     {
-    $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
-    if($uid)
-    {
-        // print_r($uid);
-        
-        $url='home.php';
-        header("Location: $url");
-    }
-    else
-    {
-      $errorMsgReg="Username already exits.";
-    }
-    }
+        $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
+    // print_r($uid);
+    //     exit();
+        if($uid)
+        {
+       // print_r($uid);
+       //  exit();
+      // redirect('home.php');
+      // $url='home.php';
+      // header("Location: 'home.php'");
+          $_SESSION['successMsgReg']="Account has been successfully created!";
+      }
+      else
+      {
+          $errorMsgReg="Username already exits.";
+      }
+  }
+  elseif($username_check && !$password_check)
+    $errorMsgReg="Password must be atleast 6 characters and must only contain alphanumeric characters.";
+elseif(!$username_check && $password_check)
+  $errorMsgReg="Username must be atleast 3 characters and must only contain alphanumeric characters.";
+elseif (!$username_check && !$password_check)
+  $errorMsgReg="Username must be atleast 3 characters and Password must be atleast 6 characters. Both must only contain alphanumeric characters.";
 }
 ?>
-
-
-
-
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -121,6 +127,7 @@ if (isset($_POST['registerUser']))
 
                         <button type="submit" class="btn btn-primary" name="registerUser">Create Member</button>
                         <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
+                        <br><br>
                          <?php 
       if($errorMsgReg)
       { 
@@ -134,6 +141,10 @@ if (isset($_POST['registerUser']))
       <?php 
       }
        ?> 
+       <?php if (isset($_SESSION['successMsgReg']))
+  {?>
+  <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
+  <?php } ?>
                     </div>
 
                 </div>
