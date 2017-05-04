@@ -6,49 +6,79 @@
     <script src="https://cdn.datatables.net/1.10.14/js/dataTables.bootstrap.min.js"></script>
     <script src="assets/src/bootstrap-tagsinput-angular.js"></script>
     <script src="assets/src/bootstrap-tagsinput.js"></script>
+    <!-- drp req. prerequisites -->
+     <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <!-- date range picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+   <!-- EVENT VOTING PERIOD -->
+    <script type="text/javascript">
+    $(function() {
 
-    <script>
-      // execute/clear BS loaders for docs
-      $(function(){
-        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
-          while(BS.loader.length){(BS.loader.pop())()}
-        }
-      })
-     $(document).ready(function() {
-         $('#user-data').DataTable();
-     } );                   
+      $('input[name="datefilter"]').daterangepicker({
+           autoUpdateInput: true,
+          locale: {
+              cancelLabel: 'Clear'
+          }
+      });
+
+      $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      });
+
+      $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+      });
+
+    });
     </script>
+    <!-- date range picker -->
+    <script type="text/javascript">
+    $(function() {
+        $('input[name="eventdate"]').daterangepicker({
+
+            singleDatePicker: true,
+            showDropdowns: true,
+
+        }, 
+        function(start, end, label) {
+            var years = moment().diff(start, 'years');
+            // alert("You are " + years + " years old.");
+        });
+    });
+    </script>
+    <!-- END OF EVP -->
+    
+     <script>
+       // execute/clear BS loaders for docs
+       $(function(){
+         if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+           while(BS.loader.length){(BS.loader.pop())()}
+         }
+       })
+      $(document).ready(function() {
+          $('#user-data').DataTable();
+      } );                   
+     </script>
+
+     <script>
+       $(document).ready(function() {
+           $('#votingPeriod').DataTable();
+       } );
+     </script>
+  
+
     <script type="text/javascript">
       
       $(function () {
           $("#datetimepicker1").datetimepicker();
       });
     </script>
-  
-    <!-- date time picker script -->
-    <!-- <script type="text/javascript"
-    src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-    </script> 
-    <script type="text/javascript"
-       src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-    </script>
-    <script type="text/javascript"
-      src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript"
-      src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-    </script>
-    <script type="text/javascript">
-      $('#datetimepicker').datetimepicker({
-        format: 'MM/dd/yyyy',
-        language: 'en',
-        pickTime: false
-      });
-    </script> -->
   <!-- activity list javascript -->
-  <script src="assets/js/todolist.js"></script>
-  <script>
-    $("tag").tagsinput('items');
-  </script>
+    <script src="assets/js/todolist.js"></script>
+    <script>
+      $("tag").tagsinput('items');
+    </script>
+  
   </body>
 </html>

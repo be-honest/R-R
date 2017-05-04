@@ -34,8 +34,11 @@
          		   			<a href="register-user.php">Member</a>
          		   		</div>
         		</li>
-				<li>
-					<a href="Events.php">Events</a>
+				<li class="dropdown">
+					<a class="dropbtn" href="Events.php">Events</a>
+						<div class="dropdown-content">
+							<a href="eventVotingPeriod.php">Event Voting Period</a>
+						</div>
 				</li>
 				<li>
 					<a href="eventPoll.php">Poll</a>
@@ -61,12 +64,12 @@
 					<input type="text" class="form-control" data-action="grow" placeholder="Search">
 				</div>
 			</form>
-
+<!-- navbar hidden -->
 			<ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="profile/index.html">Profile</a></li>
-				<li><a href="#">Users</a></li>
-				<li><a href="docs/index.html">Events</a></li>
+				<li><a href="home.php">Home</a></li>
+				<li><a href="profile.php">Profile</a></li>
+				<li><a href="users.php">Users</a></li>
+				<li><a href="Events.php">Events</a></li>
 				<li><a data-toggle="modal" href="#msgModal">Polls</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>

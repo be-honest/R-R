@@ -34,7 +34,7 @@
     }
     else
     {
-      $errorMsgReg="Username already exits.";
+      $errorMsgReg="Username already exists.";
     }
   }
   elseif($username_check && !$password_check)
@@ -59,13 +59,38 @@ elseif (!$username_check && !$password_check)
     a.button{
       text-decoration: none;
     }
-    #message{
+   /* #message{
       display: flex;
 
       justify-content: flex-end;
+    }*/
+   .form-group .col h2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    h2{
+      align-self: center;
+    }
+
+    button{
+      align-content: space-between;
+      width: 50%;
+    }
+    hr{
+      width: 80%;
+    }
+    .form-control:focus{
+      color: #000;
+      background-color: #fff;
+      box-shadow: none;
+      border-color: #00bcd4;
+    }
+  
   </style>
   <link rel="stylesheet" href="assets/css/admin.css">
+
  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
  <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-alert.js"></script>
@@ -79,7 +104,6 @@ elseif (!$username_check && !$password_check)
        })
      });
  </script> -->
-
 
 </head>
 <body>
@@ -95,15 +119,18 @@ elseif (!$username_check && !$password_check)
       </div> -->
   <!-- end of growl  -->
   <div class="container">
-        <!-- alert message -->
+
         
     <form method="post" name="AddAdmin" class="form-horizontal" role="form">
-     <h2 style="font-size: 40px;">Registration Form</h2>
+     <h2 style="font-size: 44px;"><span class="icon icon-pencil"></span> Create Admin Account</h2>
 
-     <hr width="750">
+    <!-- <label class="title" style="font-size: 40px;"><span class="icon icon-pencil"></span>Create Admin Account</label> -->
+    <hr>
+    
+
      <div class="form-group">
       <label for="firstName" class="col-sm-4 control-label">First Name</label>
-      <div class="col-sm-5">
+      <div class="col-sm-5" >
         <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus value="Kryce Earl">
         <!-- <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span> -->
       </div>
@@ -121,7 +148,7 @@ elseif (!$username_check && !$password_check)
       </div>
     </div>
 
-    <hr width="750">
+    <hr>
     <div class="form-group">
       <label for="username" class="col-sm-4 control-label">Username</label>
       <div class="col-sm-5">
@@ -149,10 +176,6 @@ elseif (!$username_check && !$password_check)
   
       <div class="col-sm-5">
         <div class="row">
-
-        
-  
-
           <div class="col-sm-4">
             <label class="radio-inline">
               <input type="radio" id="active" name="optradio" value="1" checked="true">Active
@@ -163,9 +186,10 @@ elseif (!$username_check && !$password_check)
               <input type="radio" id="inactive" name="optradio" value="2">Inactive
             </label>
           </div>
-
+<br><br>
         </div>
       </div>
+
 
 
 <div class="form-group">
@@ -191,7 +215,7 @@ elseif (!$username_check && !$password_check)
   <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
   <?php } ?>
   </div>
-  
+
    </div>
     </div> 
 
