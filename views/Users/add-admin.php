@@ -37,12 +37,12 @@
       $errorMsgReg="Username already exists.";
     }
   }
-  // elseif($username_check=true && $password_check=false)
-  //    $errorMsgReg="1 0";
-  // elseif($username_check=false && $password_check=true)
-  //   $errorMsgReg="0 1";
-  // else
-  //   $errorMsgReg="0 0";
+  elseif($username_check=true && $password_check=false)
+     $errorMsgReg="1 0";
+  elseif($username_check=false && $password_check=true)
+    $errorMsgReg="0 1";
+  else
+    $errorMsgReg="0 0";
 }
 
 
@@ -176,6 +176,7 @@
 <br><br>
         </div>
       </div>
+
 
       <div class="form-group">
           <div class="btn col-sm-4 col-sm-offset-4">
