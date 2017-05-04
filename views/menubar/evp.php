@@ -43,10 +43,10 @@ require_once 'views/layouts/nav.php';
 								</thead>
 								<tbody>
 									<tr>
-										<td> </td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
+										<td> 05/04/2017 - 05/08/2017</td>
+										<td> 05/04/2017</td>
+										<td> open</td>
+										<td> sample_user</td>
 									</tr>
 								</tbody>
 							</table>
