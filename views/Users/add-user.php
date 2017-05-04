@@ -30,7 +30,7 @@ if (isset($_POST['registerUser']))
     }
     else
     {
-      $errorMsgReg="Username already exits.";
+      $errorMsgReg="Username already exists.";
     }
     }
 }
@@ -39,21 +39,32 @@ if (isset($_POST['registerUser']))
 
 
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
- 	<meta charset="UTF-8">
- 	<title>Add Admin</title>
- 	<link rel="stylesheet" href="assets/css/admin.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <style>
+    
+        button{
+          align-content: space-between;
+          width: 50%;
+        }
+
+        .form-control:focus{
+          color: #000;
+          background-color: #fff;
+          box-shadow: none;
+          border-color: #2ba22d;
+        }
+
+    </style>
  </head>
  <body>
     <br>
  	<div class="container">
 
-
             <form class="form-horizontal" method="post" name="AddUser" role="form" >
-               <h2 style="font-size: 50px;">Registration Form</h2>
+                <h2 style="font-size: 44px;">
+                   Create Member Account <span class="icon icon-pencil"></span>
+                </h2>
+            
                <hr width="750">
                 <div class="form-group">    
                     <label for="firstName" class="col-sm-4 control-label">First Name</label>
@@ -115,13 +126,13 @@ if (isset($_POST['registerUser']))
                     </div>
 
                 </div>
-        
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-4">
+                    <div class="btn col-sm-4 col-sm-offset-4">
+                        <button type="submit" class="btn btn-success" name="registerUser">Register</button>
+                        <button type="button" class="btn btn-info">Cancel</button>
+                         
 
-                        <button type="submit" class="btn btn-primary" name="registerUser">Create Member</button>
-                        <button type="button" class="btn btn-info" style="float:right;" >Cancel</button>
-                         <?php 
+    <?php 
       if($errorMsgReg)
       { 
         ?>

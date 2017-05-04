@@ -34,8 +34,11 @@
          		   			<a href="register-user.php">Member</a>
          		   		</div>
         		</li>
-				<li>
-					<a href="Events.php">Events</a>
+				<li class="dropdown">
+					<a class="dropbtn" href="Events.php">Events</a>
+						<div class="dropdown-content">
+							<a href="eventVotingPeriod.php">Event Voting Period</a>
+						</div>
 				</li>
 				<li>
 					<a href="eventPoll.php">Poll</a>

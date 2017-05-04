@@ -34,7 +34,7 @@
     }
     else
     {
-      $errorMsgReg="Username already exits.";
+      $errorMsgReg="Username already exists.";
     }
   }
   // elseif($username_check=true && $password_check=false)
@@ -59,27 +59,37 @@
     a.button{
       text-decoration: none;
     }
-    #message{
+   /* #message{
       display: flex;
 
       justify-content: flex-end;
+    }*/
+   .form-group .col h2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    h2{
+      align-self: center;
+    }
+
+    button{
+      align-content: space-between;
+      width: 50%;
+    }
+    hr{
+      width: 80%;
+    }
+    .form-control:focus{
+      color: #000;
+      background-color: #fff;
+      box-shadow: none;
+      border-color: #00bcd4;
+    }
+  
   </style>
   <link rel="stylesheet" href="assets/css/admin.css">
- <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
- <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-alert.js"></script>
- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
- <script type="text/javascript">
-   $(document).ready(
-     function() {
-       $('#success').click(function (e) {
-         e.preventDefault()
-         $('#message').html('<div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong>Account has been successfully created! </div>');
-       })
-     });
- </script>
-
 
 </head>
 <body>
@@ -97,13 +107,17 @@
   <div class="container">
         <!-- alert message -->
         <div id="message"></div>
-    <form method="post" name="AddAdmin" class="form-horizontal" role="form">
-     <h2 style="font-size: 40px;">Registration Form</h2>
 
-     <hr width="750">
+    <form method="post" name="AddAdmin" class="form-horizontal" role="form">
+     <h2 style="font-size: 44px;"><span class="icon icon-pencil"></span>Create Admin Account</h2>
+
+    <!-- <label class="title" style="font-size: 40px;"><span class="icon icon-pencil"></span>Create Admin Account</label> -->
+    <hr>
+    
+
      <div class="form-group">
       <label for="firstName" class="col-sm-4 control-label">First Name</label>
-      <div class="col-sm-5">
+      <div class="col-sm-5" >
         <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus value="Kryce Earl">
         <!-- <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span> -->
       </div>
@@ -121,7 +135,7 @@
       </div>
     </div>
 
-    <hr width="750">
+    <hr>
     <div class="form-group">
       <label for="username" class="col-sm-4 control-label">Username</label>
       <div class="col-sm-5">
@@ -149,10 +163,6 @@
   
       <div class="col-sm-5">
         <div class="row">
-
-        
-  
-
           <div class="col-sm-4">
             <label class="radio-inline">
               <input type="radio" id="active" name="optradio" value="1" checked="true">Active
@@ -163,16 +173,14 @@
               <input type="radio" id="inactive" name="optradio" value="2">Inactive
             </label>
           </div>
-
+<br><br>
         </div>
       </div>
 
       <div class="form-group">
-          <div class="col-sm-4 col-sm-offset-4">
-            <button type="submit" class="btn btn-primary" name="registerAdmin" id="success">
-                Create Admin
-            </button>
-            <button type="button" class="btn btn-info" style="float:right; color: #fff" >Cancel</button>
+          <div class="btn col-sm-4 col-sm-offset-4">
+            <button type="submit" class="btn btn-primary" name="registerAdmin">Register</button>
+            <button type="button" class="btn btn-info">Cancel</button>
 
 
       <br><br>

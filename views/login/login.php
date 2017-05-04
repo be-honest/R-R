@@ -46,27 +46,32 @@ $password=$_POST['password'];
   <link href="assets/css/application.css" rel="stylesheet">
 
 	<style>
+    html, body{
+      height: 100%;
+    }
 		body{
-		width: 1px;
+		   /* width: 1px;
         min-width: 100%;
-        *width: 100%;
+        *width: 100%;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
 		}
 
     a.login{
     color: #fff;
-    order-color: #6D4C41;
+    border-color: #6D4C41;
     text-decoration: none;
     }
-
+    
     .app-brand img{
-
     width: 200%;
   }
 
-
-
 	</style>
+
   <link href="assets/css/custom.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -74,18 +79,28 @@ $password=$_POST['password'];
   <div class="container-content-middle">
 
 
-    <form method="post" action="" name="login" role="form" class="m-x-auto text-center app-login-form">
+    <form method="post" action="" name="login" role="form" class="m-x-auto text-center app-login-form box">
 
       <a href="index.php" class="app-brand m-b-lg">
         <img src="assets/img/logo2.png" alt="logo">
       </a>
+
+      <!-- <div class="control has-addon" >
+        <span class="icon icon-user control-addon" ></span>
+        <input type="text" class="control-field" placeholder="Username">
+      </div>
+
+      <div class="control has-addon" >
+        <span class="icon icon-lock control-addon" ></span>
+        <input type="password" class="control-field" placeholder="Password">
+      </div> -->
 
       <div class="form-group">
         <input class="form-control" placeholder="Username" value="admin1" name="username">
       </div>
 
       <div class="form-group m-b-md">
-        <input type="password" class="form-control" value="admin1" placeholder="Password" name="password">
+        <input type="password" class="form-control" placeholder="Password" value="admin1" name="password">
       </div>
 
       <?php 
