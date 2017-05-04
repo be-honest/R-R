@@ -19,7 +19,7 @@
             <div class="col-md-12 ">
                 <form action="method="post" name="createEvent" class="form-horizontal" role="form"">
                     <fieldset>
-                        <legend style="font-size: 50px;" >Event Form</legend>
+                        <legend style="font-size: 50px;">Event Form  <span class="icon icon-new-message"></span></legend>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                     <div class="col-md-4">

@@ -7,7 +7,7 @@
     <script src="assets/src/bootstrap-tagsinput-angular.js"></script>
     <script src="assets/src/bootstrap-tagsinput.js"></script>
     <!-- drp req. prerequisites -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+     <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script> -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <!-- date range picker -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
@@ -32,6 +32,7 @@
 
     });
     </script>
+    <!-- date range picker -->
     <script type="text/javascript">
     $(function() {
         $('input[name="eventdate"]').daterangepicker({
@@ -47,25 +48,25 @@
     });
     </script>
     <!-- END OF EVP -->
-
-    <script>
-      // execute/clear BS loaders for docs
-      $(function(){
-        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
-          while(BS.loader.length){(BS.loader.pop())()}
-        }
-      });
-
-       $(document).ready(function() {
-           $('#user-data').DataTable();
-       });                   
-    </script>
     
-    <script type="text/javascript">
-      $(document).ready(function(){
-          $('#votingPeriod').DataTable();
-      });
-    </script>
+     <script>
+       // execute/clear BS loaders for docs
+       $(function(){
+         if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+           while(BS.loader.length){(BS.loader.pop())()}
+         }
+       })
+      $(document).ready(function() {
+          $('#user-data').DataTable();
+      } );                   
+     </script>
+
+     <script>
+       $(document).ready(function() {
+           $('#votingPeriod').DataTable();
+       } );
+     </script>
+  
 
     <script type="text/javascript">
       
@@ -78,6 +79,6 @@
     <script>
       $("tag").tagsinput('items');
     </script>
-
+  
   </body>
 </html>

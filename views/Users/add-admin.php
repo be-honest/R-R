@@ -15,9 +15,8 @@
   $lastName=$_POST['lastName'];
   $middleName=$_POST['middleName'];
   $userStatus=$_POST['optradio'];
-
   $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
-  $password_check = preg_match('~^[A-Za-z0-9!@#$%^&*()_]{6,20}$~i', $password);
+  $password_check = preg_match('~^[A-Za-z0-9_]{6,20}$~i', $password);
 
   if($username_check && $password_check) 
   {
@@ -29,20 +28,21 @@
        // print_r($uid);
        //  exit();
       // redirect('home.php');
-      $url='home.php';
-      header("Location: $url");
+      // $url='home.php';
+      // header("Location: 'home.php'");
+      $_SESSION['successMsgReg']="Account has been successfully created!";
     }
     else
     {
       $errorMsgReg="Username already exists.";
     }
   }
-  elseif($username_check=true && $password_check=false)
-     $errorMsgReg="1 0";
-  elseif($username_check=false && $password_check=true)
-    $errorMsgReg="0 1";
-  else
-    $errorMsgReg="0 0";
+  elseif($username_check && !$password_check)
+    $errorMsgReg="Password must be atleast 6 characters and must only contain alphanumeric characters.";
+ elseif(!$username_check && $password_check)
+  $errorMsgReg="Username must be atleast 3 characters and must only contain alphanumeric characters.";
+elseif (!$username_check && !$password_check)
+  $errorMsgReg="Username must be atleast 3 characters and Password must be atleast 6 characters. Both must only contain alphanumeric characters.";
 }
 
 
@@ -91,6 +91,20 @@
   </style>
   <link rel="stylesheet" href="assets/css/admin.css">
 
+ <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-alert.js"></script>
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ <!-- <script type="text/javascript">
+   $(document).ready(
+     function() {
+       $('#success').click(function (e) {
+         e.preventDefault()
+         $('#message').html('<div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong>Account has been successfully created! </div>');
+       })
+     });
+ </script> -->
+
 </head>
 <body>
   <br>
@@ -105,11 +119,10 @@
       </div> -->
   <!-- end of growl  -->
   <div class="container">
-        <!-- alert message -->
-        <div id="message"></div>
 
+        
     <form method="post" name="AddAdmin" class="form-horizontal" role="form">
-     <h2 style="font-size: 44px;"><span class="icon icon-pencil"></span>Create Admin Account</h2>
+     <h2 style="font-size: 44px;"><span class="icon icon-pencil"></span> Create Admin Account</h2>
 
     <!-- <label class="title" style="font-size: 40px;"><span class="icon icon-pencil"></span>Create Admin Account</label> -->
     <hr>
@@ -178,25 +191,31 @@
       </div>
 
 
-      <div class="form-group">
-          <div class="btn col-sm-4 col-sm-offset-4">
-            <button type="submit" class="btn btn-primary" name="registerAdmin">Register</button>
-            <button type="button" class="btn btn-info">Cancel</button>
 
+<div class="form-group">
+  <div class="col-sm-4 col-sm-offset-4">
+    <button type="submit" class="btn btn-primary" name="registerAdmin">
+      Create Admin
+    </button>
+    <button type="button" class="btn btn-info" style="float:right; color: #fff" >Cancel</button>
+    <br><br>
+    
+    <?php 
+    if($errorMsgReg)
+      { ?>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+    <strong>Error!</strong> <?php echo $errorMsgReg; ?>
+  </div>
+  <?php } ?> 
+  <?php if (isset($_SESSION['successMsgReg']))
+  {?>
+  <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
+  <?php } ?>
+  </div>
 
-      <br><br>
-          <?php 
-          if($errorMsgReg)
-          { ?>
-            <div class="alert alert-danger alert-dismissable" role="alert">
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-              <strong>Error!</strong> <?php echo $errorMsgReg; ?>
-            </div>
-          <?php } ?> 
-     </div>
-  
    </div>
     </div> 
 

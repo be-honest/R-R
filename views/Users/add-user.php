@@ -16,45 +16,58 @@ if (isset($_POST['registerUser']))
     $middleName=$_POST['middleName'];
     $userStatus=$_POST['optradio'];
     $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
-    $password_check = preg_match('~^[A-Za-z0-9!@#$%^&*()_]{6,20}$~i', $password);
+    $password_check = preg_match('~^[A-Za-z0-9_]{6,20}$~i', $password);
 
     if($username_check && $password_check) 
     {
-    $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
-    if($uid)
-    {
-        // print_r($uid);
-        
-        $url='home.php';
-        header("Location: $url");
-    }
-    else
-    {
-      $errorMsgReg="Username already exists.";
-    }
-    }
+
+        $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
+    // print_r($uid);
+    //     exit();
+        if($uid)
+        {
+       // print_r($uid);
+       //  exit();
+      // redirect('home.php');
+      // $url='home.php';
+      // header("Location: 'home.php'");
+          $_SESSION['successMsgReg']="Account has been successfully created!";
+      }
+      else
+      {
+          $errorMsgReg="Username already exits.";
+      }
+  }
+  elseif($username_check && !$password_check)
+    $errorMsgReg="Password must be atleast 6 characters and must only contain alphanumeric characters.";
+elseif(!$username_check && $password_check)
+  $errorMsgReg="Username must be atleast 3 characters and must only contain alphanumeric characters.";
+elseif (!$username_check && !$password_check)
+  $errorMsgReg="Username must be atleast 3 characters and Password must be atleast 6 characters. Both must only contain alphanumeric characters.";
 }
 ?>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Add Admin</title>
+ 	<link rel="stylesheet" href="assets/css/admin.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <style>
+  
+      button{
+        align-content: space-between;
+        width: 50%;
+      }
 
+      .form-control:focus{
+        color: #000;
+        background-color: #fff;
+        box-shadow: none;
+        border-color: #2ba22d;
+      }
 
-
-
-
-    <style>
-    
-        button{
-          align-content: space-between;
-          width: 50%;
-        }
-
-        .form-control:focus{
-          color: #000;
-          background-color: #fff;
-          box-shadow: none;
-          border-color: #2ba22d;
-        }
-
-    </style>
+  </style>
  </head>
  <body>
     <br>
@@ -62,7 +75,8 @@ if (isset($_POST['registerUser']))
 
             <form class="form-horizontal" method="post" name="AddUser" role="form" >
                 <h2 style="font-size: 44px;">
-                   Create Member Account <span class="icon icon-pencil"></span>
+                  <span class="icon icon-pencil"></span>
+                   Create Member Account 
                 </h2>
             
                <hr width="750">
@@ -130,9 +144,9 @@ if (isset($_POST['registerUser']))
                     <div class="btn col-sm-4 col-sm-offset-4">
                         <button type="submit" class="btn btn-success" name="registerUser">Register</button>
                         <button type="button" class="btn btn-info">Cancel</button>
+                        <br><br>
                          
-
-    <?php 
+      <?php 
       if($errorMsgReg)
       { 
         ?>
@@ -145,6 +159,10 @@ if (isset($_POST['registerUser']))
       <?php 
       }
        ?> 
+       <?php if (isset($_SESSION['successMsgReg']))
+  {?>
+  <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
+  <?php } ?>
                     </div>
 
                 </div>
