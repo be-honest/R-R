@@ -124,13 +124,12 @@ WHERE users.`user_type_id`=user_type.`user_type_id` AND users.`status_id`=user_s
      public function getUser($id)
      {
        try {
-        $db = getDB();
-          
-        $st = $db->prepare("SELECT DISTINCT id,user_type.`description` AS 'user_type', username, users.`password`, user_status.`description` AS 'user_status',first_name, middle_name, last_name
-FROM users, user_type, user_status 
-WHERE users.`user_type_id`=user_type.`user_type_id` AND users.`status_id`=user_status.`status_id` AND users.`id`=:id");
+        $db = getDB();      
+        $st = $db->prepare("SELECT * FROM users WHERE id=:id");
+        $st->bindParam("id", $id,PDO::PARAM_STR);
         $st->execute();
-        $data = $stmt->fetch(PDO::FETCH_OBJ);
+        $data = $st->fetch();
+
       } catch (PDOException $e) {
 
       }

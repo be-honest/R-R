@@ -8,48 +8,9 @@ $errorMsgReg="";
 
 $userClass = new userClass();
 
+$user = $userClass->getUser($_GET['id']);
 
-$uid = $_GET['id'];
 
-if (isset($_POST['editUser'])) 
-{
-
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $firstName=$_POST['firstName'];
-    $lastName=$_POST['lastName'];
-    $middleName=$_POST['middleName'];
-    $userStatus=$_POST['optradio'];
-    $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
-    $password_check = preg_match('~^[A-Za-z0-9_]{6,20}$~i', $password);
-
-    if($username_check && $password_check) 
-    {
-
-        $uid=$userClass->userRegistration($username,$password,$firstName,$lastName,$middleName,$userStatus);
-    // print_r($uid);
-    //     exit();
-        if($uid)
-        {
-       // print_r($uid);
-       //  exit();
-      // redirect('home.php');
-      // $url='home.php';
-      // header("Location: 'home.php'");
-          $_SESSION['successMsgReg']="Account has been successfully created!";
-      }
-      else
-      {
-          $errorMsgReg="Username already exits.";
-      }
-  }
-  elseif($username_check && !$password_check)
-    $errorMsgReg="Password must be atleast 6 characters and must only contain alphanumeric characters.";
-elseif(!$username_check && $password_check)
-  $errorMsgReg="Username must be atleast 3 characters and must only contain alphanumeric characters.";
-elseif (!$username_check && !$password_check)
-  $errorMsgReg="Username must be atleast 3 characters and Password must be atleast 6 characters. Both must only contain alphanumeric characters.";
-}
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -88,20 +49,21 @@ elseif (!$username_check && !$password_check)
                 <div class="form-group">    
                     <label for="firstName" class="col-sm-4 control-label">First Name</label>
                     <div class="col-sm-5">
-                        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus >           
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" value="<?php echo $user['first_name'] ?>" autofocus >           
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lastName" class="col-sm-4 control-label">Last Name</label>
                     <div class="col-sm-5">
-                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus >
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" 
+                        value="<?php echo $user['last_name'] ?>" autofocus >
 
                     </div>
                 </div>
                  <div class="form-group">
                     <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
                     <div class="col-sm-5">
-                        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" autofocus >
+                        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" value="<?php echo $user['middle_name'] ?>" autofocus >
                     </div>
                 </div>
 
