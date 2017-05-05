@@ -87,6 +87,8 @@ elseif (!$username_check && !$password_check)
       box-shadow: none;
       border-color: #00bcd4;
     }
+
+
   
   </style>
   <link rel="stylesheet" href="assets/css/admin.css">
@@ -122,7 +124,9 @@ elseif (!$username_check && !$password_check)
 
         
     <form method="post" name="AddAdmin" class="form-horizontal" role="form">
-     <h2 style="font-size: 44px;"><span class="icon icon-pencil"></span> Create Admin Account</h2>
+     <h2 style="font-size: 44px;">
+     <span class="icon icon-pencil"></span>
+      Create Admin Account</h2>
 
     <!-- <label class="title" style="font-size: 40px;"><span class="icon icon-pencil"></span>Create Admin Account</label> -->
     <hr>
@@ -162,34 +166,26 @@ elseif (!$username_check && !$password_check)
       </div>
     </div>
 
-    <div class="form-group">
-
-<!-- <label for="text" class="col-sm-4 control-label">Status</label>
-      <div class="col-sm-5">
-        <input type="text" id="username" name="user_status" placeholder="User Status" class="form-control">
-      </div>
-    </div> -->
-
-
-    
+    <div class="form-group">    
       <label class="control-label col-sm-4">Status</label>
-  
-      <div class="col-sm-5">
         <div class="row">
-          <div class="col-sm-4">
-            <label class="radio-inline">
-              <input type="radio" id="active" name="optradio" value="1" checked="true">Active
-            </label>
+          <div class="radio custom-control custom-radio col-sm-2">
+            <div class="radio custom-control custom-radio col-sm-1" style="padding: 0; ">
+              <label>
+                <input type="radio" name="optradio" id="active" value="1">
+                <span class="custom-control-indicator" style="border-color: #00bcd4;"></span> Active
+              </label>
+            </div>
+            <br>
+            <div class="radio custom-control custom-radio col-sm-1" style="float:initial; padding: 0;">
+              <label>
+                <input type="radio" name="optradio" id="inactive" value="2">
+                <span class="custom-control-indicator" style="border-color: #00bcd4;"></span> Inactive
+              </label>
+            </div>
           </div>
-          <div class="col-sm-4">
-            <label class="radio-inline">
-              <input type="radio" id="inactive" name="optradio" value="2">Inactive
-            </label>
-          </div>
-<br><br>
         </div>
-      </div>
-
+    </div>
 
 
 <div class="form-group">
@@ -205,15 +201,18 @@ elseif (!$username_check && !$password_check)
       { ?>
     <div class="alert alert-danger alert-dismissable" role="alert">
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
+      <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
     </button>
     <strong>Error!</strong> <?php echo $errorMsgReg; ?>
   </div>
   <?php } ?> 
   <?php if (isset($_SESSION['successMsgReg']))
   {?>
-  <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
-  <?php } ?>
+  <div class="alert alert-success fade in">
+    <button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">
+    </button>
+    <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
+    <?php } ?>
   </div>
 
    </div>

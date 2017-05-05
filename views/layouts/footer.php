@@ -33,18 +33,24 @@
     });
     </script>
     <!-- date range picker -->
-    <script type="text/javascript">
+   <script type="text/javascript">
     $(function() {
-        $('input[name="eventdate"]').daterangepicker({
 
-            singleDatePicker: true,
-            showDropdowns: true,
+      $('input[name="eventDate"]').daterangepicker({
+           autoUpdateInput: true,
+          locale: {
+              cancelLabel: 'Clear'
+          }
+      });
 
-        }, 
-        function(start, end, label) {
-            var years = moment().diff(start, 'years');
-            // alert("You are " + years + " years old.");
-        });
+      $('input[name="eventDate"]').on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      });
+
+      $('input[name="eventDate"]').on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+      });
+
     });
     </script>
     <!-- END OF EVP -->

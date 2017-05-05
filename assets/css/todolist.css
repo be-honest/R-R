@@ -100,17 +100,18 @@ input {
 
 /* Style the "Add" button */
 .addBtn {
-  padding: 10px;
-  width: 50%;
-  background: #00BCD4; 
-  color: #d9d9d9;
-  /*float: right;*/
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 0px;
+    width: 100%;
+    background: #ffffff;
+    color: #7da8c3;
+    /* float: right; */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .addBtn:hover {
-  background-color: #0097A7;
+    background-color: #ffffff;
+    color: darkturquoise;
 }

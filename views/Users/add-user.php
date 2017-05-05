@@ -66,7 +66,7 @@ elseif (!$username_check && !$password_check)
         box-shadow: none;
         border-color: #2ba22d;
       }
-
+  
   </style>
  </head>
  <body>
@@ -119,27 +119,27 @@ elseif (!$username_check && !$password_check)
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-4">Status</label>
-                    <div class="col-sm-5">
+           <div class="form-group">    
+             <label class="control-label col-sm-4">Status</label>
+               <div class="row">
+                 <div class="radio custom-control custom-radio col-sm-2">
+                   <div class="radio custom-control custom-radio col-sm-1" style="padding: 0; ">
+                     <label>
+                       <input type="radio" name="optradio" id="active" value="1">
+                       <span class="custom-control-indicator" style="border-color: forestgreen;"></span> Active
+                     </label>
+                   </div>
+                   <br>
+                   <div class="radio custom-control custom-radio col-sm-1" style="float:initial; padding: 0;">
+                     <label>
+                       <input type="radio" name="optradio" id="inactive" value="2">
+                       <span class="custom-control-indicator" style="border-color: forestgreen;"></span> Inactive
+                     </label>
+                   </div>
+                 </div>
+               </div>
+           </div>
 
-                        
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" id="active" name="optradio" value="1" checked="true">Active
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" id="inactive" name="optradio" value="2" >Inactive
-                                </label>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
                 <div class="form-group">
                     <div class="btn col-sm-4 col-sm-offset-4">
                         <button type="submit" class="btn btn-success" name="registerUser">Register</button>
@@ -152,7 +152,7 @@ elseif (!$username_check && !$password_check)
         ?>
       <div class="alert alert-danger alert-dismissable" role="alert">
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
+      <span aria-hidden="true" style="padding: 0; float: right;">×</span>
     </button>
       <strong>Error!</strong> <?php echo $errorMsgReg; ?>
       </div>

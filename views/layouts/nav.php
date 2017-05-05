@@ -48,7 +48,7 @@
 
 			<ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
 				<li >
-					<a class="app-notifications" href="notifications/index.html">
+					<a class="app-notifications" href="#">
 						<span class="icon icon-bell"></span>
 					</a>
 				</li>

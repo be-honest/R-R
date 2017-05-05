@@ -54,7 +54,7 @@ require_once 'views/layouts/nav.php';
 								<th>Username</th>
 								<th>Password</th>
 								<th>Status</th>
-								<th>Name</th>
+								<th>Full Name</th>
 								</tr>
 							</thead>
 							<tbody>

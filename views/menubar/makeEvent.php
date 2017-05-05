@@ -43,6 +43,11 @@
 </head>
 <body>
 <!-- event form -->
+<style>
+  .icon{
+    font-size: x-large;
+  }
+</style>
 <br>
     <div class="container">
         <div class="row">
@@ -80,7 +85,7 @@
                             <div class="col-md-3">
                                 <input type="text" id="activity" placeholder="Add an activity" class="form-control" name="activity[]">
                             </div>
-                             <span onclick="newElement()" class="addBtn m-r-md span-control">Add</span>
+                             <span onclick="newElement()" class="addBtn m-r-md span-control icon icon-circle-with-plus"></span>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
@@ -110,6 +115,7 @@
                                     <input type="url" class="form-control" name="location" value="http://localhost/RandR/Events.php" required>
                                 </div>
                         </div>
+                        <br>
                     <!-- button -->
                         <div class="form-group">
                             <div class="col-sm-6 col-sm-offset-3">
