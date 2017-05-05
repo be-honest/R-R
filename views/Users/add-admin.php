@@ -8,7 +8,6 @@
  $userClass = new userClass();
  if (isset($_POST['registerAdmin'])) 
  {
- 
   $username=$_POST['username'];
   $password=$_POST['password'];
   $firstName=$_POST['firstName'];
@@ -198,6 +197,7 @@ elseif (!$username_check && !$password_check)
       Create Admin
     </button>
     <button type="button" class="btn btn-info" style="float:right; color: #fff" >Cancel</button>
+    
     <br><br>
     
     <?php 

@@ -115,14 +115,30 @@ FROM users, user_type, user_status
 WHERE users.`user_type_id`=user_type.`user_type_id` AND users.`status_id`=user_status.`status_id`");
           $st->execute();
           $data=$st->fetchAll();
-
-
-
           } catch (PDOException $e) {
      
           }
           return $data;
      }
+
+     public function getUser($id)
+     {
+       try {
+        $db = getDB();
+          
+        $st = $db->prepare("SELECT DISTINCT id,user_type.`description` AS 'user_type', username, users.`password`, user_status.`description` AS 'user_status',first_name, middle_name, last_name
+FROM users, user_type, user_status 
+WHERE users.`user_type_id`=user_type.`user_type_id` AND users.`status_id`=user_status.`status_id` AND users.`id`=:id");
+        $st->execute();
+        $data = $stmt->fetch(PDO::FETCH_OBJ);
+      } catch (PDOException $e) {
+
+      }
+      return $data;
+    }
+
+
+
 
      public function getFullName($id)
      {
