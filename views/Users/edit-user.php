@@ -1,15 +1,75 @@
  <?php 
-require_once 'views/layouts/header.php';
-require_once 'views/layouts/nav.php';
+ require_once 'views/layouts/header.php';
+ require_once 'views/layouts/nav.php';
 
-include('config.php');
-include('class/userClass.php');
-$errorMsgReg="";
+ include('config.php');
+ include('class/userClass.php');
+ $errorMsgReg="";
+ $userClass = new userClass();
 
-$userClass = new userClass();
+ if (isset($_POST['editUser'])) 
+ {
+  $id=$_GET['id'];
+  $username=$_POST['username'];
+  $password=$_POST['password'];
+  $firstName=$_POST['firstName'];
+  $lastName=$_POST['lastName'];
+  $middleName=$_POST['middleName'];
+  $userStatus=$_POST['optradio'];
+  $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
+  $password_check = preg_match('~^[A-Za-z0-9_]{6,20}$~i', $password);
+  if($username_check && $password_check) 
+  {
+    $uid=$userClass->updateUser($id,$username,$password,$firstName,$lastName,$middleName,$userStatus);
+    if($uid)
+    {
+      $_SESSION['successMsgReg']="User has been successfully updated!";
+    }
+    else
+    {
+      $errorMsgReg="erroror";
+    }
+  }
+  elseif($username_check && !$password_check)
+    $errorMsgReg="Password must be atleast 6 characters and must only contain alphanumeric characters.";
+  elseif(!$username_check && $password_check)
+    $errorMsgReg="Username must be atleast 3 characters and must only contain alphanumeric characters.";
+  elseif (!$username_check && !$password_check)
+    $errorMsgReg="Username must be atleast 3 characters and Password must be atleast 6 characters. Both must only contain alphanumeric characters.";
+}
 
-$user = $userClass->getUser($_GET['id']);
-
+if(isset($_GET['id']))
+{
+  $user = $userClass->getUser($_GET['id']);
+  if ($user) {
+    $user = $userClass->getUser($_GET['id']);
+    $firstName=$user['first_name'];
+    $lastName=$user['last_name'];
+    $middleName=$user['middle_name'];
+    $username=$user['username'];    
+    $password=$user['password'];
+    $userStatus=$user['status_id'];
+  }
+  else
+  {
+    $firstName="";
+    $lastName="";
+    $username="";
+    $middleName="";
+    $password="";
+    $userStatus="";
+    $errorMsgReg="User does not exist.";
+  }
+}
+else
+{
+$firstName="";
+$lastName="";
+$username="";
+$middleName="";
+$password="";
+$userStatus="";
+}
 
 ?>
  <!DOCTYPE html>
@@ -39,31 +99,31 @@ $user = $userClass->getUser($_GET['id']);
     <br>
  	<div class="container">
 
-            <form class="form-horizontal" method="post" name="EditMember" role="form" >
+            <form class="form-horizontal" method="post" name="editUser" role="form" >
                 <h2 style="font-size: 44px;">
                   <span class="icon icon-pencil"></span>
-                   Edit Member Account 
+                   Edit User Account 
                 </h2>
             
                <hr width="750">
                 <div class="form-group">    
                     <label for="firstName" class="col-sm-4 control-label">First Name</label>
                     <div class="col-sm-5">
-                        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" value="<?php echo $user['first_name'] ?>" autofocus >           
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" value="<?php echo $firstName ?>" autofocus >           
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lastName" class="col-sm-4 control-label">Last Name</label>
                     <div class="col-sm-5">
                         <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" 
-                        value="<?php echo $user['last_name'] ?>" autofocus >
+                        value="<?php echo $lastName ?>" autofocus >
 
                     </div>
                 </div>
                  <div class="form-group">
                     <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
                     <div class="col-sm-5">
-                        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" value="<?php echo $user['middle_name'] ?>" autofocus >
+                        <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" value="<?php echo $middleName ?>" autofocus >
                     </div>
                 </div>
 
@@ -74,13 +134,15 @@ $user = $userClass->getUser($_GET['id']);
 
                     <label for="username" class="col-sm-4 control-label">Username</label>
                     <div class="col-sm-5">
-                        <input type="text" id="username" name="username" placeholder="Username" class="form-control" >
+                        <input type="text" id="username" name="username" placeholder="Username" class="form-control" 
+                        value="<?php echo $username ?>">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-4 control-label">Password</label>
                     <div class="col-sm-5">
-                        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control"
+                        value="<?php echo $password ?>">
 
 
                     </div>
@@ -94,12 +156,18 @@ $user = $userClass->getUser($_GET['id']);
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="active" name="optradio" value="1">Active
+                                    <input type="radio" id="active" name="optradio" value="1"
+                                     <?php if($userStatus==1)
+                                    { ?> checked=true<?php
+                                      } ?>>Active
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="inactive" name="optradio" value="2" >Inactive
+                                    <input type="radio" id="inactive" name="optradio" value="2" 
+                                    <?php if($userStatus==1)
+                                    { ?> checked=true<?php
+                                      } ?>>Inactive
                                 </label>
                             </div>
                         </div>
@@ -121,7 +189,7 @@ $user = $userClass->getUser($_GET['id']);
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">×</span>
     </button>
-      <strong>Error!</strong> <?php echo $errorMsgReg; ?>
+      <strong>Oops!</strong> <?php echo $errorMsgReg; ?>
       </div>
       <?php 
       }
@@ -141,3 +209,4 @@ $user = $userClass->getUser($_GET['id']);
  <?php 
 require_once 'views/layouts/footer.php'
  ?>
+=

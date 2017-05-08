@@ -50,23 +50,27 @@ require_once 'views/layouts/nav.php';
 		                <table id="user-data" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 							<thead>
 								<tr>
-								<th>User Type</th>
+								<th>ID</th>
+								<th>Name</th>
 								<th>Username</th>
 								<th>Password</th>
+								<th>User Type</th>							
 								<th>Status</th>
-								<th>Full Name</th>
+								
 								</tr>
 							</thead>
 							<tbody>
 									<?php 
 										foreach($users as $user)
 										{
-											?> <tr>
-												<td><?php echo $user['user_type'];?></td>
+											?> <tr align="center">
+												<td><?php echo $user['id'];?></td>
+												<td align="left"><?php echo $user['last_name'] . ', ' . $user['first_name'] . ' '. $user['middle_name']?></td>
 												<td><?php echo $user['username'];?></td>
 												<td><?php echo $user['password'];?></td>
+												<td><?php echo $user['user_type'];?></td>
 												<td><?php echo $user['user_status'];?></td>
-												<td><?php echo $user['last_name'] . ', ' . $user['first_name'] . ' '. $user['middle_name']?></td>
+					
 												</tr>
 										<?php  } ?>
 							</tbody>
