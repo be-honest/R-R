@@ -7,7 +7,7 @@
  $errorMsgReg="";
  $userClass = new userClass();
 
- if (isset($_POST['editUser'])) 
+ if (isset($_POST['editUser'])&&isset($_GET['id']))
  {
   $id=$_GET['id'];
   $username=$_POST['username'];
@@ -18,6 +18,7 @@
   $userStatus=$_POST['optradio'];
   $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
   $password_check = preg_match('~^[A-Za-z0-9_]{6,20}$~i', $password);
+
   if($username_check && $password_check) 
   {
     $uid=$userClass->updateUser($id,$username,$password,$firstName,$lastName,$middleName,$userStatus);
@@ -52,6 +53,7 @@ if(isset($_GET['id']))
   }
   else
   {
+    $id="";
     $firstName="";
     $lastName="";
     $username="";
@@ -162,8 +164,8 @@ $userStatus="";
                      <div class="radio custom-control custom-radio col-sm-2">
                        <div class="radio custom-control custom-radio col-sm-1" style="padding: 0; ">
                          <label>
-                           <input type="radio" name="optradio" id="active" value="1"      
-                                    <?php if($userStatus==1)
+                           <input type="radio" name="optradio" id="active" value="1" 
+                           <?php if($userStatus==1)
                                     { ?> checked=true<?php
                                       } ?>>Active
                            <span class="custom-control-indicator" style="border-color: forestgreen;"></span> 
@@ -173,7 +175,7 @@ $userStatus="";
                        <div class="radio custom-control custom-radio col-sm-1" style="float:initial; padding: 0;">
                          <label>
                            <input type="radio" name="optradio" id="inactive" value="2"  
-                                    <?php if($userStatus==1)
+                                    <?php if($userStatus==2)
                                     { ?> checked=true<?php
                                       } ?>>Inactive
                            <span class="custom-control-indicator" style="border-color: forestgreen;"></span> 

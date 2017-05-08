@@ -6,7 +6,7 @@ include('config.php');
 include('class/eventPeriodClass.php');
 $EVPClass = new eventPeriodClass();
 
-if(isset($_POST['registerEVP`']))
+if(isset($_POST['registerEVP']))
 {
 	$start_date=$_POST['startDate'];
 	$end_date=$_POST['endDate'];
@@ -15,11 +15,8 @@ if(isset($_POST['registerEVP`']))
 	$id=1;
 	$event_status=$_POST['optradio'];
 	$uid=$EVPClass->eventPeriodRegistration($start_date,$end_date,$start_event_date,$end_event_date,$id,$event_status);
-	print_r($uid);
+	// print_r($uid);
 }
-
-
-
 ?>
 
 <div class="container">
@@ -36,11 +33,7 @@ if(isset($_POST['registerEVP`']))
 				<input type="hidden" name="startDate">
 				<input type="hidden" name="endDate">
 			</div>
-			<button type="submit" name="registerEVP" class="btn btn-info icon icon-circle-with-plus " 
-			style="float: right; padding: 0; margin-right: 350px;  font-size: 50px; background-color: white; 
-			color:#3097d1; border-color: white;">
-			<!-- <strong>Add</strong> -->
-		</button>
+			
 	</div>
 
 	<div class="form-group">
@@ -57,7 +50,7 @@ if(isset($_POST['registerEVP`']))
 		<div class="row">
 			<div class="radio custom-control custom-radio col-md-2">
 				<label>
-					<input type="radio" id="radio1" name="optradio" value=1 >
+					<input type="radio" id="radio1" name="optradio" value=1>
 					<span class="custom-control-indicator" style="border-color:#3097d1;"></span>Open
 				</label>
 			</div>
@@ -67,7 +60,13 @@ if(isset($_POST['registerEVP`']))
 					<span class="custom-control-indicator" style="border-color:#3097d1;"></span>
 					Pending
 				</label>
+
 			</div>
+			<button type="submit" name="registerEVP" class="btn btn-info icon icon-circle-with-plus " 
+			style="float: right; padding: 0; margin-right: 350px;  font-size: 50px; background-color: white; 
+			color:#3097d1; border-color: white;">
+			<!-- <strong>Add</strong> -->
+		</button>
 		</div>
 	</div>
 
@@ -103,8 +102,8 @@ if(isset($_POST['registerEVP`']))
 			</div>
 		</div>
 	</div>
-
-	</form>
+	</form>	
+	<!-- </form> -->
 <br><br>
 </div>
 
