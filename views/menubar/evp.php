@@ -12,11 +12,10 @@ if(isset($_POST['registerEVP`']))
 	$end_date=$_POST['endDate'];
 	$start_event_date=$_POST['startEventDate'];
 	$end_event_date=$_POST['endEventDate'];
-	$uid=1;
+	$id=1;
 	$event_status=$_POST['optradio'];
-	$uid=$userClass->eventPeriodRegistration($start_date,$end_date,$start_event_date,$end_event_date,$uid,$event_status);
-
-	var_dump($startdate);
+	$uid=$EVPClass->eventPeriodRegistration($start_date,$end_date,$start_event_date,$end_event_date,$id,$event_status);
+	print_r($uid);
 }
 
 
