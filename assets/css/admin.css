@@ -10,6 +10,18 @@ body {
     border-radius: 0.3em;
 }
 
+*[role="edit"]
+{
+  margin-top: 20em;
+  margin-left: 11em;
+  max-width: 1000px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 0.3em;
+}
+
+
+
 *[role="form"] h2 {
     margin-left: 6em;
     margin-bottom: 1em;

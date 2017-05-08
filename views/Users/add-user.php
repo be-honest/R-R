@@ -66,6 +66,11 @@ elseif (!$username_check && !$password_check)
         box-shadow: none;
         border-color: #2ba22d;
       }
+
+      .custom-control input:checked ~ .custom-control-indicator {
+          background-color: #2ba22d;
+          box-shadow: none;
+      }
   
   </style>
  </head>
@@ -75,7 +80,7 @@ elseif (!$username_check && !$password_check)
 
             <form class="form-horizontal" method="post" name="AddUser" role="form" >
                 <h2 style="font-size: 44px;">
-                  <span class="icon icon-pencil"></span>
+                  <span class="icon icon-add-user"></span>
                    Create Member Account 
                 </h2>
             
@@ -125,7 +130,7 @@ elseif (!$username_check && !$password_check)
                  <div class="radio custom-control custom-radio col-sm-2">
                    <div class="radio custom-control custom-radio col-sm-1" style="padding: 0; ">
                      <label>
-                       <input type="radio" name="optradio" id="active" value="1">
+                       <input type="radio" name="optradio" id="active" value="1" checked="true">
                        <span class="custom-control-indicator" style="border-color: forestgreen;"></span> Active
                      </label>
                    </div>
@@ -139,34 +144,38 @@ elseif (!$username_check && !$password_check)
                  </div>
                </div>
            </div>
+             <div class="form-group">
+               <div class="col-sm-4 col-sm-offset-4">
+                 <button type="submit" class="btn btn-success" name="registerUser">
+                   Create Member
+                 </button>
+                 <button type="button" class="btn btn-info" style="float:right; color: #fff" >Cancel</button>
 
-                <div class="form-group">
-                    <div class="btn col-sm-4 col-sm-offset-4">
-                        <button type="submit" class="btn btn-success" name="registerUser">Register</button>
-                        <button type="button" class="btn btn-info">Cancel</button>
-                        <br><br>
-                         
-      <?php 
-      if($errorMsgReg)
-      { 
-        ?>
-      <div class="alert alert-danger alert-dismissable" role="alert">
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true" style="padding: 0; float: right;">×</span>
-    </button>
-      <strong>Error!</strong> <?php echo $errorMsgReg; ?>
-      </div>
-      <?php 
-      }
-       ?> 
-       <?php if (isset($_SESSION['successMsgReg']))
-  {?>
-  <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
-  <?php } ?>
-                    </div>
+                 <br><br>
 
+                 <?php if($errorMsgReg)
+                 { ?>
+                 <div class="alert alert-danger alert-dismissable" role="alert">
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
+                  </button>
+                  <strong>Error!</strong> <?php echo $errorMsgReg; ?>
                 </div>
+                <?php } ?> 
+
+                <?php if (isset($_SESSION['successMsgReg']))
+                {?>
+                <div class="alert alert-success fade in">
+                 <button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">
+                   <span aria-hidden="true" style="padding: 0; float: right;">×</span>
+                 </button>
+                 <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+               </div>
+               <?php } ?>
+             </div>
+           </div>
             </form> 
+            <br>
         </div> 
  </body>
  </html>

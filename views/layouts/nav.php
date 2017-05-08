@@ -22,7 +22,7 @@
          		   		<!-- <span class="caret"></span> -->
          		   		<div class="dropdown-content">
          		   			<a href="Profile.php">View Profile</a>
-         		   			<a href="#">Edit Profile</a>
+         		   			<a href="ProfileEdit.php">Edit Profile</a>
          		   		</div>
          		   			
          		   		
@@ -37,7 +37,7 @@
 				<li class="dropdown">
 					<a class="dropbtn" href="Events.php">Events</a>
 						<div class="dropdown-content">
-							<a href="eventVotingPeriod.php">Event Voting Period</a>
+							<a href="Events.php">Create Event</a>
 						</div>
 				</li>
 				<li>

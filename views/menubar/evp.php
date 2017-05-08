@@ -81,10 +81,8 @@ require_once 'views/layouts/nav.php';
 			</div>
 		</div>
 
-	
-	
-</form>
-
+	</form>
+<br><br>
 </div>
 
 
