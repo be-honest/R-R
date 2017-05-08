@@ -1,3 +1,3 @@
 <?php 
-	include('views/menubar/profile.php');
+	include('views/menubar/visitProfile.php');
  ?>

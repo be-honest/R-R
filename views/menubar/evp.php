@@ -104,10 +104,8 @@ if(isset($_POST['registerEVP`']))
 		</div>
 	</div>
 
-	
-	
-</form>
-
+	</form>
+<br><br>
 </div>
 
 

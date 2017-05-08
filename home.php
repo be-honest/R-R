@@ -16,6 +16,7 @@ $userDetails=$userClass->userDetails($session_uid);
     <title>Rest and Recreation Portal </title>
 
     <!-- Include the CSS -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
     <link href="dist/toolkit.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
     <link href="assets/css/toolkit.css" rel="stylesheet">
@@ -73,8 +74,8 @@ $userDetails=$userClass->userDetails($session_uid);
 <div class="block block-inverse text-center p-b">
   <h1 class="block-title p-a" >Rest and Recreation Portal</h1>
   <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
-    <a href="Events.php">
-      <button class="btn btn-info m-t">Start creating an event.</button>
+    <a href="eventVotingPeriod.php">
+      <button class="btn btn-info m-t">Start opening an event.</button>
     </a>
 </div>
 

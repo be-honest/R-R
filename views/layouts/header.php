@@ -9,7 +9,8 @@
     <meta name="author" content="">
 
 	<title>Rest and Recreation Portal</title>
-
+  
+  <link rel="shortcut icon" href="assets/img/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

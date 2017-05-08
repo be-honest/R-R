@@ -44,9 +44,10 @@
 <body>
 <!-- event form -->
 <style>
-  .icon{
-    font-size: x-large;
+  .icon {
+    font-size: smaller;
   }
+
 </style>
 <br>
     <div class="container">
@@ -85,7 +86,7 @@
                             <div class="col-md-3">
                                 <input type="text" id="activity" placeholder="Add an activity" class="form-control" name="activity[]">
                             </div>
-                             <span onclick="newElement()" class="addBtn m-r-md span-control icon icon-circle-with-plus"></span>
+                             <span onclick="newElement()" class="addBtn m-r-md span-control icon icon-circle-with-plus" style="font-size: x-large;"></span>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
@@ -117,7 +118,38 @@
                         </div>
                         <br>
                     <!-- button -->
-                        <div class="form-group">
+                      <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                          <button type="submit" class="btn btn-info col-sm-3" name="registerEvent">
+                            Create Event
+                          </button>
+                          <button type="button" class="btn btn-default" style="float: right; margin-right: 35%; width: 20%;">Back</button>
+  
+                          <br><br>
+
+                          <?php if($errorMsgReg)
+                          { ?>
+                          <div class="alert alert-danger alert-dismissable" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
+                           </button>
+                           <br><br>
+                           <strong>Error!</strong> <?php echo $errorMsgReg; ?>
+                         </div>
+                         <?php } ?> 
+
+                         <?php if (isset($_SESSION['successMsgReg']))
+                         {?>
+                         <div class="alert alert-success fade in">
+                          <button type="button" class="close data-dismiss="alert" aria-hidden="Close">
+                            <span aria-hidden="true" style="padding: 0; float: right;">×</span>
+                          </button>
+                          <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+                        </div>
+                        <?php } ?>
+                      </div>
+                    </div>
+                   <!--      <div class="form-group">
                             <div class="col-sm-6 col-sm-offset-3">
                                 <button type="submit" name="registerEvent" class="btn btn-info col-sm-3">Create Event</button>
                                 <button type="button" class="btn btn-default">Back</button>
@@ -134,8 +166,13 @@
                       <?php } ?> 
                       <?php if (isset($_SESSION['successMsgReg']))
                       {?>
-                      <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
-                      <?php } ?>
+                      <div class="alert alert-success fade in">
+                        <button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
+                          <span aria-hidden="true" style="padding: 0; float: right;">x</span>
+                        </button>
+                          <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+                      </div>
+                      <?php } ?> -->
                             
 
 
