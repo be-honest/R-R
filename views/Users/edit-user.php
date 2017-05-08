@@ -107,9 +107,9 @@ $userStatus="";
 
             <form class="form-horizontal" method="post" name="editUser" role="form" >
                 <h2 style="font-size: 44px;">
-                  <span class="icon icon-pencil"></span>
+                  
                    Edit User Account 
-
+                  <span class="icon icon-edit"></span>
                 </h2>
             
                <hr width="750">
@@ -164,8 +164,9 @@ $userStatus="";
                          <label>
                            <input type="radio" name="optradio" id="active" value="1"      
                                     <?php if($userStatus==1)
-                                    { ?> checked=true<?php
-                                      } ?>>Active
+                                    { ?> checked=true
+                                    <?php } ?>
+                                    >Active
                            <span class="custom-control-indicator" style="border-color: forestgreen;"></span> 
                          </label>
                        </div>
