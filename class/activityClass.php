@@ -1,7 +1,7 @@
 <?php 
 class activityClass
 {
-	public function addChecklist($name)
+	public function addChecklist($name) //must be change to activity
 	{
 		try {
 			$db = getDB();

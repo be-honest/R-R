@@ -15,8 +15,7 @@ if (isset($_POST['voteEvent']))
 	print_r($uid);
 }
 
-
-$events = $eventClass->getEvents($evp_id);
+$events = $eventClass->getAllEvents($evp_id);
 	// PRINT_r($events);
 ?>
 
