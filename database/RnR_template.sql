@@ -83,7 +83,8 @@ CREATE TABLE `event_votes` (
 insert  into `event_votes`(`event_id`,`user_id`) values 
 (25,3),
 (26,3),
-(27,3);
+(27,3),
+(34,3);
 
 /*Table structure for table `event_voting_period` */
 
@@ -103,13 +104,15 @@ CREATE TABLE `event_voting_period` (
   KEY `event_status_id` (`event_status_id`),
   CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_voting_period` */
 
 insert  into `event_voting_period`(`evp_id`,`user_id`,`event_status_id`,`start_date`,`end_date`,`isOpen`,`start_event_date`,`end_event_date`) values 
 (1,1,1,'2017-05-02','2017-05-09',1,'2017-05-03','2017-05-27'),
-(11,1,1,'2017-05-04','2017-05-13',1,'2017-05-04','2017-05-11');
+(11,1,1,'2017-05-04','2017-05-13',4,'2017-05-04','2017-05-11'),
+(12,1,1,'2017-05-10','2017-06-20',1,'2017-05-19','2017-06-30'),
+(13,1,1,'2017-05-10','2017-06-20',1,'2017-05-19','2017-06-30');
 
 /*Table structure for table `events` */
 
@@ -125,7 +128,7 @@ CREATE TABLE `events` (
   PRIMARY KEY (`event_id`),
   KEY `evp_id` (`evp_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 /*Data for the table `events` */
 
@@ -186,7 +189,7 @@ CREATE TABLE `users` (
   KEY `status_id` (`status_id`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`),
   CONSTRAINT `users_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `user_status` (`status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
@@ -197,7 +200,9 @@ insert  into `users`(`id`,`user_type_id`,`status_id`,`first_name`,`username`,`pa
 (95,1,2,'Juan','user2','user2','dela Cruz','A'),
 (96,2,1,'Kem','user123','user123123','Juntilla','Arcena'),
 (97,1,2,'Kryce Earl','adminsdfds','adminsdfds','Martus','Arcena'),
-(98,2,2,'Kem','user','user123','Juntilla','Arcena');
+(98,2,2,'Kem','user','user123','Juntilla','Arcena'),
+(99,2,1,'Kem','user34','user123','Juntilla','Arcena'),
+(100,1,1,'Kryce Earl aRTU','admin23','admin23','Martus','Arcena');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

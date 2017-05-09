@@ -5,6 +5,7 @@ require_once 'views/layouts/nav.php';
 include('config.php');
 include('class/eventPeriodClass.php');
 $EVPClass = new eventPeriodClass();
+$EVPs = $EVPClass->getAllEventPeriod();
 
 if(isset($_POST['registerEVP']))
 {
@@ -82,19 +83,30 @@ if(isset($_POST['registerEVP']))
 						<table id="votingPeriod" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 							<thead>
 								<tr>
+									<th>EVP ID</th>
 									<th>Voting Period</th>
-									<th>Event Date</th>
+									<th>Event Period</th>
 									<th>Status</th>
-									<th>User</th>
+									<th>User ID</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td> 05/04/2017 - 05/08/2017</td>
-									<td> 05/04/2017</td>
-									<td> open</td>
-									<td> sample_user</td>
+								<?php 
+										foreach($EVPs as $EVP)
+										{?>
+									<td align="center"> <?php echo $EVP['evp_id'] ?></td>
+									<td align="center"> <?php echo $EVP['start_date'] . ' - ' . $EVP['end_date'] ?></td>
+									<td align="center"> <?php  echo $EVP['start_event_date'] . ' - ' . $EVP['end_event_date'] ?></td>
+									<td align="center"> <?php if($EVP['isOpen']==1)
+											echo "Open";
+											elseif ($EVP['isOpen']==4) {
+												echo "Pending";
+											};
+									 ?></td>
+									<td align="center"> <?php echo $EVP['user_id'] ?></td>
 								</tr>
+								<?php  } ?>
 							</tbody>
 						</table>
 					</div>
