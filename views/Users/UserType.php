@@ -14,7 +14,7 @@ require_once 'views/layouts/nav.php';
 		<div class="col col-md-10 col-md-offset-1">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h4>USERS</h4>
+					<h2>USERS</h2>
 				</div>
 				<div class="panel-body">
 					<ul class="nav nav-pills">
