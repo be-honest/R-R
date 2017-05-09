@@ -22,6 +22,7 @@
       // $url='home.php';
       // header("Location: 'home.php'");
           $_SESSION['successMsgReg']="Event has been successfully created!";
+          
       }
       else
       {
@@ -47,6 +48,13 @@
   .icon {
     font-size: smaller;
   }
+  .close {
+    width: initial; 
+  }
+  .alert{
+    margin-left: 27%;
+    width: 30%;
+  }
 
 </style>
 <br>
@@ -68,18 +76,7 @@
                                         <textarea class="form-control" id="textarea" name="description" required>HIKING!</textarea>
                                     </div>
                             </div> 
-                <!-- date time picker -->
-                            <!-- <div class="form-group">
-                                <label class="col-md-3 control-label">Date</label>
-                                <div class="col-md-4">
-                                   <div id="datetimepicker" class="input-append date">
-                                     <input type="date" class="form-control" required value="2017-04-05" >
-                                     <!-- <span class="add-on"> <span class="icon icon-calendar"></span></span>
-                                   </div>
-                                </div>
-                            </div> --> 
-                <!-- end of date picker -->
-
+               
                  <!-- activity list -->
                     <div class="form-group">
                         <label class="col-md-3 control-label">Activities</label>
@@ -93,7 +90,6 @@
                             <div class="col-md-4">
                                 <div class="panel panel-bold panel-info">
                                     <ul style="list-style: none;" id="list" class="list">
-
                                     </ul>
                                 </div>
                             </div>
@@ -118,70 +114,46 @@
                         </div>
                         <br>
                     <!-- button -->
-                      <div class="form-group">
-                        <div class="col-sm-6 col-sm-offset-3">
-                          <button type="submit" class="btn btn-info col-sm-3" name="registerEvent">
-                            Create Event
-                          </button>
-                          <button type="button" class="btn btn-default" style="float: right; margin-right: 35%; width: 20%;">Back</button>
-  
-                          <br><br>
-
-                          <?php if($errorMsgReg)
-                          { ?>
-                          <div class="alert alert-danger alert-dismissable" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                             <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
-                           </button>
-                           <br><br>
-                           <strong>Error!</strong> <?php echo $errorMsgReg; ?>
-                         </div>
-                         <?php } ?> 
-
-                         <?php if (isset($_SESSION['successMsgReg']))
-                         {?>
-                         <div class="alert alert-success fade in">
-                          <button type="button" class="close data-dismiss="alert" aria-hidden="Close">
-                            <span aria-hidden="true" style="padding: 0; float: right;">×</span>
-                          </button>
-                          <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
-                        </div>
-                        <?php } ?>
-                      </div>
-                    </div>
-                   <!--      <div class="form-group">
-                            <div class="col-sm-6 col-sm-offset-3">
-                                <button type="submit" name="registerEvent" class="btn btn-info col-sm-3">Create Event</button>
-                                <button type="button" class="btn btn-default">Back</button>
-                                <br><br>
-                             <?php 
-                             if($errorMsgReg)
-                              { ?>
-                          <div class="alert alert-danger alert-dismissable" role="alert">
-                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">×</span>
-                          </button>
-                          <strong>Error!</strong> <?php echo $errorMsgReg; ?>
-                      </div>
-                      <?php } ?> 
-                      <?php if (isset($_SESSION['successMsgReg']))
-                      {?>
-                      <div class="alert alert-success fade in">
-                        <button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
-                          <span aria-hidden="true" style="padding: 0; float: right;">x</span>
+                    <div class="form-group">
+                      <div class="col-sm-6 col-sm-offset-3">
+                         <button type="button" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;">
+                           Create Event
+                         </button>
+                        <button type="submit" class="btn btn-default col-sm-3" name="registerEvent">
+                          Back
                         </button>
-                          <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+                       
+                        <br><br>
                       </div>
-                      <?php } ?> -->
-                            
+                       <br><br>
 
+                        <?php if($errorMsgReg)
+                        { ?>
+                        <div class="alert alert-danger alert-dismissable" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
+                         </button>
+                         <strong>Error!</strong> <?php echo $errorMsgReg; ?>
+                       </div>
+                       <?php } ?> 
 
-                            </div>
+                       <?php if (isset($_SESSION['successMsgReg']))
+                       {?>
+                      <div class="alert alert-success alert-dismissable" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true" class="exit" style="float:right; padding: 0;">x</span>
+                        </button>
+                        <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
                         </div>
-                    </fieldset>
-                </form>
-            </div>
+                      <?php } ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
+      </div>
     </div>
     <?php 
         require_once 'views/layouts/footer.php';

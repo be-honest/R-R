@@ -71,6 +71,10 @@ elseif (!$username_check && !$password_check)
           background-color: #2ba22d;
           box-shadow: none;
       }
+
+      .close {
+        width: initial; 
+      }
   
   </style>
  </head>

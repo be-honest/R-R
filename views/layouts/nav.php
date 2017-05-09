@@ -38,6 +38,8 @@
 					<a class="dropbtn" href="Events.php">Events</a>
 						<div class="dropdown-content">
 							<a href="Events.php">Create Event</a>
+							<a href="Activity.php">Activity</a>
+							<a href="#">Checklist</a>
 						</div>
 				</li>
 				<li>
