@@ -1,9 +1,6 @@
 <?php 
 class activityClass
 {
-
-
-
 	public function addChecklist($name)
 	{
 		try {
@@ -18,18 +15,6 @@ class activityClass
           }
 			
 		}
-
-
-	}
-
-
-
-
-
-
-
-
-
 
 
      public function adminRegistration($username,$password,$first_name,$last_name,$middle_name,$status_id)

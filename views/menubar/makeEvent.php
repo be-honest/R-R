@@ -33,8 +33,6 @@
         // var_dump($_POST['activity']);
     }
  ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +74,7 @@
                                         <textarea class="form-control" id="textarea" name="description" required>HIKING!</textarea>
                                     </div>
                             </div> 
-               
+
                  <!-- activity list -->
                     <div class="form-group">
                         <label class="col-md-3 control-label">Activities</label>
@@ -88,10 +86,13 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                             <div class="col-md-4">
+                            
                                 <div class="panel panel-bold panel-info">
+
                                     <ul style="list-style: none;" id="list" class="list">
                                     </ul>
                                 </div>
+                                
                             </div>
                     </div>
                     <!-- end of activity list -->
@@ -112,6 +113,8 @@
                                     <input type="url" class="form-control" name="location" value="http://localhost/RandR/Events.php" required>
                                 </div>
                         </div>
+
+                        <iframe align="center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7849.994918222582!2d123.91486999859771!3d10.342087570323582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a998faf20efc95%3A0xabb4dc9385821ad3!2sBanilad%2C+Mandaue+City%2C+Cebu!5e0!3m2!1sen!2sph!4v1494230754993"" width="450" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
                         <br>
                     <!-- button -->
                     <div class="form-group">
