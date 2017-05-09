@@ -92,6 +92,10 @@ elseif (!$username_check && !$password_check)
         box-shadow: none;
     }
 
+      .close {
+        width: initial; 
+      }
+
 
   
   </style>

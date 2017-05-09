@@ -77,16 +77,27 @@
         $('#user-data').DataTable();
       } );                   
     </script>
-
+<!-- voting period datatable -->
     <script>
      $(document).ready(function() {
        $('#votingPeriod').DataTable();
      } );
    </script>
+<!-- events datable -->
+   <script>
+     $(document).ready(function() {
+       $('#event-data').DataTable();
+     } );
+   </script>
+<!-- activity datatable -->
+<script>
+  $(document).ready(function() {
+    $('#act').DataTable();
+  } );
+</script>
 
 
    <script type="text/javascript">
-
     $(function () {
       $("#datetimepicker1").datetimepicker();
     });

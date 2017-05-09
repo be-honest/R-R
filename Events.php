@@ -1,3 +1,3 @@
 <?php 
-	include('views/menubar/makeEvent.php');
+	include('views/menubar/event.php');
  ?>

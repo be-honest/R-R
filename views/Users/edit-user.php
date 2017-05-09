@@ -100,6 +100,17 @@ $userStatus="";
           box-shadow: none;
       }
 
+      .alert{
+        margin-left: 30%;
+        width: 40%;
+      }
+
+      .close {
+        width: initial; 
+      }
+
+
+
   </style>
  </head>
  <body>
@@ -164,7 +175,6 @@ $userStatus="";
                      <div class="radio custom-control custom-radio col-sm-2">
                        <div class="radio custom-control custom-radio col-sm-1" style="padding: 0; ">
                          <label>
-
                            <input type="radio" name="optradio" id="active" value="1" 
                            <?php if($userStatus==1)
                                     { ?> checked=true<?php
@@ -193,27 +203,31 @@ $userStatus="";
                         <button type="submit" class="btn btn-success" name="editUser">Update</button>
                         <button type="button" class="btn btn-info">Cancel</button>
                         <br><br>
+                     </div>
+                <br>
+                <br>
                          
-      <?php 
-      if($errorMsgReg)
-      { 
-        ?>
-      <div class="alert alert-danger alert-dismissable" role="alert">
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-      <strong>Oops!</strong> <?php echo $errorMsgReg; ?>
-      </div>
-      <?php 
-      }
-       ?> 
-       <?php if (isset($_SESSION['successMsgReg']))
-  {?>
-  <div class="alert alert-success fade in"><button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="true">x</button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> </div>
-  <?php } ?>
-                    </div>
-
+               
+                <?php 
+                if($errorMsgReg)
+                { 
+                  ?>
+                  <div class="alert alert-danger alert-dismissable" role="alert">
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="float: right;">×</span>
+                  </button>
+                  <strong>Oops!</strong> <?php echo $errorMsgReg; ?><?php } ?>
                 </div>
+      
+                <?php if (isset($_SESSION['successMsgReg']))
+                {?>
+                  <div class="alert alert-success fade in">
+                    <button type="button" class="close close-alert" data-dismiss="Close">
+                     <span aria-hidden="true" style="float: right;">×</span>
+                   </button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+                   </div>
+                   <?php } ?>
+                    </div>  
             </form> 
             <br>
         </div> 
