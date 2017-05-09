@@ -28,9 +28,7 @@ class eventClass
 			$st->execute(array($id));
 			$data=$st->fetchAll();
 		} catch (PDOException $e) {
-
 		}
-
 		return $data;
 	}
 

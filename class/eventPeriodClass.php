@@ -14,9 +14,23 @@ class eventPeriodClass
 			return $stmt;
 
 		} catch(PDOException $e) {
-          echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-			
+			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 		}
 	}
+
+	public function getAllEventPeriod()
+	{
+		try {
+			$db = getDB();
+          // $st = $db->prepare("SELECT * FROM users");  
+			$st = $db->prepare("SELECT * FROM event_voting_period");
+			$st->execute();
+			$data=$st->fetchAll();
+		} catch (PDOException $e) {
+
+		}
+
+		return $data;
+	}
 }
- ?>
+?>

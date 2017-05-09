@@ -80,7 +80,7 @@
                 <!-- end of date picker -->
 
                  <!-- activity list -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="col-md-3 control-label">Activities</label>
                             <div class="col-md-3">
                                 <input type="text" id="activity" placeholder="Add an activity" class="form-control" name="activity[]">
@@ -99,18 +99,18 @@
                                 </div>
                                 
                             </div>
-                    </div>
+                    </div> -->
                     <!-- end of activity list -->
 
                     <!-- check list -->
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="col-md-3 control-label">Things to Bring</label>
                                 <div class="col-md">    
                                     <div class="col-md-6">
                                         <input type="text" data-role="tagsinput" class="tag form-control" placeholder="Items..." required>
                                     </div>
                                 </div>
-                        </div>
+                        </div> -->
                     <!-- location -->
                         <div class="form-group">
                             <label class="col-md-3 control-label">Location</label>

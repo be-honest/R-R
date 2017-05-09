@@ -6,7 +6,7 @@ include('class/eventClass.php');
 include('class/voteClass.php');
 $eventClass = new eventClass();
 $voteClass = new voteClass();
-$evp_id=1;
+$evp_id=1;//must be changed to current time
 if (isset($_POST['voteEvent'])) 
 {
 	$event_id=$_POST['event'];
