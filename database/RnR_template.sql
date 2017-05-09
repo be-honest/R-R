@@ -54,9 +54,16 @@ CREATE TABLE `event_status` (
   `event_status_id` int(10) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`event_status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_status` */
+
+insert  into `event_status`(`event_status_id`,`description`) values 
+(1,'Open'),
+(2,'Closed'),
+(3,'Ongoing'),
+(4,'Pending'),
+(5,'Cancelled');
 
 /*Table structure for table `event_votes` */
 
@@ -73,6 +80,11 @@ CREATE TABLE `event_votes` (
 
 /*Data for the table `event_votes` */
 
+insert  into `event_votes`(`event_id`,`user_id`) values 
+(25,3),
+(26,3),
+(27,3);
+
 /*Table structure for table `event_voting_period` */
 
 DROP TABLE IF EXISTS `event_voting_period`;
@@ -84,14 +96,20 @@ CREATE TABLE `event_voting_period` (
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   `isOpen` tinyint(2) DEFAULT NULL,
+  `start_event_date` date DEFAULT NULL,
+  `end_event_date` date DEFAULT NULL,
   PRIMARY KEY (`evp_id`),
   KEY `user_id` (`user_id`),
   KEY `event_status_id` (`event_status_id`),
   CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_voting_period` */
+
+insert  into `event_voting_period`(`evp_id`,`user_id`,`event_status_id`,`start_date`,`end_date`,`isOpen`,`start_event_date`,`end_event_date`) values 
+(1,1,1,'2017-05-02','2017-05-09',1,'2017-05-03','2017-05-27'),
+(11,1,1,'2017-05-04','2017-05-13',1,'2017-05-04','2017-05-11');
 
 /*Table structure for table `events` */
 
@@ -107,9 +125,15 @@ CREATE TABLE `events` (
   PRIMARY KEY (`event_id`),
   KEY `evp_id` (`evp_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 /*Data for the table `events` */
+
+insert  into `events`(`event_id`,`evp_id`,`name`,`description`,`location`,`image`) values 
+(25,1,'Hiking','Hiking at Mt. Mayon','http://localhost/RandR/Events.php',NULL),
+(26,1,'Swimming','Swimming at Manila Bay','http://localhost/RandR/Events.php',NULL),
+(27,1,'Canyoneering','Canyoneering at Grand Canyon','http://localhost/RandR/Events.php',NULL),
+(34,1,'Jogging','Abellana Jogging Special','http://localhost/RandR/Events.php',NULL);
 
 /*Table structure for table `user_status` */
 
@@ -124,8 +148,9 @@ CREATE TABLE `user_status` (
 /*Data for the table `user_status` */
 
 insert  into `user_status`(`status_id`,`description`) values 
-(1,'active'),
-(2,'inactive');
+(0,'Blocked'),
+(1,'Active'),
+(2,'Inactive');
 
 /*Table structure for table `user_type` */
 
@@ -140,8 +165,8 @@ CREATE TABLE `user_type` (
 /*Data for the table `user_type` */
 
 insert  into `user_type`(`user_type_id`,`description`) values 
-(1,'admin'),
-(2,'user');
+(1,'Admin'),
+(2,'Member');
 
 /*Table structure for table `users` */
 
@@ -161,13 +186,18 @@ CREATE TABLE `users` (
   KEY `status_id` (`status_id`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`),
   CONSTRAINT `users_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `user_status` (`status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`user_type_id`,`status_id`,`first_name`,`username`,`password`,`last_name`,`middle_name`) values 
 (1,1,1,'Kryce Earl','admin1','admin1','Martus','Arcena'),
-(2,1,1,'Honest','admin2','admin2','Aguanta',NULL);
+(2,1,2,'Honest','admin2','admin2','Aguanta',NULL),
+(3,2,1,'Kem','user1','user1','Juntilla','Arcena'),
+(95,1,2,'Juan','user2','user2','dela Cruz','A'),
+(96,2,1,'Kem','user123','user123123','Juntilla','Arcena'),
+(97,1,2,'Kryce Earl','adminsdfds','adminsdfds','Martus','Arcena'),
+(98,2,2,'Kem','user','user123','Juntilla','Arcena');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
