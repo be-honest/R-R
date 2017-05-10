@@ -49,6 +49,23 @@ class eventClass
 		return $data;
 	}
 
+	public function getEventsByEVP($id)
+	{
+		try {
+			$db = getDB();
+          //$st = $db->prepare("SELECT * FROM users");  
+			$st = $db->prepare("SELECT DISTINCT event_id, events.`evp_id`, start_event_date, name, description
+				FROM EVENTS, event_voting_period
+				WHERE events.`evp_id`=event_voting_period.`evp_id` AND events.`evp_id`=?");
+			$st->execute(array($id));
+			$data=$st->fetchAll();
+		} catch (PDOException $e) {
+
+		}
+
+		return $data;
+	}
+
 	public function getEvent($id)
 	{
 		try {
@@ -69,6 +86,25 @@ class eventClass
 		}
 
 	}
+
+	public function checkEventCount($id)
+	{
+		$db = getDB();
+		$stmt = $db->prepare("SELECT event_id FROM events WHERE event_id=?");  
+		$stmt->execute(array($id));
+		$count=$stmt->rowCount();
+		$data=$stmt->fetch(PDO::FETCH_OBJ);
+		$db = null;
+		if($count)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}    
+	}
+
 
 
 }

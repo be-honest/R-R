@@ -16,48 +16,20 @@ class activityClass
           
      }
 
-
-     public function adminRegistration($username,$password,$first_name,$last_name,$middle_name,$status_id)
+     public function getAllActivities()
      {
-          try{
+          try {
                $db = getDB();
-               $st = $db->prepare("SELECT id FROM users WHERE username=:username");  
-               $st->bindParam("username", $username,PDO::PARAM_STR);
+               $st = $db->prepare("SELECT DISTINCT events.`event_id` AS 'Event ID',events.`name` AS 'Event Name', activities.`activity_id` AS 'Activity ID',activities.`name` AS 'Activity Name',events.`evp_id` AS 'EVP ID'
+                    FROM event_voting_period, EVENTS, activities
+                    WHERE activities.`event_id`= events.`event_id` AND events.`evp_id` = event_voting_period.`evp_id`");
                $st->execute();
-               $count=$st->rowCount();
-               $user_type_id = 1;
-               if($count<1)
-               {
-                    $stmt = $db->prepare("INSERT INTO users(user_type_id,username,password,first_name,last_name,middle_name,status_id) VALUES (?,?,?,?,?,?,?)");  
-                    $stmt->execute(array($user_type_id,$username,$password,$first_name,$last_name,$middle_name,$status_id));
-                    $uid=$db->lastInsertId();
-                    $db = null;
-          // $_SESSION['uid']=$uid;
-                    return true;
-
-               }
-               else
-               {
-                    $db = null;
-                    return false;
-               }
-               
-               
-          } 
-          catch(PDOException $e) {
-               echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+               $data=$st->fetchAll();
+          } catch (PDOException $e) {
           }
+
+          return $data;
      }
-
-
-
-
-
-
-
-
-
-
 
 }
 ?>
