@@ -41,7 +41,7 @@ $userDetails=$userClass->userDetails($session_uid);
       .block-inverse
       {
           color: #616161;
-          background-color: #B2EBF2;
+          background-color: gainsboro;
       }
 
       .btn-primary {
@@ -58,7 +58,6 @@ $userDetails=$userClass->userDetails($session_uid);
   
 
 <?php @require_once('views/layouts/nav.php') ?>
-    
 <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

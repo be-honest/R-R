@@ -111,15 +111,19 @@
                             <label class="col-md-3 control-label">Location</label>
                                 <div class="col-md-4"> 
                                     <input type="url" class="form-control" name="location" value="http://localhost/RandR/Events.php" required>
+                                    <br>
                                 </div>
-                        </div>
-
-                        <iframe align="center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7849.994918222582!2d123.91486999859771!3d10.342087570323582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a998faf20efc95%3A0xabb4dc9385821ad3!2sBanilad%2C+Mandaue+City%2C+Cebu!5e0!3m2!1sen!2sph!4v1494230754993"" width="450" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                  <br>                  
+                                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        
                         <br>
                     <!-- button -->
                     <div class="form-group">
                       <div class="col-sm-6 col-sm-offset-3">
-                         <button type="button" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;">
+                         <!-- button for modal -->
+                         <button type="button" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;"
+                                data-toggle="modal" data-target="#message">
                            Create Event
                          </button>
                         <button type="submit" class="btn btn-default col-sm-3" name="registerEvent">
@@ -150,6 +154,20 @@
                         </div>
                       <?php } ?>
                     </div>
+                    <!-- modal -->
+                      <div class="modal fade" id="message" role="dialog" aria-labelledby="label" aria-hiddent="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header"></div>
+                              <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">x</span>
+                                <span class="src-only">Close</span>
+                              </button>
+                              <h4 class="modal-title" id="label">Message</h4>
+                          </div>
+                    
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>

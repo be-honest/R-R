@@ -34,20 +34,20 @@
    <div class="form-group">
     <label class="control-label col-md-3">Last Name</label>
     <div class="col-lg-6">
-      <input type="text" class="form-control" value="Honest" readonly>
+      <input type="text" class="form-control" value="Aguanta" readonly>
     </div>
   </div>
    <div class="form-group">
     <label class="control-label col-md-3">Middle Name</label>
     <div class="col-lg-6">
-      <input type="text" class="form-control" value="Honest" readonly>
+      <input type="text" class="form-control" value="Romero" readonly>
     </div>
   </div>
   <br>
    <div class="form-group">
     <label class="control-label col-md-3">Username</label>
     <div class="col-lg-6">
-      <input type="text" class="form-control" value="Honest" readonly>
+      <input type="text" class="form-control" value="honestoni" readonly>
     </div>
   </div>
   <div class="form-group">

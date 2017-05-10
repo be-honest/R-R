@@ -103,10 +103,24 @@ if(isset($_GET['id']))
 					</div>
 				</div>
 			</div>
-
 		</div>
-
-
+<!-- modal -->
+		<!-- <div class="modal">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						    <h4 class="modal-title">Alert</h4>
+					</div>
+					<div class="modal-body">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+ -->
 
 		<?php 
 		require_once 'views/layouts/footer.php';
