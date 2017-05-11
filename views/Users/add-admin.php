@@ -130,7 +130,6 @@ elseif (!$username_check && !$password_check)
   <!-- end of growl  -->
   <div class="container">
 
-        
     <form method="post" name="AddAdmin" class="form-horizontal" role="form">
      <h2 style="font-size: 44px;">
      <span class="icon icon-add-user"></span>
@@ -226,10 +225,6 @@ elseif (!$username_check && !$password_check)
       <?php } ?>
     </div>
   </div>
-  
-
-    
-
 </form> 
 </div> 
        <?php 

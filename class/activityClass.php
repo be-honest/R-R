@@ -1,21 +1,6 @@
 <?php 
 class activityClass
 {
-	public function addChecklist($name) //must be change to activity
-	{
-		try {
-			$db = getDB();
-			$stmt = $db->prepare("INSERT INTO activities(event_id,name) VALUES (?,?)");
-			$stmt->execute(array(1,$name));
-			$db = null;
-			return true;
-
-		}catch(PDOException $e) {
-               echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-          }
-          
-     }
-
      public function getAllActivities()
      {
           try {
@@ -27,9 +12,24 @@ class activityClass
                $data=$st->fetchAll();
           } catch (PDOException $e) {
           }
-
           return $data;
      }
+
+     public function activityRegistration($event_id,$name)
+     {
+          try {
+               $db = getDB();
+               $stmt = $db->prepare("INSERT INTO activities(event_id,name) VALUES (?,?)");
+               $stmt->execute(array($event_id,$name));
+               $db = null;
+               return true;
+
+          } catch(PDOException $e) {
+               echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+               
+          }
+     }
+
 
 }
 ?>
