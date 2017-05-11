@@ -196,9 +196,9 @@ if (isset($_POST['registerActivity']))
 								<th>EVP ID</th>
 							</tr>
 						</thead>
+						<tbody>
 						<?php foreach($activities as $activity) 
 						{ ?>
-						<tbody>
 							<tr>
 								<th><?php echo $activity['Activity ID'];?></th>
 								<th><?php echo $activity['Activity Name']; ?></th>

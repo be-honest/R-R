@@ -178,6 +178,7 @@ if (isset($_POST['registerChecklist']))
 			<div class="panel panel-info">
 				<div class="panel panel-body">
 					<table id="act" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
 						<?php 
 						if(!isset($_GET['id'])&&!isset($_GET['evp_id']))
 							{ ?>
@@ -189,9 +190,9 @@ if (isset($_POST['registerChecklist']))
 								<th>EVP ID</th>
 							</tr>
 						</thead>
+						<tbody>
 						<?php foreach($checklists as $checklist) 
 						{ ?>
-						<tbody>
 							<tr>
 								<th><?php echo $checklist['Checklist ID'];?></th>
 								<th><?php echo $checklist['Checklist Name']; ?></th>
@@ -217,7 +218,6 @@ if (isset($_POST['registerChecklist']))
 							{ 
 								if($_GET['evp_id'] == $checklist['EVP ID'])
 									{?>
-
 								<tr>
 									<th><?php echo $checklist['Checklist ID'];?></th>
 									<th><?php echo $checklist['Checklist Name']; ?></th>
