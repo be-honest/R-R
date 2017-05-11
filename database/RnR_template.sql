@@ -27,7 +27,7 @@ CREATE TABLE `activities` (
   PRIMARY KEY (`activity_id`),
   KEY `event_id` (`event_id`),
   CONSTRAINT `activities_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 /*Data for the table `activities` */
 
@@ -42,22 +42,43 @@ insert  into `activities`(`activity_id`,`event_id`,`name`) values
 (8,26,'shouting'),
 (9,27,'grabbing'),
 (10,25,'texting'),
-(11,26,NULL);
+(11,26,NULL),
+(12,27,'test'),
+(13,25,'cooking'),
+(14,27,'213'),
+(15,27,'213'),
+(16,27,'213'),
+(17,27,'Cooking'),
+(18,27,'Cooking'),
+(19,27,'Cooking'),
+(20,27,'Cooking'),
+(21,26,'swimming'),
+(22,26,'swimming');
 
 /*Table structure for table `checklist` */
 
 DROP TABLE IF EXISTS `checklist`;
 
 CREATE TABLE `checklist` (
-  `checklist_id` int(10) NOT NULL,
+  `checklist_id` int(10) NOT NULL AUTO_INCREMENT,
   `event_id` int(10) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`checklist_id`),
   KEY `event_id` (`event_id`),
   CONSTRAINT `checklist_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `checklist` */
+
+insert  into `checklist`(`checklist_id`,`event_id`,`name`) values 
+(1,25,'running shoes'),
+(2,26,'shirt'),
+(4,34,'running shoes'),
+(5,25,'jacket'),
+(8,26,'goggles'),
+(9,34,NULL),
+(11,34,'shoe lace'),
+(12,25,'test');
 
 /*Table structure for table `event_status` */
 
@@ -117,7 +138,7 @@ CREATE TABLE `event_voting_period` (
   KEY `event_status_id` (`event_status_id`),
   CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_voting_period` */
 
