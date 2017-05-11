@@ -32,5 +32,28 @@ class eventPeriodClass
 
 		return $data;
 	}
+
+	public function getEventPeriod($id)
+	{
+		try {
+			$db = getDB();      
+			$st = $db->prepare("SELECT * FROM event_voting_period WHERE evp_id=?");
+			// $st->bindParam("event_id", $id,PDO::PARAM_STR);
+			$st->execute(array($id));
+			$count=$st->rowCount(); 
+			if($count)
+			{
+				$data = $st->fetch();
+				return $data;
+			}
+			else 
+				return false;
+		} catch (PDOException $e) {
+
+		}
+
+	}
+
+
 }
 ?>

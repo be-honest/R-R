@@ -27,9 +27,22 @@ CREATE TABLE `activities` (
   PRIMARY KEY (`activity_id`),
   KEY `event_id` (`event_id`),
   CONSTRAINT `activities_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 /*Data for the table `activities` */
+
+insert  into `activities`(`activity_id`,`event_id`,`name`) values 
+(1,25,'walking'),
+(2,26,'talking'),
+(3,27,'drinking'),
+(4,25,'standing'),
+(5,26,'sitting'),
+(6,27,'idling'),
+(7,25,'chatting'),
+(8,26,'shouting'),
+(9,27,'grabbing'),
+(10,25,'texting'),
+(11,26,NULL);
 
 /*Table structure for table `checklist` */
 
@@ -104,15 +117,13 @@ CREATE TABLE `event_voting_period` (
   KEY `event_status_id` (`event_status_id`),
   CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_voting_period` */
 
 insert  into `event_voting_period`(`evp_id`,`user_id`,`event_status_id`,`start_date`,`end_date`,`isOpen`,`start_event_date`,`end_event_date`) values 
 (1,1,1,'2017-05-02','2017-05-09',1,'2017-05-03','2017-05-27'),
-(11,1,1,'2017-05-04','2017-05-13',4,'2017-05-04','2017-05-11'),
-(12,1,1,'2017-05-10','2017-06-20',1,'2017-05-19','2017-06-30'),
-(13,1,1,'2017-05-10','2017-06-20',1,'2017-05-19','2017-06-30');
+(2,1,1,'2017-05-04','2017-05-13',4,'2017-05-04','2017-05-11');
 
 /*Table structure for table `events` */
 
@@ -128,15 +139,15 @@ CREATE TABLE `events` (
   PRIMARY KEY (`event_id`),
   KEY `evp_id` (`evp_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 /*Data for the table `events` */
 
 insert  into `events`(`event_id`,`evp_id`,`name`,`description`,`location`,`image`) values 
 (25,1,'Hiking','Hiking at Mt. Mayon','http://localhost/RandR/Events.php',NULL),
 (26,1,'Swimming','Swimming at Manila Bay','http://localhost/RandR/Events.php',NULL),
-(27,1,'Canyoneering','Canyoneering at Grand Canyon','http://localhost/RandR/Events.php',NULL),
-(34,1,'Jogging','Abellana Jogging Special','http://localhost/RandR/Events.php',NULL);
+(27,2,'Canyoneering','Canyoneering at Grand Canyon','http://localhost/RandR/Events.php',NULL),
+(34,2,'Jogging','Abellana Jogging Special','http://localhost/RandR/Events.php',NULL);
 
 /*Table structure for table `user_status` */
 

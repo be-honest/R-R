@@ -123,7 +123,7 @@
                       <div class="col-sm-6 col-sm-offset-3">
                          <!-- button for modal -->
                          <button type="button" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;"
-                                data-toggle="modal" data-target="#message">
+                                data-toggle="modal" href="#msg">
                            Create Event
                          </button>
                         <button type="submit" class="btn btn-default col-sm-3" name="registerEvent">
@@ -154,18 +154,39 @@
                         </div>
                       <?php } ?>
                     </div>
-                    <!-- modal -->
-                      <div class="modal fade" id="message" role="dialog" aria-labelledby="label" aria-hiddent="true">
+            <!-- modal -->
+                      <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
-                            <div class="modal-header"></div>
-                              <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">x</span>
-                                <span class="src-only">Close</span>
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                                <!-- <span aria-hidden="true">x</span> -->
                               </button>
-                              <h4 class="modal-title" id="label">Message</h4>
+                              <h4 class="modal-title">The event has been successfully created!</h4>
+                            </div>
+                           <!--  <div class="modal-body">
+                                <h4>The event has been successfully created!</h4>
+                            </div> -->
+                            <div class="modal-body">
+                                <p>Do you wish to add an activity?</p>
+                            
+                            <!-- <div class="modal-footer"> -->
+                              <div style="display: flex; align-items: center; justify-content: space-around; ">
+                                <button class="btn btn-default" data-dismiss="modal">
+                                  <span class="icon icon-thumbs-down"></span>
+                                    No
+                                </button>
+                                 <button class="btn btn-primary">
+                                  <a class="event" href="Activity.php">
+                                    <span class="icon icon-thumbs-up"></span>
+                                    Yes
+                                  </a>
+                                </button>
+                              </div>
+                            </div>
                           </div>
-                    
+                      
                         </div>
                       </div>
                   </div>

@@ -23,6 +23,9 @@ $userDetails=$userClass->userDetails($session_uid);
     <link href="assets/css/application.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- decorative font -->
+   <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+
 
 
     
@@ -70,15 +73,24 @@ $userDetails=$userClass->userDetails($session_uid);
   </div>
 </div>
 
-<div class="block block-inverse text-center p-b">
+<!-- <div class="block block-inverse text-center p-b">
   <h1 class="block-title p-a" >Rest and Recreation Portal</h1>
   <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
     <a href="eventVotingPeriod.php">
       <button class="btn btn-info m-t">Start opening an event.</button>
     </a>
+</div> -->
+
+<div class="container bg-overlay">
+  <div class="row text-center">
+    <h1 class="deco">Rest and Recreation <br> Portal</h1>
+    <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
+    <br>
+      <a href="eventVotingPeriod.php">  
+        <button type="button" class="btn btn-info btn-lg">Get Started</button>
+      </a>
+  </div>
 </div>
-
-
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/chart.js"></script>
