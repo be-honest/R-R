@@ -92,8 +92,13 @@
 <!-- activity datatable -->
 <script>
   $(document).ready(function() {
-    $('#act').DataTable();
-  } );
+    $('#act').DataTable({
+      "sPaginationType": "full_numbers",
+      "bSort": true,
+      "bFilter": true
+    });
+  });
+  
 </script>
 
 

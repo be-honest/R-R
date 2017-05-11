@@ -52,7 +52,17 @@ $userDetails=$userClass->userDetails($session_uid);
         background-color: #685d9f;
         border-color: #5d548f;
       }
-
+      #homeBtn:hover{
+          color: #2196F3;
+          border: 2px solid #1E88E5;
+          background-color: #fff;
+          
+      }
+       #homeBtn{
+        color: #fff;
+        background-color: #2196F3;
+        border: 2px solid #1E88E5;
+      }
     </style>
       <link href="assets/css/custom.css" rel="stylesheet">
   </head>
@@ -87,10 +97,51 @@ $userDetails=$userClass->userDetails($session_uid);
     <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
     <br>
       <a href="eventVotingPeriod.php">  
-        <button type="button" class="btn btn-info btn-lg">Get Started</button>
+        <button type="button" class="btn btn-default btn-lg" id="homeBtn">Get Started</button>
       </a>
   </div>
 </div>
+<!-- container 1 -->
+<article class="container box style1 right">
+  <a href="#" class="image fit">
+    <img src="assets/img/iceland.jpg" >
+  </a>
+  <div class="inner">
+    <header>
+      <h2 class="event-name">
+        <a href="#">Event Name</a>        
+      </h2>
+      <p class="event-meta">Honest on May 11,2017</p>
+      <p>Description:
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt provident tempora ab, qui optio et quisquam unde necessitatibus expedita nihil ut!</p>
+      <button type="button" class="btn btn-default btn-md">
+        <span class="icon icon-dots-three-horizontal"></span>
+      </button>
+    </header>
+  </div>
+</article>
+<!-- container 2 -->
+  <article class="container box style1 left">
+    <a href="#" class="image fit">
+      <img src="assets/img/instagram_6.jpg">
+    </a>
+    <div class="inner">
+      <header>
+        <h2 class="event-name">
+          <a href="#">Event Name</a>        
+        </h2>
+        <p class="event-meta">Honest on May 11,2017</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt provident tempora ab, qui optio et quisquam unde necessitatibus expedita nihil ut!
+        </p>
+        <button type="button" class="btn btn-default btn-md">
+          More
+        </button>
+      </header>
+    </div>
+  </article>
+
+<br>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/chart.js"></script>
