@@ -155,6 +155,7 @@ if(isset($_GET['evp_id'])&&isset($_GET['id']))
 
 				</ul>
 			</div>
+
 		</div>
 		<?php } ?>
 		<!-- End of Event Dropdown -->
@@ -261,7 +262,6 @@ if(isset($_GET['evp_id'])&&isset($_GET['id']))
 	<!-- End of Data Table -->
 
 </div>
-
 
 
 <?php 
