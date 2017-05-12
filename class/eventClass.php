@@ -58,12 +58,18 @@ class eventClass
 				FROM EVENTS, event_voting_period
 				WHERE events.`evp_id`=event_voting_period.`evp_id` AND events.`evp_id`=?");
 			$st->execute(array($id));
+			$count=$st->rowCount();
 			$data=$st->fetchAll();
+
+			if($count)
+			return $data;
+			else
+			return false;
 		} catch (PDOException $e) {
 
 		}
 
-		return $data;
+		
 	}
 
 	public function getEvent($id)

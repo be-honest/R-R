@@ -2,7 +2,6 @@
 require_once'views/layouts/header.php';
 require_once'views/layouts/nav.php';
 
-include('config.php');
 include('class/eventClass.php');
 include('class/eventPeriodClass.php');
 include('class/activityClass.php');
@@ -61,6 +60,8 @@ if(isset($_GET['evp_id'])&&isset($_GET['id']))
 if (isset($_POST['registerActivity'])) 
 {
 	$activityClass->activityRegistration($_GET['id'],$_POST['activity']);
+	// $url='Activity.php';
+	// header("Location: $url . "?evp_id=" . $_GET['evp_id'] . "&id" . $_GET['id']");
 
 }
 	?>

@@ -9,7 +9,7 @@
 	echo "Please Log in";
 
 	$url="index.php";
-	header("refresh:3;url=$url");
+	header("refresh:1;url=$url");
 	?>
 
 </body>
