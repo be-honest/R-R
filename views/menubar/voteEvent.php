@@ -2,7 +2,6 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 
-include('config.php');
 include('class/eventClass.php');
 include('class/voteClass.php');
 include('class/eventPeriodClass.php');
@@ -10,8 +9,6 @@ include('class/eventPeriodClass.php');
 $eventClass = new eventClass();
 $eventPeriodClass = new eventPeriodClass();
 $voteClass = new voteClass();
-
-
 
 //var_dump($today);
 

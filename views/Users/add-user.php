@@ -2,10 +2,11 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 
-include('config.php');
-include('class/userClass.php');
 $errorMsgReg="";
-$userClass = new userClass();
+
+// include('class/userClass.php'); already declared at session.php
+// $userClass = new userClass();
+
 if (isset($_POST['registerUser'])) 
 {
 

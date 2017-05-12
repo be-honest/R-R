@@ -2,7 +2,7 @@
 require_once'views/layouts/header.php';
 require_once'views/layouts/nav.php';
 
-include('config.php');
+
 include('class/eventClass.php');
 $eventClass = new eventClass();
 $events = $eventClass->getAllEvents();
