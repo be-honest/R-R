@@ -21,7 +21,6 @@ $userDetails=$userClass->userDetails($session_uid);
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet" type='text/css'>
     <link href="assets/css/toolkit.css" rel="stylesheet">
     <link href="assets/css/application.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- decorative font -->
    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
@@ -143,7 +142,9 @@ $userDetails=$userClass->userDetails($session_uid);
 
 <br>
 
-    <script src="assets/js/jquery.min.js"></script>
+<?php @require_once('views/layouts/footer.php') ?>
+
+  <!--   <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/chart.js"></script>
     <script src="assets/js/toolkit.js"></script>
     <script src="assets/js/application.js"></script>
@@ -156,4 +157,4 @@ $userDetails=$userClass->userDetails($session_uid);
       })
     </script>
   </body>
-</html>
+</html> -->

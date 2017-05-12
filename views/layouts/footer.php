@@ -12,6 +12,49 @@
   <!-- date range picker -->
   <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- first column -->
+          <div class="col-md-6">
+            <a href="#" style="text-decoration: none;"><h5 class="title">About</h5></a>
+            <a href="#" style="text-decoration: none;"><h5 class="title">Contact</h5></a>
+            <a href=""><span class="icon icon-twitter"></span></a> &nbsp;
+            <a href=""><span class="icon icon-facebook"></span></a> &nbsp;
+            <a href=""><span class="icon icon-linkedin"></span></a> &nbsp;
+            <a href=""><span class="icon icon-dribbble"></span></a> &nbsp;
+            <a href=""><span class="icon icon-google-plus"></span></a>
+            <p></p>
+          </div>
+        <!-- /first columnn -->
+
+
+        <!-- second column -->
+          <div class="col-md-6">
+            <h5 class="title">the team</h5>
+              <div class="row">
+                <div class="col-md-3">
+                  <img src="assets/img/team1.png" style="width: 50%;">
+                  <p>Kryce Earl Martus</p>
+                </div>
+                <div class="col-md-3">
+                 <img src="assets/img/cat.png" style="width: 40%;" >
+                  <p>Honest R. Aguanta</p>
+                </div>
+              </div>
+           </div>
+          <!-- /second column -->
+
+          <!-- 3rd column:map -->
+          <div class="col-md-6">
+            <h5 class="title">Locate Us</h5>
+             
+          </div>
+          <!-- <hr style="border-color: #333; width: 100%; margin-top: 1rem;" > -->
+     
+    </div>
+  </footer>
+  
 
   <!-- EVENT VOTING PERIOD -->
   <script type="text/javascript">
