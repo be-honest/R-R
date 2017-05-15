@@ -77,22 +77,6 @@ body {
     color: #333;
     background-color: #ccc;
 }
-/*.funkyradio-primary input[type="radio"]:checked ~ label:before, .funkyradio-primary input[type="checkbox"]:checked ~ label:before {
-    color: #fff;
-    background-color: #337ab7;
-}
-.funkyradio-success input[type="radio"]:checked ~ label:before, .funkyradio-success input[type="checkbox"]:checked ~ label:before {
-    color: #fff;
-    background-color: #5cb85c;
-}
-.funkyradio-danger input[type="radio"]:checked ~ label:before, .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
-    color: #fff;
-    background-color: #d9534f;
-}
-.funkyradio-warning input[type="radio"]:checked ~ label:before, .funkyradio-warning input[type="checkbox"]:checked ~ label:before {
-    color: #fff;
-    background-color: #f0ad4e;
-}*/
 .funkyradio-info input[type="radio"]:checked ~ label:before, .funkyradio-info input[type="checkbox"]:checked ~ label:before {
     color: #fff;
     background-color: #5bc0de;

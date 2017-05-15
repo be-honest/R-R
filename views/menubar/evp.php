@@ -76,7 +76,7 @@ if(isset($_POST['registerEVP']))
 	<!-- TABLE -->
 	<br>
 	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
+		<div class="col-sm-11 col-sm-offset-1" style="margin-left: 4.5%;>
 			<div class="imaginary_container">
 				<div class="panel panel-primary">
 					<div class="panel-body" style="padding: 0.5em;">

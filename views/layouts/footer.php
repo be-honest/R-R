@@ -34,12 +34,22 @@
             <h5 class="title">the team</h5>
               <div class="row">
                 <div class="col-md-3">
-                  <img src="assets/img/team1.png" style="width: 50%;">
-                  <p>Kryce Earl Martus</p>
+                  <a href="">
+                    <img src="assets/img/team1.png" style="width: 30%;">
+                  </a>
+                  <p style="margin:0;">Kryce Earl Martus</p>
+                  <p style="color:silver; font-size:smaller;">
+                    <i>Back-End Developer</i>
+                  </p>
                 </div>
                 <div class="col-md-3">
-                 <img src="assets/img/cat.png" style="width: 40%;" >
-                  <p>Honest R. Aguanta</p>
+                  <a href="https://be-honest.github.io/portfolio/">
+                    <img src="assets/img/cat.png" style="width: 25%;">
+                  </a>
+                  <p style="margin:0;">Honest R. Aguanta</p>
+                  <p style="color:silver; font-size:smaller;">
+                    <i>Front-End Developer</i>
+                  </p>
                 </div>
               </div>
            </div>
