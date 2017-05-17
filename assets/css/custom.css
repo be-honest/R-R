@@ -28,16 +28,16 @@ a{
 	color: #00BCD4;
 
 }
-a.event{
-    color: #fff;
-}
 a:hover
 {
     color: #5D4037;
 }
-a:hover, a.event{
-    color: #777;
+a.event{
+    color: #536570;
     text-decoration: none;
+}
+a.event:hover{
+    color: white;
 }
 
 .btn-primary:active{
@@ -336,7 +336,7 @@ header{
     position: absolute;
     display: block;
     width: 100%;
-    height: 25%;
+    height: 24%;
     background-color: rgb(1, 22, 25);
     color: #fff; 
     font-size: 14px;
@@ -380,4 +380,72 @@ footer .title {
 
 .col-md-6 .icon{
     font-size: 18px;
+}
+/*img upload*/
+.input-group{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.input-group-btn{
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+}
+.input-group-addon, .input-group-btn{
+    width: 1%;
+    vertical-align: middle; 
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+#img-upload{
+    width: 100%;
+}
+
+/*vote event*/
+.v-event input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.first{background-image:url(https://images.unsplash.com/photo-1483811828408-436f971ae3e1?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=);}
+.second{background-image:url(https://images.unsplash.com/19/open-road.JPG?dpr=1&auto=format&fit=crop&w=1500&h=1007&q=80&cs=tinysrgb&crop=&bg=);}
+
+.v-event input:active +.poll{opacity: .9;}
+.v-event input:checked +.poll{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.poll{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:200px;height:140px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.poll:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
 }

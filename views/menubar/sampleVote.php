@@ -2,21 +2,18 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 ?>
-<style>
-	.footer{
-		bottom: 0;
-	}
-</style>
+<br>
 <div class="container">
-	<div class="row">
-		<div class="col-lg-3">
-			<div class="info-hover">
-				<p style="text-align: center;">
-					<img src="http://static.tumblr.com/166ab215c9a0bb3ba1b98e810652c3db/pjmcbps/OHEmr2kqz/tumblr_static_dsc_0298lol.jpg" class="img-responsive">
-				</p>
-			</div>
+	<form method="post" class="form-horizontal" role="form">
+		<h3>Vote an Event</h3>
+		<h5>Click image to vote.</h5>
+		<div class="v-event">
+			<input id="event1" type="radio" name="event1" value="first-poll" hidden />
+			<label class="poll first" for="event1"><!-- vpoll --></label> 
+			<input id="event2" type="radio" name="event1" value="second-poll" hidden/>
+			<label class="poll second" for="event2"></label>
 		</div>
-	</div>
+	</form>
 </div>
 
 
@@ -27,5 +24,5 @@ require_once 'views/layouts/nav.php';
 
 
 <?php 
-	require_once 'views/layouts/footer.php';
+	//require_once 'views/layouts/footer.php';
  ?>
