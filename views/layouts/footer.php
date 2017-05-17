@@ -34,7 +34,7 @@
             <h5 class="title">the team</h5>
               <div class="row">
                 <div class="col-md-3">
-                  <a href="">
+                  <a href="https://github.com/kemezike">
                     <img src="assets/img/team1.png" style="width: 30%;">
                   </a>
                   <p style="margin:0;">Kryce Earl Martus</p>
