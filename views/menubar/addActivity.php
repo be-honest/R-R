@@ -13,7 +13,7 @@ $activityClass = new activityClass();
 $activities = $activityClass->getAllActivities();
 $events = $eventClass->getAllEvents();
 $EVPs = $eventPeriodClass->getAllEventPeriod();
-
+$errorMsgReg="";
 if(!isset($_GET['evp_id']))
 {
 	$evpTitle="Choose Event Period";
@@ -52,10 +52,6 @@ if(isset($_GET['evp_id']))
 	}
 }
 
-if(isset($_GET['evp_id'])&&isset($_GET['id']))
-{
-	$events = $eventClass->getEventsByEVP($_GET['evp_id']);
-}
 
 if (isset($_POST['registerActivity'])) 
 {
@@ -64,36 +60,36 @@ if (isset($_POST['registerActivity']))
 	// header("Location: $url . "?evp_id=" . $_GET['evp_id'] . "&id" . $_GET['id']");
 
 }
-	?>
+?>
 
 
-	<div class="container p-t-lg">
+<div class="container p-t-lg">
 
-		<form method="post" name="addActivityy" class="form-horizontal" role="form">
-			<br>
-			<h2 style="font-size: 50px; color: darksalmon; ">
+	<form method="post" name="addActivityy" class="form-horizontal" role="form">
+		<br>
+		<h2 style="font-size: 50px; color: darksalmon; ">
 
-				Event Activity <span class="icon icon-light-up"></span>
-			</h2>
-			<hr style="border-color:darksalmon;"">
-			<br>
+			Event Activity <span class="icon icon-light-up"></span>
+		</h2>
+		<hr style="border-color:darksalmon;"">
+		<br>
 
-			<!-- Start of Event Period dropdown -->
-			<div class="form-group">
-				<label class="col-sm-3 control-label">EVENT PERIODS</label>
-				<div class="dropdown col-sm-4">
-					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownEvent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="border-color: darksalmon;">
-						<?php echo $evpTitle ?>
-						<span class="caret"></span>
-					</button>
+		<!-- Start of Event Period dropdown -->
+		<div class="form-group">
+			<label class="col-sm-3 control-label">EVENT PERIODS</label>
+			<div class="dropdown col-sm-4">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownEvent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="border-color: darksalmon;">
+					<?php echo $evpTitle ?>
+					<span class="caret"></span>
+				</button>
 
-					<ul class="dropdown-menu" aria-labelledby="dropdownEvent">
+				<ul class="dropdown-menu" aria-labelledby="dropdownEvent">
 
-						<?php
-						if(isset($_GET['evp_id']))
+					<?php
+					if(isset($_GET['evp_id']))
+					{
+						foreach( $EVPs as $evp) 
 						{
-							foreach( $EVPs as $evp) 
-							{
 							if($evp['evp_id']!=$_GET['evp_id']) //checks the event id to the posted id to avoid repeat
 							{ ?>
 							<li><a href="Activity.php?evp_id=<?php echo $evp['evp_id'] ?>"> 
@@ -119,9 +115,20 @@ if (isset($_POST['registerActivity']))
 			</div>
 		</div>
 		<!-- End of Event Period Dropdown -->
+		
+		<?php 
+		if(isset($_GET['evp_id']))
+		{
+		$events = $eventClass->getEventsByEVP($_GET['evp_id']);
+		if($events==false)
+		{
+			$errorMsgReg = "no events yet.";
+		} 
+		}
 
+		?>
 		<!-- Start of Events dropdown -->
-		<?php if(isset($_GET['evp_id']) && $evpTitle!="Does not exist") 
+		<?php if(isset($_GET['evp_id']) && $evpTitle!="Does not exist" && $events!=false) 
 		{?>
 		<div class="form-group">
 			<label class="col-sm-3 control-label">EVENTS</label>
@@ -159,6 +166,7 @@ if (isset($_POST['registerActivity']))
 					?>
 
 				</ul>
+
 			</div>
 
 		</div>
@@ -176,10 +184,19 @@ if (isset($_POST['registerActivity']))
 			</button>
 		</div>
 		<?php } ?>
+
+		<?php if($errorMsgReg)
+		{?>
+		<div class="alert alert-danger fade in">
+			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
+				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
+			</button>
+			<strong>Oops </strong><?php echo $errorMsgReg ?> 
+		</div>
+		<?php } ?>
 		<!-- End of Activities -->
 	</form>
 	<br>
-
 	<!-- Start Data Table -->
 	<div class="row">
 		<div class="form col-sm-10 col-sm-offset-1">
@@ -198,8 +215,8 @@ if (isset($_POST['registerActivity']))
 							</tr>
 						</thead>
 						<tbody>
-						<?php foreach($activities as $activity) 
-						{ ?>
+							<?php foreach($activities as $activity) 
+							{ ?>
 							<tr>
 								<th><?php echo $activity['Activity ID'];?></th>
 								<th><?php echo $activity['Activity Name']; ?></th>

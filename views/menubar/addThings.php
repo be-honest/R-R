@@ -13,6 +13,7 @@ $checklistClass = new checklistClass();
 $checklists = $checklistClass->getAllChecklist();
 $events = $eventClass->getAllEvents();
 $EVPs = $eventPeriodClass->getAllEventPeriod();
+$errorMsgReg="";
 
 if(!isset($_GET['evp_id']))
 {
@@ -110,9 +111,30 @@ if (isset($_POST['registerChecklist']))
 			</div>
 		</div>
 		<!-- End of Event Period Dropdown -->
+		<?php 
+		if(isset($_GET['evp_id']))
+		{
+			$events = $eventClass->getEventsByEVP($_GET['evp_id']);
+			if($events==false)
+			{
+				$errorMsgReg = "no events yet.";
+			} 
+		}
 
+		?>
+
+		<?php if($errorMsgReg)
+		{?>
+		<div class="alert alert-danger fade in">
+			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
+				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
+			</button>
+			<strong>Oops </strong><?php echo $errorMsgReg ?> 
+		</div>
+		<?php } ?>
+		
 		<!-- Start of Events dropdown -->
-		<?php if(isset($_GET['evp_id']) && $evpTitle!="Does not exist") 
+		<?php if(isset($_GET['evp_id']) && $evpTitle!="Does not exist" && $events!=false) 
 		{?>
 		<div class="form-group">
 			<label class="col-sm-3 control-label">EVENTS</label>
@@ -190,8 +212,8 @@ if (isset($_POST['registerChecklist']))
 							</tr>
 						</thead>
 						<tbody>
-						<?php foreach($checklists as $checklist) 
-						{ ?>
+							<?php foreach($checklists as $checklist) 
+							{ ?>
 							<tr>
 								<th><?php echo $checklist['Checklist ID'];?></th>
 								<th><?php echo $checklist['Checklist Name']; ?></th>

@@ -6,8 +6,6 @@ require_once'views/layouts/nav.php';
 include('class/eventClass.php');
 $eventClass = new eventClass();
 $events = $eventClass->getAllEvents();
-
-
 ?>
 
 <div class="container p-t-lg">

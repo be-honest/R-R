@@ -13,6 +13,7 @@ class activityClass
           } catch (PDOException $e) {
           }
           return $data;
+          
      }
 
      public function activityRegistration($event_id,$name)

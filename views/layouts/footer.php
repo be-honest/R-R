@@ -12,7 +12,7 @@
   <!-- date range picker -->
   <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
-  <footer class="footer">
+  <footer class="footer" >
     <div class="container">
       <div class="row">
         <!-- first column -->
@@ -202,6 +202,7 @@ window.onload=function(){
 
 </script>
   <!-- Timer -->
+
 
 </body>
 </html>

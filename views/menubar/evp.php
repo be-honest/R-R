@@ -2,10 +2,10 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 
-include('config.php');
 include('class/eventPeriodClass.php');
 $EVPClass = new eventPeriodClass();
 $EVPs = $EVPClass->getAllEventPeriod();
+
 
 if(isset($_POST['registerEVP']))
 {
@@ -13,7 +13,7 @@ if(isset($_POST['registerEVP']))
 	$end_date=$_POST['endDate'];
 	$start_event_date=$_POST['startEventDate'];
 	$end_event_date=$_POST['endEventDate'];
-	$id=1;
+	$id=$session_uid;//session id
 	$event_status=$_POST['optradio'];
 	$uid=$EVPClass->eventPeriodRegistration($start_date,$end_date,$start_event_date,$end_event_date,$id,$event_status);
 	// print_r($uid);

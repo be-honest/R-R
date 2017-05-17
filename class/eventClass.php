@@ -1,12 +1,12 @@
 <?php 
 class eventClass
 {
-	public function eventRegistration($event_name,$description,$location)
+	public function eventRegistration($event_name,$description,$location,$evp_id)
 	{
 		try {
 			$db = getDB();
-			$stmt = $db->prepare("INSERT INTO events(name,description,location) VALUES (?,?,?)");
-			$stmt->execute(array($event_name,$description,$location));
+			$stmt = $db->prepare("INSERT INTO events(name,description,location,evp_id) VALUES (?,?,?,?)");
+			$stmt->execute(array($event_name,$description,$location,$evp_id));
 			$db = null;
 
 			return true;
