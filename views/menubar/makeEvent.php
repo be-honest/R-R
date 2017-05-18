@@ -176,7 +176,6 @@ if(isset($_POST['registerEvent']))
                               <div style="display: flex; align-items: center; justify-content: space-around; ">
                                 <button class="btn btn-default" data-dismiss="modal">
                                   <span class="icon icon-thumbs-down"></span>
-
                                     No
                                   </button>
                                   <button type="submit" class="btn btn-primary" name="registerEvent">

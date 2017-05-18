@@ -1,6 +1,6 @@
 <?php 
 require_once 'views/layouts/header.php';
-// require_once 'views/layouts/nav.php';
+require_once 'views/layouts/nav.php';
 ?>
 <link rel="stylesheet" href="assets/css/polls.css">
 <br>
@@ -64,11 +64,6 @@ require_once 'views/layouts/header.php';
 				</div>
  <-->	
  			<div class="v-event">
-				<div class="c-hover">
-					<input id="event1" type="radio" name="event2" value="first-poll" hidden />
-				<label class="poll first" for="event1"></label> 
-				</div>
-
 				<div class="c-hover">
 					<input id="event2" type="radio" name="event2" value="second-poll" hidden/>
 					<label class="poll second" for="event2"></label>
