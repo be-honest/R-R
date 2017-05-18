@@ -1,11 +1,11 @@
- <?php 
+<?php 
  require_once 'views/layouts/header.php';
  require_once 'views/layouts/nav.php';
 
 
  // include('class/userClass.php'); already declared at session.php
  // $userClass = new userClass();
-
+$successMsgReg="";
  $errorMsgReg="";
  if (isset($_POST['registerAdmin'])) 
  {
@@ -30,7 +30,7 @@
       // redirect('home.php');
       // $url='home.php';
       // header("Location: 'home.php'");
-      $_SESSION['successMsgReg']="Account has been successfully created!";
+      $successMsgReg="Account has been successfully created!";
     }
     else
     {
@@ -198,9 +198,7 @@ elseif (!$username_check && !$password_check)
 
     <div class="form-group">
       <div class="col-sm-4 col-sm-offset-4">
-        <button type="submit" class="btn btn-primary" name="registerAdmin">
-          Create Admin
-        </button>
+        <button type="submit" class="btn btn-primary" name="registerAdmin">Create Admin</button>
         <button type="button" class="btn btn-info" style="float:right; color: #fff" >Cancel</button>
 
         <br><br>
@@ -215,19 +213,20 @@ elseif (!$username_check && !$password_check)
        </div>
        <?php } ?> 
 
-       <?php if (isset($_SESSION['successMsgReg']))
+       <?php if ($successMsgReg)
        {?>
        <div class="alert alert-success fade in">
         <button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
           <span aria-hidden="true" style="padding: 0; float: right;">×</span>
         </button>
-        <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+        <strong>Well done! </strong><?php echo $successMsgReg; ?> 
       </div>
       <?php } ?>
     </div>
   </div>
 </form> 
 </div> 
+<br>
        <?php 
        require_once 'views/layouts/footer.php'
        ?>

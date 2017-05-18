@@ -5,17 +5,20 @@
 
  <div class="profile-header text-center" style="background-image: url(assets/img/iceland.jpg); ">
   <div class="container-fluid">
+  <form action="/action_page.php">
     <div class="container-inner">
       <div class="text-center">
           <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
           <h6>Upload a different photo...</h6>
           
           <input type="file" class="form-control">
+          <input type="submit">
         </div>
       <!-- <h3 class="profile-header-user">Name</h3> -->
       <!-- <p class="profile-header-bio">About yourself.</p> -->
     </div>
   </div>
+</form>
   <nav class="profile-header-nav">
     <ul class="nav nav-tabs">
       <li class="active"><a href="#">Info </a></li>

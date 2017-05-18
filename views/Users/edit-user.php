@@ -2,10 +2,9 @@
  require_once 'views/layouts/header.php';
  require_once 'views/layouts/nav.php';
 
- include('config.php');
- include('class/userClass.php');
+
  $errorMsgReg="";
- $userClass = new userClass();
+
 
  if (isset($_POST['editUser'])&&isset($_GET['id']))
  {
@@ -92,11 +91,11 @@ $userStatus="";
         color: #000;
         background-color: #fff;
         box-shadow: none;
-        border-color: #2ba22d;
+        border-color: steelblue;
       }
 
       .custom-control input:checked ~ .custom-control-indicator {
-          background-color: #2ba22d;
+          background-color: steelblue;
           box-shadow: none;
       }
 
@@ -109,7 +108,14 @@ $userStatus="";
         width: initial; 
       }
 
-
+      .btn-success{
+        background-color: steelblue;
+        border-color: lightblue;
+      }
+       .btn-success:hover{
+        border-color: slategray;
+        background-color: lightslategray;
+      }
 
   </style>
  </head>
@@ -180,7 +186,7 @@ $userStatus="";
                                     { ?> checked=true<?php
                                       } ?>>Active
 
-                           <span class="custom-control-indicator" style="border-color: forestgreen;"></span> 
+                           <span class="custom-control-indicator" style="border-color: steelblue;"></span> 
                          </label>
                        </div>
                        <br>
@@ -190,7 +196,7 @@ $userStatus="";
                                     <?php if($userStatus==2)
                                     { ?> checked=true<?php
                                       } ?>>Inactive
-                           <span class="custom-control-indicator" style="border-color: forestgreen;"></span> 
+                           <span class="custom-control-indicator" style="border-color: steelblue;"></span> 
                          </label>
                        </div>
                      </div>

@@ -10,12 +10,12 @@ $eventClass = new eventClass();
 $eventPeriodClass = new eventPeriodClass();
 $voteClass = new voteClass();
 
-//var_dump($today);
+
 
 if (isset($_POST['voteEvent'])) 
 {
 	$event_id=$_POST['event'];
-	$user_id=3;//must be change to session id
+	$user_id=$session_uid;
 	$uid=$voteClass->vote($event_id,$user_id);
 	print_r($uid);
 }
@@ -34,11 +34,6 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 	<meta charset="UTF-8">
 	<title>Polls</title>
 	<link rel="stylesheet" href="assets/css/polls.css">
-	<style>
-		.footer{
-			bottom: 0;
-		}
-	</style>
 </head>
 <body>
 
@@ -96,10 +91,6 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 	</div>
 </form>
 </div> -->
-
-
-</body>
-</html>
 
 <?php
 require_once 'views/layouts/footer.php'; 

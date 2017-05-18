@@ -26,11 +26,12 @@ body
 
 a{
 	color: #00BCD4;
-
+    
 }
 a:hover
 {
     color: #5D4037;
+    text-decoration: none;
 }
 a.event{
     color: #536570;
@@ -401,7 +402,7 @@ footer .title {
     top: 0;
     right: 0;
     min-width: 100%;
-    min-height: 100%;
+    /*min-height: 100%;*/
     font-size: 100px;
     text-align: right;
     filter: alpha(opacity=0);
@@ -411,6 +412,7 @@ footer .title {
     cursor: inherit;
     display: block;
 }
+
 #img-upload{
     width: 100%;
 }
@@ -436,16 +438,75 @@ footer .title {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:200px;height:140px;
+    width:300px;height:210px;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+/*    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
        -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-            filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);*/
 }
 .poll:hover{
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
+
+.v-event{
+    margin: 1em 2em;
+    justify-content: space-around;
+    display: flex;
+}
+/*.poll:hover{
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+}*/
+/*slide in overlay*/
+.c-hover{
+    position: relative;
+    width: 50%;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: inherit;
+  opacity: 1;
+  overflow: hidden;
+  width: 300px;
+  height: 0;
+  transition: .5s ease;
+}
+.c-hover:hover .overlay{
+    height: 100%;
+}
+.text{
+    white-space: nowrap;
+    font-style: bold;
+    color: #00BCD4;
+    text-shadow: 1px 1px 0px #000, 1px 1px 0px rgba(0, 0, 0, 0.15);
+    font-size: inherit;
+    position: absolute;
+    overflow: hidden;
+    font-weight: bold;
+    top: 25%;
+    bottom: 25%;
+    right: 8%;
+    left: 8%;
+    transform: translate(-25%, -25%, -8%, -8%);
+    -ms-transform: translate(-25%, -25%, -8%, -8%);
+}
+
+button#voteBtn{
+   float: right;
+   margin: 0 5px;
+   margin-top: 8.5em;
+
+}
+
+/*.c-hover button#voteBtn:checked +.poll{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.c-hover button:active +.poll{opacity: .9;}*/

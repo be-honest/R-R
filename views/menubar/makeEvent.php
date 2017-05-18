@@ -1,59 +1,44 @@
 <?php 
-    require_once 'views/layouts/header.php';
-    require_once 'views/layouts/nav.php';
-    include('class/eventClass.php');
-    $errorMsgReg="";
-    $eventClass = new eventClass();
+require_once 'views/layouts/header.php';
+require_once 'views/layouts/nav.php';
+include('class/eventClass.php');
+include('class/eventPeriodClass.php');
+$errorMsgReg="";
+$successMsgReg="";
+$eventClass = new eventClass();
+$eventPeriodClass = new eventPeriodClass();
 
+$today = date("Y-m-d");
+$evp_id=$eventPeriodClass->getCurrentEventPeriod($today);
+$evp_id=$evp_id['evp_id'];
 
-
-    if(isset($_POST['registerEvent']))
-    {
-      $name=$_POST['event_name'];
-      $description=$_POST['description'];
-      $location=$_POST['location'];
-      $uid=$eventClass->eventRegistration($name,$description,$location);
-      if($uid)
-      {
+if(isset($_POST['registerEvent']))
+{
+  $name=$_POST['event_name'];
+  $description=$_POST['description'];
+  $location=$_POST['location'];
+  $uid=$eventClass->eventRegistration($name,$description,$location,$evp_id);
+  if($uid)
+  {
        // print_r($uid);
        //  exit();
       // redirect('home.php');
       // $url='home.php';
       // header("Location: 'home.php'");
-          $_SESSION['successMsgReg']="Event has been successfully created!";
-          
-      }
-      else
-      {
-          $errorMsgReg="Event not created.";
-      }
+    $successMsgReg="Event has been successfully created!";
+
+  }
+  else
+  {
+    $errorMsgReg="Event not created.";
+  }
 
 
         // var_dump($_POST['activity']);
-    }
- ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Events | </title>
-    <link rel="stylesheet" href="assets/css/todolist.css">
-</head>
-<body>
+}
+?>
 <!-- event form -->
-<style>
-  .icon {
-    font-size: smaller;
-  }
-  .close {
-    width: initial; 
-  }
-  .alert{
-    margin-left: 27%;
-    width: 30%;
-  }
 
-</style>
 <br>
 <div class="container">
   <div class="row">
@@ -143,15 +128,20 @@
                       </div>
                        <br><br>
 
-                        <?php if($errorMsgReg)
-                        { ?>
-                        <div class="alert alert-danger alert-dismissable" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                           <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
-                         </button>
-                         <strong>Error!</strong> <?php echo $errorMsgReg; ?>
-                       </div>
-                       <?php } ?> 
+          <br><br>
+        </div>
+        <br><br>
+    </div>
+    <?php if($errorMsgReg)
+        { ?>
+        <div class="alert alert-danger alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"  autofocus="autofocus">
+           <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
+         </button>
+         <strong>Error!</strong> <?php echo $errorMsgReg; ?>
+       </div>
+       <?php } ?> 
+
 
                        <?php if (isset($_SESSION['successMsgReg']))
                        {?>
@@ -164,7 +154,8 @@
                       <?php } ?>
                     </div>
                     <!-- end of button -->
-                          <!-- modal -->
+                    
+                    <!-- modal -->
                       <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -177,26 +168,30 @@
                             </div>
                            <!--  <div class="modal-body">
                                 <h4>The event has been successfully created!</h4>
-                            </div> -->
-                            <div class="modal-body">
+                              </div> -->
+                              <div class="modal-body">
                                 <p>Do you wish to add an activity?</p>
+
                             <!-- <div class="modal-footer"> -->
                               <div style="display: flex; align-items: center; justify-content: space-around; ">
                                 <button class="btn btn-default" data-dismiss="modal">
                                   <span class="icon icon-thumbs-down"></span>
+
                                     No
-                                </button>
-                                 <button class="btn btn-primary">
-                                  <a class="event" href="Activity.php">
+                                  </button>
+                                  <button type="submit" class="btn btn-primary" name="registerEvent">
                                     <span class="icon icon-thumbs-up"></span>
-                                    Yes
-                                  </a>
-                                </button>
+                                    Yes 
+                                    <?php $redirect="Activity.php" ?>
+                                  </button>
+                                </div>
                               </div>
                             </div>
+
                           </div>
                         </div>
                       </div>
+
                     <!-- end of modal -->
               
         </fieldset>
@@ -208,7 +203,5 @@
           
     <?php 
         require_once 'views/layouts/footer.php';
-     ?>
-</body>
-</html>
+        ?>
 

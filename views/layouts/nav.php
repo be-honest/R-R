@@ -1,3 +1,6 @@
+<?php 	
+	 	// $firstName=$_POST['firstName'];
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
 	<div class="container">
 		<div class="navbar-header">
@@ -77,7 +80,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav hidden">
-				<li><a href="#" data-action="growl">Profile</a></li>
+				<li> Welcome, <?php echo $firstName; ?> !</li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>
