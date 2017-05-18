@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.14/css/jquery.dataTables.min.css">
   <link href="assets/css/custom.css" rel="stylesheet">
   <link href="assets/css/application.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
   <!-- tags input -->
   <link rel="stylesheet" href="assets/src/bootstrap-tagsinput.css">
    <!-- date range picker  -->

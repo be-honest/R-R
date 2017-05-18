@@ -81,7 +81,9 @@
 			</ul>
 
 			<ul class="nav navbar-nav hidden">
-				<li> Welcome, <?php echo $uname; ?> !</li>
+				<li> Welcome, <?php echo $uname; ?>!</li>
+
+
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>

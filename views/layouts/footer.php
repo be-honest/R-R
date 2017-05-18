@@ -2,8 +2,8 @@
   <script src="assets/js/chart.js"></script>
   <script src="assets/js/toolkit.js"></script>
   <script src="assets/js/application.js"></script>
-  <script src="https://cdn.datatables.net/1.10.14/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.14/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
   <script src="assets/src/bootstrap-tagsinput-angular.js"></script>
   <script src="assets/src/bootstrap-tagsinput.js"></script>
   <!-- drp req. prerequisites -->
@@ -204,7 +204,7 @@ window.onload=function(){
 
 
 <!-- img upload -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {
     var input = $(this),
@@ -240,6 +240,6 @@ $(document).ready( function() {
         readURL(this);
     });   
   });
-</script>
+</script> -->
 </body>
 </html>

@@ -30,6 +30,21 @@ class checklistClass
           }
      }
 
+     public function checklistCheck($activity_id)
+     {
+          try {
+               $db = getDB();
+               $stmt = $db->prepare("INSERT INTO checklist(event_id,name) VALUES (?,?)");
+               $stmt->execute(array($event_id,$name));
+               $db = null;
+               return true;
+
+          } catch(PDOException $e) {
+               echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+               
+          }
+     }
+
 
 }
 ?>

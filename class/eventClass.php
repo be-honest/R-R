@@ -1,12 +1,45 @@
 <?php 
 class eventClass
 {
-	public function eventRegistration($event_name,$description,$location,$evp_id)
+	public function eventRegistration($event_name,$description,$location,$evp_id,$img)
 	{
 		try {
 			$db = getDB();
-			$stmt = $db->prepare("INSERT INTO events(name,description,location,evp_id) VALUES (?,?,?,?)");
-			$stmt->execute(array($event_name,$description,$location,$evp_id));
+			var_dump($img);
+			$imgName = $img['image']['name'];
+			// var_dump($img['tmp_name']);
+			$stmt = $db->prepare("INSERT INTO events(name,description,location,evp_id,image) VALUES (?,?,?,?,?)");
+			$stmt->execute(array($event_name,$description,$location,$evp_id,$imgName));
+
+			// if($stmt)
+			// {
+			// var_dump($img['tmp_name']);
+			move_uploaded_file($img['image']['tmp_name'], "images/" . $imgName);
+			
+			
+
+
+			// if(isset($_FILES['image']['name']) and !$_FILES['image']['error']) {
+   // // check file if it is really a photo
+			// 	$ext = explode('/', $_FILES['image']['type']);
+			// 	$ext = $ext[count($ext)-1];
+			// 	if($ext != 'jpg' and $ext != 'jpeg' and $ext != 'gif' and $ext != 'png' and $ext != 'bmp') {
+   //  // image invalid!
+			// 		echo 'Image is invalid';
+			// 	} else {
+   //  // check the photo if it is larger than 4MB
+			// 		if($_FILES['image']['size'] > (4096000)) {
+			// 			echo 'Image file size cannot be larger than 4MB!';
+			// 		} else {
+			// 			$img = 'images/test' . $ext;
+   //   // remove any images before
+			// 			@unlink($img);
+   //   // save image
+			// 			move_uploaded_file($_FILES['image']['tmp_name'], $img);
+			// 		}
+			// 	}
+			// }
+
 			$db = null;
 
 			return true;
@@ -62,9 +95,9 @@ class eventClass
 			$data=$st->fetchAll();
 
 			if($count)
-			return $data;
+				return $data;
 			else
-			return false;
+				return false;
 		} catch (PDOException $e) {
 
 		}
@@ -108,7 +141,28 @@ class eventClass
 		else
 		{
 			return false;
-		}    
+		}   
+	}
+
+	public function lastRecord()
+	{
+		$db = getDB();
+		$stmt = $db->prepare("SELECT * 
+			FROM EVENTS, event_voting_period 
+			WHERE events.`evp_id`= event_voting_period.`evp_id`
+			ORDER BY event_ID DESC LIMIT 1");
+		$stmt->execute();
+		$db = null;
+		$count=$stmt->rowCount();
+		if($count)
+		{
+			$data = $stmt->fetch();
+			return $data;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 
