@@ -1,5 +1,4 @@
 <?php 	
-	 	
 	$uname = $userClass->getUser($session_uid);
 	$uname = $uname['first_name'];
 ?>
@@ -83,6 +82,8 @@
 
 			<ul class="nav navbar-nav hidden">
 				<li> Welcome, <?php echo $uname; ?>!</li>
+
+
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>

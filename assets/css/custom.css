@@ -94,7 +94,10 @@ a.event:hover{
 
 }
 
-
+.nav-stacked > li {
+    float: none;
+    margin-left: 1em;
+}
 
 .navbar-inverse
 {
@@ -438,13 +441,13 @@ footer .title {
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:300px;height:210px;
+    width:500px;height:320px;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
-/*    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
        -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-            filter: brightness(1.8) grayscale(1) opacity(.7);*/
+            filter: brightness(1.8) grayscale(1) opacity(.7);
 }
 .poll:hover{
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
@@ -453,7 +456,7 @@ footer .title {
 }
 
 .v-event{
-    margin: 1em 2em;
+    margin: auto;
     justify-content: space-around;
     display: flex;
 }
@@ -470,43 +473,40 @@ footer .title {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: inherit;
-  opacity: 1;
+  background-color: black;
+  opacity: .5;
   overflow: hidden;
-  width: 300px;
+  width: 480px;
   height: 0;
   transition: .5s ease;
 }
 .c-hover:hover .overlay{
     height: 100%;
 }
-.text{
+.text {
     white-space: nowrap;
-    font-style: bold;
-    color: #00BCD4;
-    text-shadow: 1px 1px 0px #000, 1px 1px 0px rgba(0, 0, 0, 0.15);
+    color: white;
+    /*text-shadow: 1px 1px 0px #fff, 1px 1px 0px rgba(0, 0, 0, 0.15);*/
     font-size: inherit;
     position: absolute;
     overflow: hidden;
-    font-weight: bold;
+    /*font-weight: bold;*/
     top: 25%;
     bottom: 25%;
     right: 8%;
     left: 8%;
-    transform: translate(-25%, -25%, -8%, -8%);
-    -ms-transform: translate(-25%, -25%, -8%, -8%);
+    font-size: 24px;
+    letter-spacing: 1px;
+   /* transform: translate(-25%, -25%, -8%, -8%);
+    -ms-transform: translate(-25%, -25%, -8%, -8%);*/
+
 }
 
 button#voteBtn{
    float: right;
-   margin: 0 5px;
-   margin-top: 8.5em;
+   margin: 0 12px;
+   margin-top: 15em;
 
 }
 
-/*.c-hover button#voteBtn:checked +.poll{
-    -webkit-filter: none;
-       -moz-filter: none;
-            filter: none;
-}
-.c-hover button:active +.poll{opacity: .9;}*/
+

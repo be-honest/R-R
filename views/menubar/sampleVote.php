@@ -1,15 +1,13 @@
 <?php 
 require_once 'views/layouts/header.php';
-require_once 'views/layouts/nav.php';
-
-$welcomeMsg="";
-
+// require_once 'views/layouts/nav.php';
 ?>
 <link rel="stylesheet" href="assets/css/polls.css">
 <br>
 <div class="container">
 	<form method="post" class="form-horizontal" role="form">
-		<h3>Vote an Event</h3>
+		<h1>Vote an Event <span class="icon icon-check"></span></h1>
+
 		<h5>Click image to vote.</h5>
 		<div class="v-event">
 			<div class="c-hover">
@@ -18,59 +16,65 @@ $welcomeMsg="";
 					<div class="overlay">
 						<div class="text">
 							EVENT NAME
-							<p class="text-muted" style="font-size: 16px;">Date: March 2017</p>
-							<p style="font-size: 16px;">The quick brown fox jumps over the lazy dog.</p>
+							<p class="text-muted" style="font-size: 18px;">Date: March 2017</p>
+							<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
 						</div>
-						<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
+						<button class="btn btn-default-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
 					</div>
 			</div>
 			<div class="c-hover">
-				<label class="poll first" for="event1"></label> 
+				<label class="poll second" for="event1"></label> 
 				<input id="event1" type="radio" name="events" value="first-poll" hidden />
 					<div class="overlay">
 						<div class="text">
 							EVENT NAME
-							<p class="text-muted" style="font-size: 16px;">Date: March 2017</p>
-							<p style="font-size: 16px;">The quick brown fox jumps over the lazy dog.</p>
+							<p class="text-muted" style="font-size: 18px;">Date: March 2017</p>
+							<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
 						</div>
-						<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
+						<button type="button" class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
 					</div>
 			</div>
 			</div>
-
-			<div class="v-event">
+		
+			<!-- <div class="v-event">
+				<div class="c-hover">
+					<label class="poll second" for="event1"></label> 
+					<input id="event1" type="radio" name="events" value="first-poll" hidden />
+						<div class="overlay">
+							<div class="text">
+								EVENT NAME
+								<p class="text-muted" style="font-size: 18px;">Date: March 2017</p>
+								<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+							</div>
+							<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
+						</div>
+				</div>
 				<div class="c-hover">
 					<label class="poll first" for="event1"></label> 
 					<input id="event1" type="radio" name="events" value="first-poll" hidden />
 						<div class="overlay">
 							<div class="text">
 								EVENT NAME
-								<p class="text-muted" style="font-size: 16px;">Date: March 2017</p>
-								<p style="font-size: 16px;">The quick brown fox jumps over the lazy dog.</p>
+								<p class="text-muted" style="font-size: 18px;">Date: March 2017</p>
+								<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
 							</div>
 							<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
 						</div>
 				</div>
-				<!-- <div class="c-hover">
-					<label class="poll first" for="event1"></label> 
-					<input id="event1" type="radio" name="events" value="first-poll" hidden />
-						<div class="overlay">
-							<div class="text">
-								EVENT NAME
-								<p class="text-muted" style="font-size: 16px;">Date: March 2017</p>
-								<p style="font-size: 16px;">The quick brown fox jumps over the lazy dog.</p>
-							</div>
-							<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
-						</div>
-				</div> -->
+				</div>
+ <-->	
+ 			<div class="v-event">
+				<div class="c-hover">
+					<input id="event1" type="radio" name="event2" value="first-poll" hidden />
+				<label class="poll first" for="event1"></label> 
 				</div>
 
-<!-- 
-			<div class="c-hover">
-				<input id="event2" type="radio" name="events" value="second-poll" hidden/>
-				<label class="poll second" for="event2"></label>
-			</div> -->
-
+				<div class="c-hover">
+					<input id="event2" type="radio" name="event2" value="second-poll" hidden/>
+					<label class="poll second" for="event2"></label>
+				</div>
+			</div>
+				
 			<!-- modal -->
 			  <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
 			    <div class="modal-dialog">

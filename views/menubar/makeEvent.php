@@ -222,10 +222,8 @@ if(isset($_POST['registerEvent']))
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
-                      </div>
 
                       <!-- end of modal -->
                       

@@ -9,17 +9,17 @@ body {
 }
 
 *[role="form"] {
-    max-width: 800px;
+    max-width: 1000px;
     padding: 15px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 0.3em;
 }
 
-*[role="form"] h3{
+*[role="form"] h1{
     margin-left: 12em;
     margin-bottom: 1em;
-    font-size: 26px;
+    /*font-size: 26px;*/
 }
 
 .funkyradio label {
