@@ -1,0 +1,48 @@
+	CreateEvent.php
+modals must be fixed and submit
+should query the current EVP, to retrieve EVP_ID
+Optimization on the error and success event message
+Responsive Map and Location Input
+
+	Checklist & Activity.php
+errors in the events dropdown, if an EVP has been selected with no events. 
+Fix: EVP must not be included in the event per
+iods dropdown boxes if it has no events yet
+
+	register-user & register-admin.php
+Success message must only appear after a success registration
+
+	warning.php
+must be fixed, a non logged-in user can view certain areas of the page.
+
+	index.php (login page)
+index.php should also be the layout for home.php if a user is logged in.
+if logged in with no or null values, must post an error message to input values.
+
+     modified:   class/activityClass.php
+        modified:   class/eventClass.php
+        modified:   edit-user.php
+        modified:   eventVotingPeriod.php
+        modified:   home.php
+        modified:   index.php
+        modified:   session.php
+        modified:   views/Users/UserType.php
+        modified:   views/Users/add-admin.php
+        modified:   views/Users/add-user.php
+        modified:   views/Users/edit-user.php
+        modified:   views/layouts/footer.php
+        modified:   views/layouts/header.php
+        modified:   views/login/login.php
+        modified:   views/menubar/addActivity.php
+        modified:   views/menubar/addThings.php
+        modified:   views/menubar/editProfile.php
+        modified:   views/menubar/event.php
+        modified:   views/menubar/evp.php
+        modified:   views/menubar/makeEvent.php
+        modified:   views/menubar/voteEvent.php
+        modified:   warning.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        views/menubar/home.php

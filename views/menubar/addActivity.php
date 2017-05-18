@@ -14,6 +14,7 @@ $activities = $activityClass->getAllActivities();
 $events = $eventClass->getAllEvents();
 $EVPs = $eventPeriodClass->getAllEventPeriod();
 $errorMsgReg="";
+$checkChecklist="";
 if(!isset($_GET['evp_id']))
 {
 	$evpTitle="Choose Event Period";
@@ -122,7 +123,7 @@ if (isset($_POST['registerActivity']))
 		$events = $eventClass->getEventsByEVP($_GET['evp_id']);
 		if($events==false)
 		{
-			$errorMsgReg = "no events yet.";
+			$errorMsgReg = "No available events yet.";
 		} 
 		}
 
@@ -191,10 +192,20 @@ if (isset($_POST['registerActivity']))
 			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
 				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
 			</button>
-			<strong>Oops </strong><?php echo $errorMsgReg ?> 
+			<strong>Oops! </strong><?php echo $errorMsgReg ?> 
 		</div>
 		<?php } ?>
 		<!-- End of Activities -->
+
+		<?php if($errorMsgReg)
+		{?>
+		<div class="alert alert-warning fade in">
+			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
+				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
+			</button>
+			<strong>Oops </strong><?php echo $errorMsgReg ?> 
+		</div>
+		<?php } ?>
 	</form>
 	<br>
 	<!-- Start Data Table -->

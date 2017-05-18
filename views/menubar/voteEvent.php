@@ -34,11 +34,6 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 	<meta charset="UTF-8">
 	<title>Polls</title>
 	<link rel="stylesheet" href="assets/css/polls.css">
-	<style>
-		.footer{
-			bottom: 0;
-		}
-	</style>
 </head>
 <body>
 

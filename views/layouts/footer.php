@@ -2,8 +2,8 @@
   <script src="assets/js/chart.js"></script>
   <script src="assets/js/toolkit.js"></script>
   <script src="assets/js/application.js"></script>
-  <script src="https://cdn.datatables.net/1.10.14/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.14/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
   <script src="assets/src/bootstrap-tagsinput-angular.js"></script>
   <script src="assets/src/bootstrap-tagsinput.js"></script>
   <!-- drp req. prerequisites -->
@@ -34,7 +34,7 @@
             <h5 class="title">the team</h5>
               <div class="row">
                 <div class="col-md-3">
-                  <a href="">
+                  <a href="https://github.com/kemezike">
                     <img src="assets/img/team1.png" style="width: 30%;">
                   </a>
                   <p style="margin:0;">Kryce Earl Martus</p>
@@ -204,7 +204,7 @@ window.onload=function(){
 
 
 <!-- img upload -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready( function() {
       $(document).on('change', '.btn-file :file', function() {
     var input = $(this),
@@ -240,6 +240,6 @@ $(document).ready( function() {
         readURL(this);
     });   
   });
-</script>
+</script> -->
 </body>
 </html>

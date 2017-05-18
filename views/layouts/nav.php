@@ -1,3 +1,8 @@
+<?php 	
+	 	
+	$uname = $userClass->getUser($session_uid);
+	$uname = $uname['first_name'];
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
 	<div class="container">
 		<div class="navbar-header">
@@ -77,7 +82,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav hidden">
-				<li><a href="#" data-action="growl">Profile</a></li>
+				<li> Welcome, <?php echo $uname; ?>!</li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 		</div>

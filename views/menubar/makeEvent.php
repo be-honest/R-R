@@ -8,6 +8,11 @@ $successMsgReg="";
 $eventClass = new eventClass();
 $eventPeriodClass = new eventPeriodClass();
 
+$last_id =$eventClass->lastRecord()['event_id'];
+$last_evp =$eventClass->lastRecord()['evp_id'];
+// var_dump($last_id);
+// var_dump($last_evp);
+
 $today = date("Y-m-d");
 $evp_id=$eventPeriodClass->getCurrentEventPeriod($today);
 $evp_id=$evp_id['evp_id'];
@@ -17,7 +22,9 @@ if(isset($_POST['registerEvent']))
   $name=$_POST['event_name'];
   $description=$_POST['description'];
   $location=$_POST['location'];
-  $uid=$eventClass->eventRegistration($name,$description,$location,$evp_id);
+  $img=$_FILES['image'];
+// var_dump($img);
+  $uid=$eventClass->eventRegistration($name,$description,$location,$evp_id,$img);
   if($uid)
   {
        // print_r($uid);
@@ -41,11 +48,22 @@ if(isset($_POST['registerEvent']))
 
 <br>
 <div class="container">
+
   <div class="row">
     <div class="col-md-12 ">
-      <form method="post" name="createEvent" class="form-horizontal" role="form">
+    <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
         <fieldset>
           <legend style="font-size: 50px;">Event Form  <span class="icon icon-new-message"></span></legend>
+          <?php if ($successMsgReg)
+          {?>
+          <div class="col-sm-8z` alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" class="exit" style="float:right; padding: 0;">x</span>
+            </button>
+            <strong>Well done! </strong><?php echo $successMsgReg; ?> <br>
+            Click <a href="Activity.php?evp_id=<?php echo $last_evp ?>&id=<?php echo ($last_id+1) ?>">here</a> to proceed to adding Activities
+          </div>
+          <?php } ?>
           <div class="form-group">
             <label class="control-label col-md-2">Name</label>
             <div class="col-md-4">
@@ -96,10 +114,16 @@ if(isset($_POST['registerEvent']))
                               <br>
                               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                               
+                              <div>
+                               <div class='form-group'>
+                                <input type="file" class='form-control' name='image'>
+                              </div>
                             </div>
-                            <br>
-                            
+
                           </div>
+                          <br>
+
+                          <!-- </div>
                           <div class="form-group">
                             <label class="col-md-2 control-label">Upload Image</label>
                             <div class="input-group">
@@ -108,16 +132,21 @@ if(isset($_POST['registerEvent']))
                                  Browse...<input type="file" id="imgInp">
                                </span>
                              </span>
-                             <input type="text" class="form-control" readonly style="width: 50%;">
+                             <input type="text" class="form-control" style="width: 50%;">
                            </div>
                            <img id="img-upload">
-                         </div>
+                         </div>  -->
+
+                         
                          <!-- button -->
                          <div class="form-group">
                           <div class="col-sm-6 col-sm-offset-3">
                            <!-- button for modal -->
-                           <button type="button" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;"
+                           <!-- <button type="submit" name="registerEvent" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;"
                            data-toggle="modal" href="#msg">
+                           Create Event
+                         </button> -->
+                         <button type="submit" name="registerEvent" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;">
                            Create Event
                          </button>
                          <button type="submit" class="btn btn-default col-sm-3" name="registerEvent">
@@ -131,6 +160,7 @@ if(isset($_POST['registerEvent']))
                       <br><br>
                     </div>
                     <br><br>
+
                   </div>
                   <?php if($errorMsgReg)
                   { ?>
@@ -143,19 +173,11 @@ if(isset($_POST['registerEvent']))
                  <?php } ?> 
 
 
-                 <?php if (isset($_SESSION['successMsgReg']))
-                 {?>
-                 <div class="alert alert-success alert-dismissable" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" class="exit" style="float:right; padding: 0;">x</span>
-                  </button>
-                  <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
-                </div>
-                <?php } ?>
-              </div>
-              <!-- end of button -->
-              <!-- modal -->
-              <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
+                 
+               </div>
+               <!-- end of button -->
+               <!-- modal -->
+               <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -165,6 +187,20 @@ if(isset($_POST['registerEvent']))
                       </button>
                       <h4 class="modal-title">The event has been successfully created!</h4>
                     </div>
+
+                    <!-- end of button -->
+                    
+                    <!-- modal -->
+                    <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                              &times;
+                              <!-- <span aria-hidden="true">x</span> -->
+                            </button>
+                            <h4 class="modal-title">The event has been successfully created!</h4>
+                          </div>
                            <!--  <div class="modal-body">
                                 <h4>The event has been successfully created!</h4>
                               </div> -->
@@ -180,7 +216,8 @@ if(isset($_POST['registerEvent']))
                                   </button>
                                   <button type="submit" class="btn btn-primary" name="registerEvent">
                                     <span class="icon icon-thumbs-up"></span>
-                                    Yes <?php $redirect="Activity.php" ?>
+                                    Yes 
+                                    <?php $redirect="Activity.php" ?>
                                   </button>
                                 </div>
                               </div>

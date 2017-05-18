@@ -58,6 +58,9 @@ require_once 'views/layouts/nav.php';
         background-color: #2196F3;
         border: 2px solid #1E88E5;
       }
+      .text-muted a:hover{
+        color: darkorange;
+      }
     </style>
       <link href="assets/css/custom.css" rel="stylesheet">
   </head>
@@ -89,7 +92,7 @@ require_once 'views/layouts/nav.php';
 <div class="container bg-overlay">
   <div class="row text-center">
     <h1 class="deco">Rest and Recreation <br> Portal</h1>
-    <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
+    <h3 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h3>
     <br>
       <a href="eventVotingPeriod.php">  
         <button type="button" class="btn btn-default btn-lg" id="homeBtn">Get Started</button>

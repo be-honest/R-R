@@ -198,9 +198,7 @@ elseif (!$username_check && !$password_check)
 
     <div class="form-group">
       <div class="col-sm-4 col-sm-offset-4">
-        <button type="submit" class="btn btn-primary" name="registerAdmin">
-          Create Admin
-        </button>
+        <button type="submit" class="btn btn-primary" name="registerAdmin">Create Admin</button>
         <button type="button" class="btn btn-info" style="float:right; color: #fff" >Cancel</button>
 
         <br><br>
@@ -228,6 +226,7 @@ elseif (!$username_check && !$password_check)
   </div>
 </form> 
 </div> 
+<br>
        <?php 
        require_once 'views/layouts/footer.php'
        ?>
