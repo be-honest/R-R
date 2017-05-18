@@ -152,7 +152,7 @@ if(isset($_POST['registerEvent']))
                         <strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
                         </div>
                       <?php } ?>
-                    </div>
+                   
                     <!-- end of button -->
                     
                     <!-- modal -->
@@ -187,10 +187,8 @@ if(isset($_POST['registerEvent']))
                                 </div>
                               </div>
                             </div>
-
                           </div>
                         </div>
-                      </div>
 
                     <!-- end of modal -->
               
