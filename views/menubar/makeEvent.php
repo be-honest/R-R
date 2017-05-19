@@ -51,7 +51,7 @@ if(isset($_POST['registerEvent']))
 
   <div class="row">
     <div class="col-md-12 ">
-    <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+      <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
         <fieldset>
           <legend style="font-size: 50px;">Event Form  <span class="icon icon-new-message"></span></legend>
           <?php if ($successMsgReg)
@@ -225,16 +225,18 @@ if(isset($_POST['registerEvent']))
                           </div>
                         </div>
 
-                      <!-- end of modal -->
-                      
-                    </fieldset>
-                  </form>
+                        <!-- end of modal -->
+                        
+                      </fieldset>
+                    </form>
+                  </div>
                 </div>
-              </div>
+              </div> 
             </div> 
-            
-            
-            <?php 
-            require_once 'views/layouts/footer.php';
-            ?>
+          </div> 
+          
+          
+          <?php 
+          require_once 'views/layouts/footer.php';
+          ?>
 
