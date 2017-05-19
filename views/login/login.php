@@ -81,9 +81,10 @@ $password=$_POST['password'];
 
     <form method="post" action="" name="login" role="form" class="m-x-auto text-center app-login-form box">
 
-      <a href="index.php" class="app-brand m-b-lg">
-        <img src="assets/img/logo2.png" alt="logo">
-      </a>
+      <!-- <a href="index.php" class="app-brand m-b-lg">
+        <img src="assets/img/logo.jpg" alt="logo">
+      </a> -->
+      <h1>Rest&Recreation</h1>
 
       <!-- <div class="control has-addon" >
         <span class="icon icon-user control-addon" ></span>

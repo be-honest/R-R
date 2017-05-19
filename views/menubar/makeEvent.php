@@ -206,12 +206,10 @@ if(isset($_POST['registerEvent']))
                               </div> -->
                               <div class="modal-body">
                                 <p>Do you wish to add an activity?</p>
-
                                 <!-- <div class="modal-footer"> -->
                                 <div style="display: flex; align-items: center; justify-content: space-around; ">
                                   <button class="btn btn-default" data-dismiss="modal">
                                     <span class="icon icon-thumbs-down"></span>
-
                                     No
                                   </button>
                                   <button type="submit" class="btn btn-primary" name="registerEvent">
@@ -233,10 +231,11 @@ if(isset($_POST['registerEvent']))
                 </div>
               </div> 
             </div> 
-          </div> 
-          
-          
-          <?php 
-          require_once 'views/layouts/footer.php';
-          ?>
+
+            </div>
+          </div>
+            
+            <?php 
+            require_once 'views/layouts/footer.php';
+            ?>
 
