@@ -63,12 +63,12 @@ require_once 'views/layouts/nav.php';
 				</div>
 				</div>
  <-->	
- 			<div class="v-event">
+ 		<!-- 	<div class="v-event">
 				<div class="c-hover">
 					<input id="event2" type="radio" name="event2" value="second-poll" hidden/>
 					<label class="poll second" for="event2"></label>
 				</div>
-			</div>
+			</div> -->
 				
 			<!-- modal -->
 			  <div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
