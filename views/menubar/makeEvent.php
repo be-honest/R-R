@@ -23,7 +23,7 @@ if(isset($_POST['registerEvent']))
   $description=$_POST['description'];
   $location=$_POST['location'];
   $img=$_FILES['image'];
-// var_dump($img);
+  // var_dump($img);
   $uid=$eventClass->eventRegistration($name,$description,$location,$evp_id,$img);
   if($uid)
   {
@@ -67,13 +67,13 @@ if(isset($_POST['registerEvent']))
           <div class="form-group">
             <label class="control-label col-md-2">Name</label>
             <div class="col-md-4">
-              <input type="input" id="event_name" placeholder="Event Name" class="form-control" name="event_name" value="Hiking" required autofocus>
+              <input type="input" id="event_name" placeholder="Event Name" class="form-control" name="event_name"  required autofocus>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-2 control-label" for="textarea">Description</label>
             <div class="col-md-4">
-              <textarea class="form-control" id="textarea" name="description" required>HIKING!</textarea>
+              <textarea class="form-control" id="textarea" name="description" placeholder="What is the event about?" required></textarea>
             </div>
           </div>
           <!-- activity list -->
@@ -238,4 +238,5 @@ if(isset($_POST['registerEvent']))
             <?php 
             require_once 'views/layouts/footer.php';
             ?>
+
 

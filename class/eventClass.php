@@ -5,16 +5,22 @@ class eventClass
 	{
 		try {
 			$db = getDB();
-			var_dump($img);
-			$imgName = $img['image']['name'];
-			// var_dump($img['tmp_name']);
+			$imgName = $img['name'];
+
+			$image_info = getimagesize($img["tmp_name"]);
+			$image_width = $image_info[0];
+			$image_height = $image_info[1];
+
+			var_dump($image_width);
+			var_dump($image_height);
+			// 
 			$stmt = $db->prepare("INSERT INTO events(name,description,location,evp_id,image) VALUES (?,?,?,?,?)");
 			$stmt->execute(array($event_name,$description,$location,$evp_id,$imgName));
 
 			// if($stmt)
 			// {
 			// var_dump($img['tmp_name']);
-			move_uploaded_file($img['image']['tmp_name'], "images/" . $imgName);
+			move_uploaded_file($img['tmp_name'], "images/" . $imgName);
 			
 			
 
@@ -87,7 +93,7 @@ class eventClass
 		try {
 			$db = getDB();
           //$st = $db->prepare("SELECT * FROM users");  
-			$st = $db->prepare("SELECT DISTINCT event_id, events.`evp_id`, start_event_date, name, description
+			$st = $db->prepare("SELECT DISTINCT event_id, events.`evp_id`, start_event_date, name, description, image
 				FROM EVENTS, event_voting_period
 				WHERE events.`evp_id`=event_voting_period.`evp_id` AND events.`evp_id`=?");
 			$st->execute(array($id));

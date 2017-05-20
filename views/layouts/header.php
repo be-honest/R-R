@@ -22,6 +22,7 @@
   <link href="assets/css/custom.css" rel="stylesheet">
   <link href="assets/css/application.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/admin.css">
+      <link rel="stylesheet" href="assets/css/polls.css">
   <!-- tags input -->
   <link rel="stylesheet" href="assets/src/bootstrap-tagsinput.css">
    <!-- date range picker  -->

@@ -33,7 +33,8 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 <head>
 	<meta charset="UTF-8">
 	<title>Polls</title>
-	<link rel="stylesheet" href="assets/css/polls.css">
+	<!-- <link rel="stylesheet" href="assets/css/polls.css">  
+	copied to header.php-->
 </head>
 <body>
 
@@ -54,7 +55,6 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 							<div class="funkyradio-info">
 								<input type="radio" name="event" id="radio<?=$event['event_id']?>" value=<?=$event['event_id']?>>
 								<label for="radio<?=$event['event_id']?>" 
-								
 								>
 									<?php echo $event['name']  . ' : ' . $event['description']?> 
 								</label>
