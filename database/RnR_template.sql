@@ -158,10 +158,7 @@ CREATE TABLE `event_voting_period` (
 insert  into `event_voting_period`(`evp_id`,`user_id`,`event_status_id`,`start_date`,`end_date`,`isOpen`,`start_event_date`,`end_event_date`) values 
 (1,1,1,'2017-03-01','2017-03-15',1,'2017-03-25','2017-03-26'),
 (2,1,1,'2017-04-01','2017-04-15',4,'2017-04-29','2017-04-30'),
-(3,1,1,'2017-05-12','2017-05-19',1,'2017-05-21','2017-05-22'),
-(4,1,1,'2017-06-01','2017-06-15',1,'2017-06-17','2017-06-18'),
-(5,1,1,'2017-05-10','2017-06-22',1,'2017-05-05','2017-05-26'),
-(6,1,1,'2017-05-01','2017-05-31',1,'2017-06-01','2017-06-15');
+(3,1,1,'2017-05-12','2017-07-29',1,'2017-05-21','2017-05-22');
 
 /*Table structure for table `events` */
 
@@ -174,27 +171,24 @@ CREATE TABLE `events` (
   `description` varchar(255) DEFAULT NULL,
   `location` text,
   `image` text,
-  `event_status_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`event_id`),
   KEY `evp_id` (`evp_id`),
-  KEY `event_status_id` (`event_status_id`),
-  CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`),
-  CONSTRAINT `events_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
+  CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=latin1;
 
 /*Data for the table `events` */
 
-insert  into `events`(`event_id`,`evp_id`,`name`,`description`,`location`,`image`,`event_status_id`) values 
-(25,1,'Hiking','Hiking at Mt. Mayon','http://localhost/RandR/Events.php',NULL,NULL),
-(26,1,'Swimming','Swimming at Manila Bay','http://localhost/RandR/Events.php',NULL,NULL),
-(27,1,'Canyoneering','Canyoneering at Grand Canyon','http://localhost/RandR/Events.php',NULL,NULL),
-(34,1,'Jogging','Abellana Jogging Special','http://localhost/RandR/Events.php',NULL,NULL),
-(35,3,'CoreLympics','Game competition at Family Park','http://localhost/RandR/Events.php','fampark1_1-679x452.jpg',NULL),
-(36,3,'Parasailing','Parasailing at Badian','http://localhost/RandR/Events.php','aj-garcia-225309.jpg',NULL),
-(37,1,'Micro R&R','Mini Sports Olympics @ Family Park','http://localhost/RandR/Events.php',NULL,NULL),
-(46,1,'Tree Planting','Tree Planting at Maghaway','http://localhost/RandR/Events.php',NULL,NULL),
-(171,3,'Trekking','Trekking at Mt. Kan Irag, Cebu','http://localhost/RandR/Events.php','ashim-d-silva-106271.jpg',NULL),
-(172,3,'Scuba Diving','Scuba Diving at Cordova, Mactan Cebu','http://localhost/RandR/Events.php','marco-assmann-178084.jpg',NULL);
+insert  into `events`(`event_id`,`evp_id`,`name`,`description`,`location`,`image`) values 
+(25,1,'Hiking','Hiking at Mt. Mayon','http://localhost/RandR/Events.php',NULL),
+(26,1,'Swimming','Swimming at Manila Bay','http://localhost/RandR/Events.php',NULL),
+(27,1,'Canyoneering','Canyoneering at Grand Canyon','http://localhost/RandR/Events.php',NULL),
+(34,1,'Jogging','Abellana Jogging Special','http://localhost/RandR/Events.php',NULL),
+(35,3,'CoreLympics','Game competition at Family Park','http://localhost/RandR/Events.php','fampark1_1-679x452.jpg'),
+(36,3,'Parasailing','Parasailing at Badian','http://localhost/RandR/Events.php','aj-garcia-225309.jpg'),
+(37,1,'Micro R&R','Mini Sports Olympics @ Family Park','http://localhost/RandR/Events.php',NULL),
+(46,1,'Tree Planting','Tree Planting at Maghaway','http://localhost/RandR/Events.php',NULL),
+(171,3,'Trekking','Trekking at Mt. Kan Irag, Cebu','http://localhost/RandR/Events.php','ashim-d-silva-106271.jpg'),
+(172,3,'Scuba Diving','Scuba Diving at Cordova, Mactan Cebu','http://localhost/RandR/Events.php','marco-assmann-178084.jpg');
 
 /*Table structure for table `user_status` */
 

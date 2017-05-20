@@ -24,7 +24,7 @@ if (isset($_POST['voteEvent']))
 $today = date("Y-m-d");
 $EVP=$eventPeriodClass->getCurrentEventPeriod($today);
 $events = $eventClass->getEventsByEVP($EVP['evp_id']);
-var_dump($events);
+// var_dump($events);
 
 ?>
 
