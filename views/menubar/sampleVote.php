@@ -2,7 +2,7 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 ?>
-<link rel="stylesheet" href="assets/css/polls.css">
+<!-- <link rel="stylesheet" href="assets/css/polls.css"> -->
 <br>
 <div class="container">
 	<form method="post" class="form-horizontal" role="form">
