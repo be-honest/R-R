@@ -61,7 +61,7 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 					?>
 					<div class="c-hover">
 						<label class="poll first" for="event1"
-						style="background-image:url('images/<?php echo $event['image'] ?>'); background-size: 480px 320px;"
+						style="background-image:url('images/<?php echo $event['image'] ?>'); "
 						></label> 
 						<input id="event1" type="radio" name="events" value="first-poll" hidden />
 						<div class="overlay">
@@ -181,5 +181,5 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 
 
 <?php 
-	//require_once 'views/layouts/footer.php';
+	require_once 'views/layouts/footer.php';
 ?>
