@@ -56,14 +56,15 @@ class eventPeriodClass
 
 
 	//Get the Event Period as of today
-	public function getCurrentEventPeriod($dateToday)
+	public function getCurrentEventPeriod()
 	{
 		try {
+			$today = date("Y-m-d");
 			$db = getDB();      
 			$st = $db->prepare("SELECT *
 				FROM event_voting_period
 				WHERE start_date <= ? && end_date >= ?");
-			$st->execute(array($dateToday,$dateToday));
+			$st->execute(array($today,$today));
 			$count=$st->rowCount(); 
 			if($count)
 			{
@@ -77,7 +78,5 @@ class eventPeriodClass
 		}
 
 	}
-
-
 }
 ?>

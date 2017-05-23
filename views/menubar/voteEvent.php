@@ -21,8 +21,7 @@ if (isset($_POST['voteEvent']))
 }
 
 //get EVP note: Only Local (computer Time) Conditioned
-$today = date("Y-m-d");
-$EVP=$eventPeriodClass->getCurrentEventPeriod($today);
+$EVP=$eventPeriodClass->getCurrentEventPeriod();
 $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 
 

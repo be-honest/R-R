@@ -121,9 +121,21 @@ if (isset($_POST['registerActivity']))
 		if(isset($_GET['evp_id']))
 		{
 		$events = $eventClass->getEventsByEVP($_GET['evp_id']);
+		$currentEVP= $eventPeriodClass->getCurrentEventPeriod();
+		// var_dump($_GET['evp_id'] == $currentEVP['evp_id']);
 		if($events==false)
 		{
-			$errorMsgReg = "No available events yet.";
+			if ($_GET['evp_id'] == $currentEVP['evp_id']) {
+			$errorMsgReg = htmlspecialchars("There are no events for this month's R&R") . '<br>' . htmlspecialchars("To add events for this event period, Click ") . '<a href="' . htmlspecialchars("createEvent.php") . '">' . htmlspecialchars('here') . '</a>' . htmlspecialchars('.');
+			}
+			elseif ($_GET['evp_id'] > $currentEVP['evp_id']) {
+				$errorMsgReg = "This Event Period is not yet open.";
+			}
+			else
+			{
+				$errorMsgReg = "This Event Period has passed and there were no recorded events.";
+			}
+			// var_dump($errorMsgReg);
 		} 
 		}
 
@@ -186,28 +198,32 @@ if (isset($_POST['registerActivity']))
 		</div>
 		<?php } ?>
 
-		<?php if($errorMsgReg)
-		{?>
+		<!-- <?php //if($errorMsgReg)
+		//{?>
 		<div class="alert alert-danger fade in">
 			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
 				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
 			</button>
 			<strong>Oops! </strong><?php echo $errorMsgReg ?> 
 		</div>
-		<?php } ?>
+		<?php //} ?> -->
 		<!-- End of Activities -->
 
+		<!-- No events alert -->
 		<?php if($errorMsgReg)
 		{?>
 		<div class="alert alert-warning fade in">
 			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
 				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
 			</button>
-			<strong>Oops </strong><?php echo $errorMsgReg ?> 
-		</div>
+			<strong>Wait a minute! </strong> <?php echo $errorMsgReg ?>
+					</div>
 		<?php } ?>
+
+
 	</form>
 	<br>
+
 	<!-- Start Data Table -->
 	<div class="row">
 		<div class="form col-sm-10 col-sm-offset-1">

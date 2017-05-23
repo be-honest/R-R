@@ -13,8 +13,8 @@ $last_evp =$eventClass->lastRecord()['evp_id'];
 // var_dump($last_id);
 // var_dump($last_evp);
 
-$today = date("Y-m-d");
-$evp_id=$eventPeriodClass->getCurrentEventPeriod($today);
+$evp_id=$eventPeriodClass->getCurrentEventPeriod();
+var_dump($evp_id['evp_id']);
 $evp_id=$evp_id['evp_id'];
 
 if(isset($_POST['registerEvent']))
@@ -111,17 +111,18 @@ if(isset($_POST['registerEvent']))
                             <label class="col-md-2 control-label">Location</label>
                             <div class="col-md-4"> 
                               <input type="url" class="form-control" name="location" value="http://localhost/RandR/Events.php" required>
-                              <br>
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-                              
-                              <div>
-                               <div class='form-group'>
-                                <input type="file" class='form-control' name='image'>
-                              </div>
+                              <!-- <br>
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> -->
                             </div>
-
                           </div>
-                          <br>
+
+
+                          <div class='form-group'>
+                            <label class="col-md-2 control-label">Image</label>
+                            <div class="col-md-4"> 
+                              <input type="file" class='form-control' name='image'>
+                            </div>
+                          </div>
 
                           <!-- </div>
                           <div class="form-group">
@@ -136,7 +137,8 @@ if(isset($_POST['registerEvent']))
                            </div>
                            <img id="img-upload">
                          </div>  -->
-
+                         
+                         <div class="form-group"></div>
                          
                          <!-- button -->
                          <div class="form-group">
@@ -232,11 +234,11 @@ if(isset($_POST['registerEvent']))
               </div> 
             </div> 
 
-            </div>
           </div>
-            
-            <?php 
-            require_once 'views/layouts/footer.php';
-            ?>
+        </div>
+
+        <?php 
+        require_once 'views/layouts/footer.php';
+        ?>
 
 

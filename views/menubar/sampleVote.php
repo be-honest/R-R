@@ -21,8 +21,7 @@ if (isset($_POST['voteEvent']))
 }
 
 //get EVP note: Only Local (computer Time) Conditioned
-$today = date("Y-m-d");
-$EVP=$eventPeriodClass->getCurrentEventPeriod($today);
+$EVP=$eventPeriodClass->getCurrentEventPeriod();
 $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 // var_dump($events);
 
@@ -37,12 +36,15 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 		<form method="post" class="form-horizontal" role="form">
 			<h1>Vote an Event <span class="icon icon-check"></span></h1>
 
-			<h5>Hover image to vote.</h5>
+			
+
+				<?php
+				if ($events) { ?>
+					<h5>Hover image to vote.</h5>
 
 			
 			<div class="v-event">
-
-				<?php
+			<?php
 				$i=1;
 				$c=0;
 				foreach($events as $event)
@@ -69,7 +71,7 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 									<?php echo date_format(date_create($event["start_event_date"]),"M d, Y");?></p>
 									<p style="font-size: 18px;"><?php echo $event['description']?></p>
 								</div>
-								<button type="submit" class="btn btn-default-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
+								<button type="button" class="btn btn-default-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
 							</div>
 						</div>
 
@@ -78,7 +80,15 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 						if ($i%2==0) {
 							$i=$c;
 						}
-					} ?>
+					} 
+					}
+					else
+					{
+						echo 'No events';
+					}
+
+
+					?>
 
 				</div>
 				<br>
@@ -179,5 +189,5 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 
 
 <?php 
-	//require_once 'views/layouts/footer.php';
+	require_once 'views/layouts/footer.php';
 ?>
