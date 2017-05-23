@@ -444,7 +444,9 @@ changed to inline code in samplevote -kem
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:500px;height:320px;
+    width:500px;
+    height:320px;
+    background-size: 480px 320px;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -514,5 +516,40 @@ button#voteBtn{
    margin-top: 15em;
 
 }
+/*error page*/
+.bg-error{
+    background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url(https://images.unsplash.com/photo-1447044207833-2524c1cf3604?dpr=1&auto=format&fit=crop&w=1500&h=844&q=80&cs=tinysrgb&crop=&bg=) fixed;
+    background-repeat: no-repeat;
+     background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 500px;
+    width: 100%;
+    padding-top:  50px; 
+}
+/*profile*/
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     max-width: 300px;
+     margin: auto;
+     text-align: center;
+}
+.p-container{
+    padding: 0 16px;
+}
+.type{
+    color: grey;
+    font-size: 16px;
+}
 
-
+.social a{
+    color: slategray;
+}
+.social a:hover{
+    color: #bdbdbd;
+}
+.btn-primary.p:hover{
+    background-color: lightblue;
+    border-color: lightblue;
+    color: gray;
+}

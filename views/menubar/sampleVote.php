@@ -27,6 +27,7 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 
 ?>
 
+
 <!-- <link rel="stylesheet" href="assets/css/polls.css">
 	copied to header.php -->
 	<br>
@@ -52,6 +53,7 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 
 					if ($i>$c&&$i%2==1) {
 						?>
+
 					</div>
 					<br>
 					<div class="v-event">
@@ -61,7 +63,7 @@ $events = $eventClass->getEventsByEVP($EVP['evp_id']);
 					?>
 					<div class="c-hover">
 						<label class="poll first" for="event1"
-						style="background-image:url('images/<?php echo $event['image'] ?>'); background-size: 480px 320px;"
+						style="background-image:url('images/<?php echo $event['image'] ?>'); "
 						></label> 
 						<input id="event1" type="radio" name="events" value="first-poll" hidden />
 						<div class="overlay">

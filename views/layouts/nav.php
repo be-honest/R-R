@@ -26,7 +26,7 @@
          		   		<!-- <span class="caret"></span> -->
          		   		<div class="dropdown-content">
          		   			<a href="Profile.php">View Profile</a>
-         		   			<a href="ProfileEdit.php">Edit Profile</a>
+         		   			<!-- <a href="ProfileEdit.php">Edit Profile</a> -->
          		   		</div>
          		   			
          		   		
