@@ -128,8 +128,35 @@
      })
        $(document).ready(function() {
         $('#user-data').DataTable();
+          var map;
+          //Map Preview in make event
+        $(".map").keydown(function(){
+        map = $('.map').val();
+        $(".mappreview").html(map);
+    });
       } );                   
     </script>
+
+
+    <!-- event poll -->
+    <script>
+$(document).ready(function(){
+
+    $(".vote").click(function() {
+    var $value = $(this).val();
+    var $title = $(this).attr('name');
+    //alert($title); 
+    var $msg = "Do you want to vote for the event " + '"' + $title + '"?';
+    $('.confirmMSG').html($msg); 
+    $('.voteConfirm').val($value); 
+
+});
+
+});
+
+</script>
+
+
     <!-- voting period datatable -->
     <script>
      $(document).ready(function() {
@@ -240,6 +267,19 @@ $(document).ready( function() {
         readURL(this);
     });   
   });
+
+
+
 </script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".map").keyup(function(){
+        var map = $('.map').val;
+        $(".mappreview").innerHTML(map);
+    });
+});
+</script> -->
+
 </body>
 </html>

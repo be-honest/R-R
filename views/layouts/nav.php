@@ -1,6 +1,8 @@
 <?php 	
 	$uname = $userClass->getUser($session_uid);
-	$uname = $uname['first_name'];
+	// $uname = $uname['first_name'];
+	$nav_picture=$userClass->getUser($session_uid)["profile_picture"];
+	//var_dump($user_type);
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
 	<div class="container">
@@ -22,7 +24,7 @@
 					<a href="home.php">Home</a>
 				</li>
 				<li class="dropdown">
-         		   <a class="dropbtn" href="#">Profile</a>
+         		   <a class="dropbtn" href="Profile.php">Profile</a>
          		   		<!-- <span class="caret"></span> -->
          		   		<div class="dropdown-content">
          		   			<a href="Profile.php">View Profile</a>
@@ -31,6 +33,8 @@
          		   			
          		   		
         		</li>
+        		<?php if($user_type==1) 
+        		{?>
 				<li class="dropdown">
          		   <a class="dropbtn" href="users.php">Users</a>
          		   		<div class="dropdown-content">
@@ -46,6 +50,7 @@
 							<a href="Checklist.php">Checklist</a>
 						</div>
 				</li>
+				<?php } ?>
 				<li>
 					<a href="eventPoll.php">Poll</a>
 					<!-- <a data-toggle="modal" href="#msgModal">Polls</a> -->
@@ -54,22 +59,23 @@
 
 			<ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
 				<li >
-					<a class="app-notifications" href="#">
+					<a href="Profile.php"><?php echo $uname['first_name'] . " " .$uname['last_name']?></a>
+					<!-- <a class="app-notifications" href="#">
 						<span class="icon icon-bell"></span>
-					</a>
+					</a> -->
 				</li>
 				<li>
 					<button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-						<img class="img-circle" src="assets/img/avatar-dhg.png">
+						<img class="img-circle" src="assets/img/users/<?php echo $nav_picture ?>">
 					</button>
 				</li>
 			</ul>
 
-			<form class="navbar-form navbar-right app-search" role="search">
+			<!-- <form class="navbar-form navbar-right app-search" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" data-action="grow" placeholder="Search">
 				</div>
-			</form>
+			</form> -->
 <!-- navbar hidden -->
 			<ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
 				<li><a href="home.php">Home</a></li>
@@ -81,7 +87,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav hidden">
-				<li> Welcome, <?php echo $uname; ?>!</li>
+				<li> Welcome, <?php echo $uname['first_name']; ?>!</li>
 
 
 				<li><a href="logout.php">Logout</a></li>

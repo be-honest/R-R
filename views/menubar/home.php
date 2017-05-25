@@ -1,6 +1,7 @@
 <?php 
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
+
  ?>
 
 <!DOCTYPE html>
@@ -94,9 +95,12 @@ require_once 'views/layouts/nav.php';
     <h1 class="deco">Rest and Recreation <br> Portal</h1>
     <h3 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h3>
     <br>
+<?php if($user_type) 
+            {?>
       <a href="eventVotingPeriod.php">  
         <button type="button" class="btn btn-default btn-lg" id="homeBtn">Get Started</button>
       </a>
+      <?php } ?>
   </div>
 </div>
 <!-- container 1 -->

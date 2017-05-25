@@ -1,0 +1,39 @@
+File can't be uploaded 
+
+solution: check php.ini ,upload_max_filesize=15M, restart xampp apache
+
+refresh page after form submission
+
+solution: echo "<meta http-equiv='refresh' content='0'>"; after sql query insert in class
+
+Programs used:
+Sublime Text 3
+Git Bash
+Xampp
+SQLyog
+Slack
+
+Resources:
+w3schools.com
+laracast(PHP Practitioner, Laravel from Scratch)
+BootstrapThemes(theme-application-extended)
+GitHub
+Composer
+
+packages installed in Sublime during OJT stay at coreDev:
+A file icon
+AdvancedNewFile
+BoxyTheme
+BracketHighlighter
+Color Highlighter
+ColorHelper
+Emmet*
+Laravel Blade Highlighter*
+Package Control*
+PyV8
+SideBarEnhancements
+SublimeLinter
+SublimeLinter-php
+SublimeLinter-phplint
+zzz A File Icon zzz
+note: * are the important ones

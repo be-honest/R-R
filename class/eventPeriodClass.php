@@ -9,6 +9,7 @@ class eventPeriodClass
 			$isOpen=1;
 			$stmt->execute(array(1, $event_status, $start_date, $end_date, $isOpen, 
 				$start_event_date,$end_event_date));
+			echo "<meta http-equiv='refresh' content='0'>";
 			$db = null;
 
 			return $stmt;

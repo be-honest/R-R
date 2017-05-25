@@ -1,8 +1,7 @@
 <?php
-
 $userClass = new userClass();
 $users = $userClass->getAllUsers();
-
+// var_dump($session_uid);
 // print_r($users);
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
@@ -20,7 +19,7 @@ require_once 'views/layouts/nav.php';
 					<ul class="nav nav-pills">
 						<!-- <li class="btn-outline"> -->
 						<a href="register-admin.php" class="button">
-						  <button type="submit" class=" btn btn-info">	
+					  <button type="submit" class=" btn btn-info">	
 						      <span class="icon icon-add-user"></span>
 						   			ADMIN
 						  </button>

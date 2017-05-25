@@ -6,7 +6,7 @@ class userClass
   {
 
     $db = getDB();
-    $stmt = $db->prepare("SELECT id FROM users WHERE username=:username AND  password=:password");  
+    $stmt = $db->prepare("SELECT id,user_type_id FROM users WHERE username=:username AND  password=:password");  
     $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
     $stmt->bindParam("password", $password,PDO::PARAM_STR) ;
     $stmt->execute();
@@ -16,6 +16,7 @@ class userClass
     if($count)
     {
       $_SESSION['user_id']=$data->id;
+      $_SESSION['user_type_id']=$data->user_type_id;
       return true;
     }
     else
@@ -34,10 +35,10 @@ class userClass
     $st->bindParam("username", $username,PDO::PARAM_STR);
     $st->execute();
     $count=$st->rowCount();
-    $user_type_id = 1;
+    $user_type_id = 1;//1 for admin
     if($count<1)
     {
-      $stmt = $db->prepare("INSERT INTO users(user_type_id,username,password,first_name,last_name,middle_name,status_id) VALUES (?,?,?,?,?,?,?)");  
+      $stmt = $db->prepare("INSERT INTO users(user_type_id,username,password,first_name,last_name,middle_name,status_id,profile_picture) VALUES (?,?,?,?,?,?,?,?)");  
           /*$stmt->bindParam("user_type_id", $user_type_id,PDO::PARAM_STR) ;
           $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
           $stmt->bindParam("password", $password,PDO::PARAM_STR) ;
@@ -45,7 +46,8 @@ class userClass
           $stmt->bindParam("last_name", $last_name,PDO::PARAM_STR) ;
           $stmt->bindParam("status_id", $status_id,PDO::PARAM_STR) ;*/
 
-          $stmt->execute(array($user_type_id,$username,$password,$first_name,$last_name,$middle_name,$status_id));
+          $stmt->execute(array($user_type_id,$username,$password,$first_name,$last_name,$middle_name,$status_id,'default-user.jpg'));
+          // echo "<meta http-equiv='refresh' content='0'>";
           $uid=$db->lastInsertId();
           $db = null;
           // $_SESSION['uid']=$uid;
@@ -75,10 +77,10 @@ class userClass
         $st->bindParam("username", $username,PDO::PARAM_STR);
         $st->execute();
         $count=$st->rowCount();  
-        $user_type_id = 2;
+        $user_type_id = 2;//2 for regular member
         if($count<1)
         {
-          $stmt = $db->prepare("INSERT INTO users(user_type_id,username,password,first_name,last_name,middle_name,status_id) VALUES (?,?,?,?,?,?,?)");  
+          $stmt = $db->prepare("INSERT INTO users(user_type_id,username,password,first_name,last_name,middle_name,status_id,profile_picture) VALUES (?,?,?,?,?,?,?,?)");  
           /*$stmt->bindParam("user_type_id", $user_type_id,PDO::PARAM_STR) ;
           $stmt->bindParam("username", $username,PDO::PARAM_STR) ;
           $stmt->bindParam("password", $password,PDO::PARAM_STR) ;
@@ -86,7 +88,8 @@ class userClass
           $stmt->bindParam("last_name", $last_name,PDO::PARAM_STR) ;
           $stmt->bindParam("status_id", $status_id,PDO::PARAM_STR) ;*/
 
-          $stmt->execute(array($user_type_id,$username,$password,$first_name,$last_name,$middle_name,$status_id));
+          $stmt->execute(array($user_type_id,$username,$password,$first_name,$last_name,$middle_name,$status_id,'default-user.jpg'));
+          //echo "<meta http-equiv='refresh' content='0'>";
           $uid=$db->lastInsertId();
           $db = null;
           // $_SESSION['uid']=$uid;
@@ -184,7 +187,7 @@ public function userDetails($user_id)
 {
   try{
     $db = getDB();
-    $stmt = $db->prepare("SELECT username,last_name FROM users WHERE id=:user_id");  
+    $stmt = $db->prepare("SELECT * FROM users WHERE id=:user_id");  
     $stmt->bindParam("user_id", $user_id,PDO::PARAM_INT);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_OBJ);

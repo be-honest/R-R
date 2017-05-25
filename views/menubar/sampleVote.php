@@ -17,179 +17,80 @@ if (isset($_POST['voteEvent']))
 	$event_id=$_POST['event'];
 	$user_id=$session_uid;
 	$uid=$voteClass->vote($event_id,$user_id);
-	// print_r($uid);
+	print_r($uid);
 }
 
 //get EVP note: Only Local (computer Time) Conditioned
 $EVP=$eventPeriodClass->getCurrentEventPeriod();
 $events = $eventClass->getEventsByEVP($EVP['evp_id']);
-// var_dump($events);
+
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Polls</title>
+	<!-- <link rel="stylesheet" href="assets/css/polls.css">  
+	copied to header.php-->
+</head>
+<body>
 
-<!-- <link rel="stylesheet" href="assets/css/polls.css">
-	copied to header.php -->
-	<br>
-	<div class="container">
-		<?php if($EVP!=false)
-		{?>
+	<div class = "container"> 
 		<form method="post" class="form-horizontal" role="form">
-			<h1>Vote an Event <span class="icon icon-check"></span></h1>
-
-			
-
-				<?php
-				if ($events) { ?>
-					<h5>Hover image to vote.</h5>
-
-			
-			<div class="v-event">
-			<?php
-				$i=1;
-				$c=0;
-				foreach($events as $event)
-				{
-
-					if ($i>$c&&$i%2==1) {
-						?>
-
-					</div>
+				<!-- <div class="col-md-4">
+				<div class="col-md-6"> -->
+				<?php if($EVP!=false)
+						{ ?>
+					<h3>Vote an Event</h3>
+					<h5>Check an option to vote.</h5>
 					<br>
-					<div class="v-event">
-						<?php
-					}
-
-					?>
-					<div class="c-hover">
-						<label class="poll first" for="event1"
-						style="background-image:url('images/<?php echo $event['image'] ?>'); "
-						></label> 
-						<input id="event1" type="radio" name="events" value="first-poll" hidden />
-						<div class="overlay">
-							<div class="text">
-								<?php echo $event['name']?>
-								<p class="text-date" style="font-size: 18px;">
-									<?php echo date_format(date_create($event["start_event_date"]),"M d, Y");?></p>
-									<p style="font-size: 18px;"><?php echo $event['description']?></p>
-								</div>
-								<button type="button" class="btn btn-default-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
-							</div>
-						</div>
-
+					<div class="funkyradio">
 						<?php 
-						$i++;
-						if ($i%2==0) {
-							$i=$c;
-						}
-					} 
-					}
-					else
-					{
-						echo 'No events';
-					}
-
-
-					?>
-
-				</div>
-				<br>
-
-
-
-
-
-
-				<?php } ?>
-
-
-
-
-				
-			<!-- <div class="v-event">
-				<div class="c-hover">
-					<label class="poll second" for="event1"></label> 
-					<input id="event1" type="radio" name="events" value="first-poll" hidden />
-						<div class="overlay">
-							<div class="text">
-								EVENT NAME
-								<p class="text-muted" style="font-size: 18px;">Date: March 2017</p>
-								<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+						foreach($events as $event)
+						{
+							?>
+							<div class="funkyradio-info">
+								<input type="radio" name="event" id="radio<?=$event['event_id']?>" value=<?=$event['event_id']?>>
+								<label for="radio<?=$event['event_id']?>" 
+								>
+									<?php echo $event['name']  . ' : ' . $event['description']?> 
+								</label>
 							</div>
-							<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
-						</div>
-				</div>
-				<div class="c-hover">
-					<label class="poll first" for="event1"></label> 
-					<input id="event1" type="radio" name="events" value="first-poll" hidden />
-						<div class="overlay">
-							<div class="text">
-								EVENT NAME
-								<p class="text-muted" style="font-size: 18px;">Date: March 2017</p>
-								<p style="font-size: 18px;">The quick brown fox jumps over the lazy dog.</p>
+							<?php } ?>
+
+							</div> <br>
+							<div class="form-group">
+								<div class="col-sm-5 col-sm-offset-5">
+									<button type="submit" class="btn btn-primary" name="voteEvent">
+										Vote
+									</button>
+								</div>
 							</div>
-							<button class="btn btn-primary-outline" id="voteBtn" href="#msg" data-toggle="modal">Vote</button>
-						</div>
+
+						<?php } ?>
+						<!-- </div>
+					</div> -->
+				</form>
+			</div>
+
+			
+<!-- <div class = "container"> 
+<form class="form-horizontal" role="form">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-bold panel-default">
+				<div class="panel-body p-b-lg">
+					<h5>Description</h5>
+					<p></p>
 				</div>
-				</div>
-				<-->	
- 		<!-- 	<div class="v-event">
-				<div class="c-hover">
-					<input id="event2" type="radio" name="event2" value="second-poll" hidden/>
-					<label class="poll second" for="event2"></label>
-				</div>
-			</div> -->
-
-			<!-- modal -->
-			<div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-								<!-- <span aria-hidden="true">x</span> -->
-							</button>
-							<h4 class="modal-title">The event has been successfully created!</h4>
-						</div>
-			       <!--  <div class="modal-body">
-			            <h4>The event has been successfully created!</h4>
-			        </div> -->
-			        <div class="modal-body">
-			        	<p>Do you wish to add an activity?</p>
-
-			        	<!-- <div class="modal-footer"> -->
-			        	<div style="display: flex; align-items: center; justify-content: space-around; ">
-			        		<button class="btn btn-default" data-dismiss="modal">
-			        			<span class="icon icon-thumbs-down"></span>
-
-			        			No
-			        		</button>
-			        		<button type="button" class="btn btn-primary" name="registerEvent">
-			        			<span class="icon icon-thumbs-up"></span>
-			        			Yes 
-			        			<?php //$redirect="Activity.php" ?>
-			        		</button>
-			        	</div>
-			        </div>
-			    </div>
-
 			</div>
 		</div>
 	</div>
-
-	<!-- end of modal -->
-
-
 </form>
-</div>
+</div> -->
 
-
-
-
-
-
-
-
-<?php 
-	require_once 'views/layouts/footer.php';
+<?php
+require_once 'views/layouts/footer.php'; 
 ?>

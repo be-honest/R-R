@@ -97,11 +97,11 @@ $password=$_POST['password'];
       </div> -->
 
       <div class="form-group">
-        <input class="form-control" placeholder="Username" value="admin1" name="username" autofocus>
+        <input class="form-control" placeholder="Username" value="user1" name="username" autofocus>
       </div>
 
       <div class="form-group m-b-md">
-        <input type="password" class="form-control" placeholder="Password" value="admin1" name="password">
+        <input type="password" class="form-control" placeholder="Password" value="user1" name="password">
       </div>
 
       <?php 

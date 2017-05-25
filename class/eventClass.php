@@ -11,15 +11,16 @@ class eventClass
 			$image_width = $image_info[0];
 			$image_height = $image_info[1];
 
-			var_dump($image_width);
-			var_dump($image_height);
+			// var_dump($image_width);
+			// var_dump($image_height);
 			// 
 			$stmt = $db->prepare("INSERT INTO events(name,description,location,evp_id,image) VALUES (?,?,?,?,?)");
 			$stmt->execute(array($event_name,$description,$location,$evp_id,$imgName));
+			// echo "<meta http-equiv='refresh' content='0'>";
+			$stmt = $db->prepare("SELECT MAX(event_id) AS MAX FROM EVENTS");
+			$stmt->execute();
+			$data=$stmt->fetch();
 
-			// if($stmt)
-			// {
-			// var_dump($img['tmp_name']);
 			move_uploaded_file($img['tmp_name'], "images/" . $imgName);
 			
 			
@@ -47,8 +48,7 @@ class eventClass
 			// }
 
 			$db = null;
-
-			return true;
+			return $data;
 
 		} catch(PDOException $e) {
 			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
@@ -153,10 +153,25 @@ class eventClass
 	public function lastRecord()
 	{
 		$db = getDB();
-		$stmt = $db->prepare("SELECT * 
-			FROM EVENTS, event_voting_period 
-			WHERE events.`evp_id`= event_voting_period.`evp_id`
-			ORDER BY event_ID DESC LIMIT 1");
+		$stmt = $db->prepare("SELECT MAX(event_id) AS MAX FROM EVENTS");
+		$stmt->execute();
+		$db = null;
+		$count=$stmt->rowCount();
+		if($count)
+		{
+			$data = $stmt->fetch();
+			return $data;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function currentRecord()
+	{
+		$db = getDB();
+		$stmt = $db->prepare("SELECT MAX(event_id) AS MAX FROM EVENTS");
 		$stmt->execute();
 		$db = null;
 		$count=$stmt->rowCount();

@@ -2,8 +2,9 @@
  require_once 'views/layouts/header.php';
  require_once 'views/layouts/nav.php';
 
-
+// var_dump($_SESSION['successMsgReg']);
  $errorMsgReg="";
+// $successMsgReg="";
 
 
  if (isset($_POST['editUser'])&&isset($_GET['id']))
@@ -130,7 +131,23 @@ $userStatus="";
                    Edit User Account 
                   <span class="icon icon-edit"></span>
                 </h2>
-            
+             <?php if ( $_SESSION['successMsgReg'])
+                {?>
+                  <div class="alert alert-success alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true" class="exit" style="float:right; padding: 0;">×</span>
+         </button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
+                   </div>
+                   <?php } ?>
+                   <?php 
+                if($errorMsgReg)
+                { 
+                  ?>
+                  <div class="alert alert-danger alert-dismissable" role="alert">
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="float: right;">×</span>
+                  </button>
+                  <strong>Oops!</strong> <?php echo $errorMsgReg; ?><?php } ?>
                <hr width="750">
                 <div class="form-group">    
                     <label for="firstName" class="col-sm-4 control-label">First Name</label>
@@ -214,25 +231,10 @@ $userStatus="";
                 <br>
                          
                
-                <?php 
-                if($errorMsgReg)
-                { 
-                  ?>
-                  <div class="alert alert-danger alert-dismissable" role="alert">
-                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" style="float: right;">×</span>
-                  </button>
-                  <strong>Oops!</strong> <?php echo $errorMsgReg; ?><?php } ?>
+                
                 </div>
       
-                <?php if (isset($_SESSION['successMsgReg']))
-                {?>
-                  <div class="alert alert-success fade in">
-                    <button type="button" class="close close-alert" data-dismiss="Close">
-                     <span aria-hidden="true" style="float: right;">×</span>
-                   </button><strong>Well done! </strong><?php echo $_SESSION['successMsgReg']; ?> 
-                   </div>
-                   <?php } ?>
+               
                     </div>  
             </form> 
             <br>

@@ -8,13 +8,12 @@ $successMsgReg="";
 $eventClass = new eventClass();
 $eventPeriodClass = new eventPeriodClass();
 
-$last_id =$eventClass->lastRecord()['event_id'];
-$last_evp =$eventClass->lastRecord()['evp_id'];
+// $_SESSION['last_id'];
+
 // var_dump($last_id);
-// var_dump($last_evp);
 
 $evp_id=$eventPeriodClass->getCurrentEventPeriod();
-var_dump($evp_id['evp_id']);
+// var_dump($evp_id['evp_id']);
 $evp_id=$evp_id['evp_id'];
 
 if(isset($_POST['registerEvent']))
@@ -25,6 +24,7 @@ if(isset($_POST['registerEvent']))
   $img=$_FILES['image'];
   // var_dump($img);
   $uid=$eventClass->eventRegistration($name,$description,$location,$evp_id,$img);
+  // var_dump($uid["MAX"]);
   if($uid)
   {
        // print_r($uid);
@@ -33,7 +33,9 @@ if(isset($_POST['registerEvent']))
       // $url='home.php';
       // header("Location: 'home.php'");
     $successMsgReg="Event has been successfully created!";
-
+    $last_id =$uid["MAX"];
+    var_dump($last_id);
+    // var_dump($_SESSION['currentID']);
   }
   else
   {
@@ -43,6 +45,7 @@ if(isset($_POST['registerEvent']))
 
         // var_dump($_POST['activity']);
 }
+// var_dump(http_response_code());
 ?>
 <!-- event form -->
 
@@ -61,7 +64,7 @@ if(isset($_POST['registerEvent']))
               <span aria-hidden="true" class="exit" style="float:right; padding: 0;">x</span>
             </button>
             <strong>Well done! </strong><?php echo $successMsgReg; ?> <br>
-            Click <a href="Activity.php?evp_id=<?php echo $last_evp ?>&id=<?php echo ($last_id+1) ?>">here</a> to proceed to adding Activities
+            Click <a href="Activity.php?evp_id=<?php echo $evp_id ?>&id=<?php echo ($last_id) ?>">here</a> to proceed to adding Activities
           </div>
           <?php } ?>
           <div class="form-group">
@@ -110,10 +113,20 @@ if(isset($_POST['registerEvent']))
                            <div class="form-group">
                             <label class="col-md-2 control-label">Location</label>
                             <div class="col-md-4"> 
-                              <input type="url" class="form-control" name="location" value="http://localhost/RandR/Events.php" required>
+                              <input type="url" class="form-control map" name="location" required>
 
-                              <!-- <br>
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                              <br>
+                              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-2 control-label"></label>
+                            <div class="col-md-4 mappreview"> 
+                  
+
+                              
+                              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.131259526826!2d123.88905110000002!3d10.299175500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f08f824b1ab47f9!2sCoreDev+Solutions+Inc.!5e0!3m2!1sen!2sph!4v1494381300383" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> -->
 
                             </div>
                           </div>
@@ -122,7 +135,7 @@ if(isset($_POST['registerEvent']))
                           <div class='form-group'>
                             <label class="col-md-2 control-label">Image</label>
                             <div class="col-md-4"> 
-                              <input type="file" class='form-control' name='image'>
+                              <input type="file" accept="image/png, image/jpeg" class='form-control' name='image'>
                             </div>
                           </div>
 

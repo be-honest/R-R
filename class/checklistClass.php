@@ -21,6 +21,7 @@ class checklistClass
                $db = getDB();
                $stmt = $db->prepare("INSERT INTO checklist(event_id,name) VALUES (?,?)");
                $stmt->execute(array($event_id,$name));
+               echo "<meta http-equiv='refresh' content='0'>";
                $db = null;
                return true;
 
@@ -36,6 +37,7 @@ class checklistClass
                $db = getDB();
                $stmt = $db->prepare("INSERT INTO checklist(event_id,name) VALUES (?,?)");
                $stmt->execute(array($event_id,$name));
+               echo "<meta http-equiv='refresh' content='0'>";
                $db = null;
                return true;
 
