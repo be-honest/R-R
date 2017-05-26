@@ -79,5 +79,27 @@ class eventPeriodClass
 		}
 
 	}
+
+	public function getEventsCountByEVP($evp_id)
+	{
+		try {
+			$db = getDB();      
+			$st = $db->prepare("SELECT COUNT(*) AS 'count'
+				FROM EVENTS
+				WHERE evp_id=?");
+			$st->execute(array($evp_id));
+			$count=$st->rowCount(); 
+			if($count)
+			{
+				$data = $st->fetch();
+				return $data;
+			}
+			else 
+				return false;
+		} catch (PDOException $e) {
+
+		}
+
+	}
 }
 ?>

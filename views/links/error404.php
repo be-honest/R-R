@@ -58,12 +58,14 @@
 <div class="container bg-error">
 	<div class="row text-center">
 		<br><br>
-		<h1 style="font-size: 80px;">404</h1>
-		<p style="font-size: 16px;"">Page not found.</p>
+		<h1 style="font-size: 60px;">Page not found <span style="font-size: 25px; color: red">Error 404</span></h1>
+		<p style="font-size: 16px;"">The page you requested could not be found, either contact your webmaster or try again. 
+    <br>Use your browsers Back button to navigate to the page you have prevously come from.</p>
+    <p><b>OR, Click the button below.</b></p>
 		
 	<!-- 	<p><i>404 - page not found</i></p>
 		<h1 style="font-size: 72px;">MISSING PAGE</h1> -->
-		<br>
+
 		<a href="home.php"><button class="btn btn-default" style="border-color: gray; background-color: #bdbdbd;">Back to Home</button></a>
 	</div>
 </div>

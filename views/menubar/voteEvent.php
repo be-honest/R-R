@@ -13,6 +13,7 @@ $voteClass = new voteClass();
 //get EVP note: Only Local (computer Time) Conditioned
 $EVP=$eventPeriodClass->getCurrentEventPeriod();
 $events = $eventClass->getEventsByEVP($EVP['evp_id']);
+$NumOfEvents=$eventPeriodClass->getEventsCountByEVP($EVP["evp_id"])["count"];
 // var_dump($events);
 
 $userVote = $voteClass->checkUserVote($session_uid,$EVP['evp_id']);
@@ -77,15 +78,15 @@ if (isset($_POST['voteEvent']))
 									<?php echo date_format(date_create($event["start_event_date"]),"M d, Y");?></p>
 									<p style="font-size: 18px;"><?php echo $event['description']?></p>
 									<div>Votes: <span style="color: lime">
-									<?php $votes=$voteClass->getEventVoteCount($event['event_id'])["vote_count"]; 
-									if ($votes) {
-										echo $votes;
-									}
-									else
-									{
-										echo '0';
-									}
-									?>
+										<?php $votes=$voteClass->getEventVoteCount($event['event_id'])["vote_count"]; 
+										if ($votes) {
+											echo $votes;
+										}
+										else
+										{
+											echo '0';
+										}
+										?>
 
 										
 									</span> </div>
@@ -115,18 +116,14 @@ if (isset($_POST['voteEvent']))
 				}
 				?>
 
-
-
-
-
-
 				<?php }
-
 				else
 					{?>
 				<!-- <h1>You have voted for</h1> -->
 				<div class="v-event">
 					<div class="c-hover">
+					<!-- Voted event -->
+										<!-- <span class="eventTitle">&nbsp;&nbsp;</span> -->
 						<label class="poll first" for="event1"
 						style="background-image:url('images/<?php echo $userVote['image'] ?>'); "
 						></label> 
@@ -138,60 +135,111 @@ if (isset($_POST['voteEvent']))
 									<?php echo date_format(date_create($userVote["start_event_date"]),"M d, Y");?></p>
 									<p style="font-size: 18px;"><?php echo $userVote['description']?></p>
 									<div>Votes: <span style="color: lime"><?php $votes=$voteClass->getEventVoteCount($userVote['event_id'])["vote_count"]; 
-									if ($votes) {
-										echo $votes;
-									}
-									else
-									{
-										echo '0';
-									}
-									?></span> </div>
-								</div>
-								<?php if(!$userVote) { ?>
-								<button type="button" class="btn btn-default-outline vote" id="voteBtn" href="#msg" data-toggle="modal" value="<?php echo $userVote['event_id']?>"
-									name="<?php echo $userVote['name']?>" >Vote</button>
-									<?php } ?>
+										if ($votes) {
+											echo $votes;
+										}
+										else
+										{
+											echo '0';
+										}
+										?></span> </div>
+									</div>
+									
+									<button type="button" class="btn btn-default-outline vote" id="voteBtn">More...
+									</button>
+									
 								</div>
 							</div>
-						</div>
-						
-						<br>
 
+							<!-- end of voted event -->
 
+							<!-- start of unvoted event, first four xtra events -->
+							<div>
+								<div>
+							<?php 
+							$i=1;
+							$c=0;
+							foreach($events as $event)
+							{ 
+								if ($event['event_id']!=$userVote['event_id'])
+								{
 
-						<?php } ?>
-<div class="container">
-	<div class="row">
-    	<!-- Info Card with social icons -->
-		<div class="info-card">
-				<div class="front">
-					<img class="card-image" src="http://i.imgur.com/QHxnyes.jpg?1">
-				</div>
-			<div class="back">
-				<h3>hello</h3>
-				<p>
-					Globally facilitate timely bandwidth vis-a-vis user friendly core competencies. Uniquely architect covalent e-tailers through viral Lorem ipsum dolor sit amet, con.
-				</p>
-			</div>
-		</div>
-		
-		
-		
-		</div>
-
-		</div>
-
-						<!-- modal -->
-						<div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-											&times;
-											<!-- <span aria-hidden="true">x</span> -->
-										</button>
-										<h4 class="modal-title">Are you sure?</h4>
+								?>
+								<!-- first row -->
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+										<a class="list-quotes" href="">
+											<!-- Recommended size 360X360 -->
+											<img class='img-responsive' alt="img" src="images/<?php echo $event['image'] ?>">
+											<div class="quotes">
+												<h1>Votes: <span style="color: lime">
+										<?php $votes=$voteClass->getEventVoteCount($event['event_id'])["vote_count"]; 
+										if ($votes) {
+											echo $votes;
+										}
+										else
+										{
+											echo '0';
+										}
+										?>	
+									</span>
+									</h1>
+												<p>
+													<?php echo $event['name']?><br><span>...Read More</span>
+												</p>
+											</div>
+										</a>
 									</div>
+					<?php 
+				}
+			} 
+									?>
+									
+								<!-- end of first row -->
+								<!-- second row -->
+<!-- 								<div>
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+										<a class="list-quotes" href="">
+											<img class='img-responsive' alt="img" src="https://img.sheroes.in/img/uploads/article/high_res/Woman-Traveling-Alone-1-1000x500.jpg">
+											<div class="quotes">
+												<h1>Lorem ipsum dolor</h1>
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span>...Read More</span>
+												</p>
+											</div>
+										</a>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+										<a class="list-quotes" href="">
+											<img class='img-responsive' alt="img" src="https://img.sheroes.in/img/uploads/article/high_res/Woman-Traveling-Alone-1-1000x500.jpg">
+											<div class="quotes">
+												<h1>Lorem ipsum dolor</h1>
+												<p>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span>...Read More</span>
+												</p>
+											</div>
+										</a>
+									</div>
+								</div> -->
+								<!-- end of second row -->
+							</div>
+							<!-- end of unvoted event, first four xtra events -->
+						</div>
+
+					</div>
+					<br><br><br><br>
+					<?php } ?>
+
+					<!-- modal -->
+					<div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;
+										<!-- <span aria-hidden="true">x</span> -->
+									</button>
+									<h4 class="modal-title">Are you sure?</h4>
+								</div>
 			       <!--  <div class="modal-body">
 			            <h4>The event has been successfully created!</h4>
 			        </div> -->

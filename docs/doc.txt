@@ -6,6 +6,8 @@ refresh page after form submission
 
 solution: echo "<meta http-equiv='refresh' content='0'>"; after sql query insert in class
 
+extra events on poll: https://bootsnipp.com/snippets/j09qX
+
 Programs used:
 Sublime Text 3
 Git Bash

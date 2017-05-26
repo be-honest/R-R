@@ -58,13 +58,14 @@
 <div class="container bg-error">
   <div class="row text-center">
     <br><br>
-    <h1 style="font-size: 80px;">403</h1>
-    <p style="font-size: 16px;"">Page is not accessible.<br>
-    Please Login as Admin.</p>
+    <h1 style="font-size: 60px;">Forbidden <span style="font-size: 25px; color: red">Error 403</span></h1>
+    <p style="font-size: 16px;"">The page you requested is not accessible to non-Admin users. 
+    <br>Use your browsers Back button to navigate to the page you have prevously come from.</p>
+    <p><b>OR, Click the button below.<br></p>
     
   <!--  <p><i>404 - page not found</i></p>
     <h1 style="font-size: 72px;">MISSING PAGE</h1> -->
-    <br>
+ 
     <a href="home.php"><button class="btn btn-default" style="border-color: gray; background-color: #bdbdbd;">Back to Home</button></a>
   </div>
 </div>
