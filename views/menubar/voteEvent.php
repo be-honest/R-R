@@ -17,6 +17,9 @@ $NumOfEvents=$eventPeriodClass->getEventsCountByEVP($EVP["evp_id"])["count"];
 // var_dump($events);
 
 $userVote = $voteClass->checkUserVote($session_uid,$EVP['evp_id']);
+$userCount=$userClass->getActiveUserCount();
+$voteCount=$voteClass->getVoteCount($EVP['evp_id']);
+
 // checks if the user has already voted for this evp
 // var_dump($userVote);
 
@@ -24,10 +27,21 @@ if (isset($_POST['voteEvent']))
 {
 	$event_id=$_POST['voteEvent'];
 	$user_id=$session_uid;
+if(($voteCount+1)==$userCount)
+{
+	echo 'You are the last voter';
+	//var_dump($voteClass->getMaxVoteByEvp($EVP['evp_id'])['event_id']);//  id of the most voted event
+}
+else
+{
+	echo 'No!';
+}
 	$uid=$voteClass->vote($event_id,$user_id);
 	// echo "<meta http-equiv='refresh' content='0'>";
 	// print_r($uid);
 }
+
+
 
 
 ?>

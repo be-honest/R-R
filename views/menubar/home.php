@@ -1,7 +1,11 @@
 <?php 
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
+  include('class/eventClass.php');
 
+  $eventClass = new eventClass();
+$events = $eventClass->getAllEvents();
+// var_dump($events);
  ?>
 
 <!DOCTYPE html>
@@ -62,6 +66,12 @@ require_once 'views/layouts/nav.php';
       .text-muted a:hover{
         color: darkorange;
       }
+
+.fitimage
+{
+  width: 475px;
+  height: 345px;
+}
     </style>
       <link href="assets/css/custom.css" rel="stylesheet">
   </head>
@@ -104,44 +114,66 @@ require_once 'views/layouts/nav.php';
   </div>
 </div>
 <!-- container 1 -->
+
+
+<?php 
+$i=1;
+
+foreach($events as $event) 
+{
+
+    if($i%2==0&&$event['isApproved']==1)
+    {
+      $i++;
+      ?>
 <article class="container box style1 right">
   <a href="#" class="image fit">
-    <img src="assets/img/iceland.jpg" >
+    <img class="fitimage" src="images/<?php echo $event['image']?>" >
   </a>
   <div class="inner">
     <header>
       <h2 class="event-name">
-        <a href="#">Event Name</a>        
+        <a href="#"><?php  echo $event['name']?></a>        
       </h2>
-      <p class="event-meta">Honest on May 11,2017</p>
-      <p>Description:
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt provident tempora ab, qui optio et quisquam unde necessitatibus expedita nihil ut!</p>
+      <p class="event-meta"><?php echo date_format(date_create($event["start_event_date"]),"M d, Y")?></p>
+      <p>Description: <?php echo $event["description"]?></p>
       <button type="button" class="btn btn-default btn-md">
         <span class="icon icon-dots-three-horizontal"></span>
       </button>
     </header>
   </div>
 </article>
-<!-- container 2 -->
+
+<?php
+    } 
+    elseif ($i%2==1&&$event['isApproved']==1) {
+      $i++;
+?>
   <article class="container box style1 left">
-    <a href="#" class="image fit">
-      <img src="assets/img/instagram_6.jpg">
-    </a>
+  <a href="#" class="image fit">
+    <img class="fitimage" src="images/<?php echo $event['image']?>" >
+  </a>
     <div class="inner">
       <header>
         <h2 class="event-name">
-          <a href="#">Event Name</a>        
+          <a href="#"><?php echo $event['name']?></a>        
         </h2>
-        <p class="event-meta">Honest on May 11,2017</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt provident tempora ab, qui optio et quisquam unde necessitatibus expedita nihil ut!
-        </p>
+        <p class="event-meta"><?php echo date_format(date_create($event["start_event_date"]),"M d, Y")?></p>
+        <p>Description: <?php echo $event["description"]?></p>
         <button type="button" class="btn btn-default btn-md">
           More
         </button>
       </header>
     </div>
   </article>
+<?php
+    }
+  
+}?>
+
+
+
+
 
 <br>
 

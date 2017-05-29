@@ -77,7 +77,7 @@ elseif (isset($_GET['id'])) {
               <div class="form-group">
                 <?php if($id==$session_uid)
                 { ?>
-                <p><button class="btn btn-primary p">Change Profile Picture</button></p>
+                <p><button type="file" accept="image/png, image/jpeg" class="btn btn-primary p">Change Profile Picture</button></p>
                 <?php } ?>
               </div>
           <!-- <div>

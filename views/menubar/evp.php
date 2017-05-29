@@ -15,7 +15,7 @@ if(isset($_POST['registerEVP']))
 	$end_event_date=$_POST['endEventDate'];
 	$id=$session_uid;//session id
 	$event_status=$_POST['optradio'];
-	$uid=$EVPClass->eventPeriodRegistration($start_date,$end_date,$start_event_date,$end_event_date,$id,$event_status);
+	$uid=$EVPClass->eventPeriodRegistration($session_uid,$start_date,$end_date,$start_event_date,$end_event_date,$id,$event_status);
 	// print_r($uid);
 }
 ?>
@@ -98,12 +98,7 @@ if(isset($_POST['registerEVP']))
 									<td align="center"> <?php echo $EVP['evp_id'] ?></td>
 									<td align="center"> <?php echo $EVP['start_date'] . ' - ' . $EVP['end_date'] ?></td>
 									<td align="center"> <?php  echo $EVP['start_event_date'] . ' - ' . $EVP['end_event_date'] ?></td>
-									<td align="center"> <?php if($EVP['isOpen']==1)
-											echo "Open";
-											elseif ($EVP['isOpen']==4) {
-												echo "Pending";
-											};
-									 ?></td>
+									<td align="center"> <?php echo $EVP['description'] ?></td>
 									<td align="center"> <?php echo $EVP['user_id'] ?></td>
 								</tr>
 								<?php  } ?>

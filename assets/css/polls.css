@@ -142,7 +142,7 @@ body {
     transform: translate3d(0,50px,0);
     font-size: 15px;
     font-weight: normal;
-    background: rgba(51,153,153,0.8);
+    background: #222;
     width: 100%;
     color: #fff;
 }

@@ -199,6 +199,24 @@ public function userDetails($user_id)
 
 }
 
+public function getActiveUserCount()
+{
+ try {
+  $db = getDB();      
+  $st = $db->prepare("SELECT * FROM users WHERE status_id=1");
+  $st->execute();
+  $count=$st->rowCount(); 
+  if($count)
+  {
+    return $count;
+  }
+  else 
+    return false;
+} catch (PDOException $e) {
+
+}
+
+}
 
 }
 ?>

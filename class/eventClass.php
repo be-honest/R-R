@@ -76,7 +76,7 @@ class eventClass
 		try {
 			$db = getDB();
           //$st = $db->prepare("SELECT * FROM users");  
-			$st = $db->prepare("SELECT DISTINCT event_id, events.`evp_id`, start_event_date, name, description
+			$st = $db->prepare("SELECT DISTINCT event_id, events.`evp_id`, start_event_date, name, description,image, isApproved
 				FROM EVENTS, event_voting_period
 				WHERE events.`evp_id`=event_voting_period.`evp_id`");
 			$st->execute();

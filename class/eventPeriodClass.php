@@ -1,13 +1,12 @@
 <?php 
 class eventPeriodClass
 {
-	public function eventPeriodRegistration($start_date,$end_date,$start_event_date,$end_event_date,$uid,$event_status)
+	public function eventPeriodRegistration($user_id,$start_date,$end_date,$start_event_date,$end_event_date,$uid,$event_status)
 	{
 		try {
 			$db = getDB();
-			$stmt = $db->prepare("INSERT INTO event_voting_period(user_id,event_status_id,start_date,end_date,isOpen,start_event_date,end_event_date) VALUES (?,?,?,?,?,?,?)");
-			$isOpen=1;
-			$stmt->execute(array(1, $event_status, $start_date, $end_date, $isOpen, 
+			$stmt = $db->prepare("INSERT INTO event_voting_period(user_id,event_status_id,start_date,end_date,start_event_date,end_event_date) VALUES (?,?,?,?,?,?)");
+			$stmt->execute(array($user_id, $event_status, $start_date, $end_date, 
 				$start_event_date,$end_event_date));
 			echo "<meta http-equiv='refresh' content='0'>";
 			$db = null;
@@ -24,7 +23,9 @@ class eventPeriodClass
 		try {
 			$db = getDB();
           // $st = $db->prepare("SELECT * FROM users");  
-			$st = $db->prepare("SELECT * FROM event_voting_period");
+			$st = $db->prepare("SELECT evp_id, user_id, event_status.`event_status_id`, start_date, end_date, start_event_date, end_event_date, description
+				FROM event_voting_period, event_status
+				WHERE event_voting_period.`event_status_id` = event_status.`event_status_id`");
 			$st->execute();
 			$data=$st->fetchAll();
 		} catch (PDOException $e) {
