@@ -98,9 +98,46 @@ class eventPeriodClass
 			else 
 				return false;
 		} catch (PDOException $e) {
-
 		}
-
 	}
+
+	public function closeEvent($evp_id,$event_id)// closes the event the event Period and approve the winning event
+	{
+		try {
+			$db = getDB();      
+			$st = $db->prepare("UPDATE event_voting_period, EVENTS
+				SET event_status_id=2, isApproved=1
+				WHERE event_voting_period.`evp_id`=? AND event_id=?
+				");
+			$st->execute(array($evp_id,$event_id));
+			$count=$st->rowCount(); 
+			return true;
+		} catch (PDOException $e) {
+		}
+	}
+
+	public function getApprovedEventByEVP($evp_id)
+	{
+		try {
+			$db = getDB();      
+			$st = $db->prepare("SELECT *
+				FROM EVENTS
+				WHERE evp_id=3 AND isApproved=1");
+			$st->execute(array($evp_id));
+			$count=$st->rowCount(); 
+			if($count)
+			{
+				$data = $st->fetch();
+				return $data;
+			}
+			else 
+				return false;
+		} catch (PDOException $e) {
+		}
+	}
+
+
+
+
 }
 ?>

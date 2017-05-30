@@ -45,7 +45,7 @@ if(isset($_GET['evp_id']))
 // var_dump($_GET['event_id']);
 	if ($evpt) 
 	{
-		$evpTitle=$evpt['evp_id'];
+		$evpTitle=date_format(date_create($evpt["start_date"]),"F Y");
 	}
 	else
 	{
@@ -90,7 +90,7 @@ if (isset($_POST['registerChecklist']))
 						if($evp['evp_id']!=$_GET['evp_id']) //checks the event id to the posted id to avoid repeat
 						{ ?>
 						<li><a href="Checklist.php?evp_id=<?php echo $evp['evp_id'] ?>"> 
-							<?php echo $evp['evp_id']; 
+							<?php echo date_format(date_create($evp["start_date"]),"F Y"); 
 						}?>
 					</a></li>
 					<?php }
@@ -101,7 +101,7 @@ if (isset($_POST['registerChecklist']))
 					foreach($EVPs as $evp) 
 						{?>
 					<li><a href="Checklist.php?evp_id=<?php echo $evp['evp_id']?>"> 
-						<?php echo $evp['evp_id']; 
+						<?php echo date_format(date_create($evp["start_date"]),"F Y");
 					}?>
 				</a></li>
 

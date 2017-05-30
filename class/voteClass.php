@@ -56,7 +56,7 @@ class voteClass
 			$stmt->execute();
 			$count=$stmt->rowCount();
 			$db = null;
-			$data=$stmt->fetch();
+			$data=$stmt->fetchAll();
 			if ($count) {
 				return $data;
 			}
@@ -121,11 +121,16 @@ class voteClass
 	{
 		try {
 			$db = getDB();
-			$stmt = $db->prepare("SELECT event_id, MAX(vote_Count) AS vote_count
-FROM (SELECT events.`event_id`,events.`evp_id`, COUNT(event_votes.`user_id`) AS vote_count
-				FROM event_votes,EVENTS,event_voting_period
-				WHERE events.`event_id`=event_votes.`event_id` AND event_voting_period.`evp_id`=events.`evp_id` AND event_voting_period.`evp_id`=?
-				GROUP BY events.`event_id`) AS voteCount
+			$stmt = $db->prepare("SELECT r.event_id, r.evp_id, r.vote_count FROM (
+SELECT ev.event_id, ep.evp_id, (COUNT(ev.user_id)) AS Vote_count
+FROM `events` AS e 
+LEFT JOIN `event_votes` AS ev ON ev.`event_id` = e.event_id
+LEFT JOIN `event_voting_period` AS ep ON ep.evp_id = e.evp_id 
+WHERE ev.event_id IS NOT NULL  
+GROUP BY ev.event_id
+ORDER BY Vote_count DESC) r
+WHERE r.evp_id=? AND r.vote_count = (
+SELECT MAX(r.vote_count) FROM (SELECT ev.event_id, ep.evp_id, (COUNT(*)) AS Vote_count FROM `events` AS e LEFT JOIN `event_votes` AS ev ON ev.`event_id` = e.event_id LEFT JOIN `event_voting_period` AS ep ON ep.evp_id = e.evp_id WHERE ev.event_id IS NOT NULL  GROUP BY ev.event_id ORDER BY Vote_count)r)
 				");
 			$stmt->execute(array($evp_id));
 			$count=$stmt->rowCount();

@@ -6,6 +6,7 @@
   <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
   <script src="assets/src/bootstrap-tagsinput-angular.js"></script>
   <script src="assets/src/bootstrap-tagsinput.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <!-- drp req. prerequisites -->
   <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script> -->
   <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -179,6 +180,33 @@ $(document).ready(function(){
       });
     });
 
+  </script>
+
+  <!-- modal after vote -->
+  <script>
+    $(document).ready(function(){
+    //Referances 
+    //jQuery Cookie : https://github.com/carhartl/jquery-cookie
+    //Modal : http://getbootstrap.com/javascript/#modals
+    var my_cookie = $.cookie($('.modal-check').attr('name'));
+    if (my_cookie && my_cookie == "true") {
+        $(this).prop('checked', my_cookie);
+        console.log('checked checkbox');
+    }
+    else{
+        $('#myModal').modal('show');
+        console.log('uncheck checkbox');
+    }
+
+    $(".modal-check").change(function() {
+        $.cookie($(this).attr("name"), $(this).prop('checked'), {
+            path: '/',
+            expires: 1
+        });
+    });
+});
+   
+    
   </script>
 
   <script type="text/javascript">

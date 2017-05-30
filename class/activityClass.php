@@ -23,8 +23,8 @@ class activityClass
                $stmt = $db->prepare("INSERT INTO activities(event_id,name) VALUES (?,?)");
                $stmt->execute(array($event_id,$name));
                
-               header("location: Activity.php?evp_id=1&id=175");
-               //echo "<meta http-equiv='refresh' content='0'>";
+               // header("location: Activity.php?evp_id=1&id=175");
+               echo "<meta http-equiv='refresh' content='0'>";
                $db = null;
                return true;
 

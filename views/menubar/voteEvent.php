@@ -12,31 +12,47 @@ $voteClass = new voteClass();
 
 //get EVP note: Only Local (computer Time) Conditioned
 $EVP=$eventPeriodClass->getCurrentEventPeriod();
-$events = $eventClass->getEventsByEVP($EVP['evp_id']);
-$NumOfEvents=$eventPeriodClass->getEventsCountByEVP($EVP["evp_id"])["count"];
-// var_dump($events);
+$evp_status=$EVP['event_status_id'];
+$evp_id=$EVP['evp_id'];	
+$events = $eventClass->getEventsByEVP($evp_id);
+$NumOfEvents=$eventPeriodClass->getEventsCountByEVP($evp_id)["count"];
+$approvedEvent=$eventPeriodClass->getApprovedEventByEVP($evp_id);
 
-$userVote = $voteClass->checkUserVote($session_uid,$EVP['evp_id']);
+$userVote = $voteClass->checkUserVote($session_uid,$evp_id);
 $userCount=$userClass->getActiveUserCount();
-$voteCount=$voteClass->getVoteCount($EVP['evp_id']);
+$voteCount=$voteClass->getVoteCount($evp_id);
+// var_dump($mm=$voteClass->getMaxVoteByEvp($evp_id)["event_id"]); get event_id of the most voted event
 
-// checks if the user has already voted for this evp
-// var_dump($userVote);
+// var_dump($sumEvents);
+
+
 
 if (isset($_POST['voteEvent'])) 
 {
 	$event_id=$_POST['voteEvent'];
 	$user_id=$session_uid;
-if(($voteCount+1)==$userCount)
-{
-	echo 'You are the last voter';
-	//var_dump($voteClass->getMaxVoteByEvp($EVP['evp_id'])['event_id']);//  id of the most voted event
+	$uid=$voteClass->vote($event_id,$user_id);
+	
+	if(($voteCount+1)==$userCount)
+	{
+		$sumEvents=$voteClass->getVoteCounts();
+		$c=0;
+		foreach ($sumEvents as $sumEvent) {
+			if ($c<=$sumEvent["vote_count"]) 
+			{
+				$topEvent=$sumEvent['event_id'];
+				$c=$sumEvent["vote_count"];
+			}
+		}
+		echo $topEvent;
+		echo 'You are the last voter';
+	$mostVotedEventId=$voteClass->getMaxVoteByEvp($evp_id)["event_id"];//  id of the most voted event
+	$eventPeriodClass->closeEvent($evp_id,$topEvent);
 }
 else
 {
 	echo 'No!';
 }
-	$uid=$voteClass->vote($event_id,$user_id);
 	// echo "<meta http-equiv='refresh' content='0'>";
 	// print_r($uid);
 }
@@ -127,17 +143,65 @@ else
 				else
 				{
 					echo 'No events';
+					?><?php
 				}
 				?>
 
 				<?php }
 				else
-					{?>
+				{
+					?>
+					<?php if ($evp_status==2): ?>
+						<!-- modal -->
+						<div class="container">
+							<div class="row">
+								<div class='modal fade' id='myModal'>
+									<div class='modal-dialog'>
+										<div class='modal-content'>
+											<div class='modal-header'>
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h4 class='modal-title'>
+													<strong>EVENT VOTING PERIOD IS NOW CLOSED</strong>
+												</h4>
+											</div>
+											<!-- / modal-header -->
+											<div class='modal-body'>
+												This month's R&R will be <?php echo $approvedEvent['name'] ?>
+												<img class="img-responsive" src="images/
+												<?php echo $approvedEvent['image']?>"/>
+											</div>
+											<!-- / modal-body -->
+										<!-- <div class='modal-footer'>
+											<div class="checkbox pull-right">
+												<label>
+													<input class='modal-check' name='modal-check' type="checkbox"> 
+												<span style="font-size: 14px;">Don't Show</span>
+												</label>
+											</div>
+											<!--/ checkbox
+										</div> --> 
+										<!--/ modal-footer -->
+									</div>
+									<!-- / modal-content -->
+								</div>
+								<!--/ modal-dialog -->
+							</div>
+							<!-- / modal -->
+						</div>
+						<!-- / row -->
+					</div>
+					<!-- / container -->
+					<!-- end of modal -->
+				<?php endif ?>
+
+
+
+
 				<!-- <h1>You have voted for</h1> -->
 				<div class="v-event">
 					<div class="c-hover">
-					<!-- Voted event -->
-										<!-- <span class="eventTitle">&nbsp;&nbsp;</span> -->
+						<!-- Voted event -->
+						<!-- <span class="eventTitle">&nbsp;&nbsp;</span> -->
 						<label class="poll first" for="event1"
 						style="background-image:url('images/<?php echo $userVote['image'] ?>'); "
 						></label> 
@@ -158,10 +222,10 @@ else
 										}
 										?></span> </div>
 									</div>
-									
+
 									<button type="button" class="btn btn-default-outline vote" id="voteBtn">More...
 									</button>
-									
+
 								</div>
 							</div>
 
@@ -170,44 +234,44 @@ else
 							<!-- start of unvoted event, first four xtra events -->
 							<div>
 								<div>
-							<?php 
-							$i=1;
-							$c=0;
-							foreach($events as $event)
-							{ 
-								if ($event['event_id']!=$userVote['event_id'])
-								{
-
-								?>
-								<!-- first row -->
-									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
-										<a class="list-quotes" href="">
-											<!-- Recommended size 360X360 -->
-											<img class='img-responsive' alt="img" src="images/<?php echo $event['image'] ?>">
-											<div class="quotes">
-												<h1>Votes: <span style="color: lime">
-										<?php $votes=$voteClass->getEventVoteCount($event['event_id'])["vote_count"]; 
-										if ($votes) {
-											echo $votes;
-										}
-										else
+									<?php 
+									$i=1;
+									$c=0;
+									foreach($events as $event)
+									{ 
+										if ($event['event_id']!=$userVote['event_id'])
 										{
-											echo '0';
-										}
-										?>	
-									</span>
-									</h1>
-												<p>
-													<?php echo $event['name']?><br><span>...Read More</span>
-												</p>
-											</div>
-										</a>
-									</div>
-					<?php 
-				}
-			} 
-									?>
-									
+
+											?>
+											<!-- first row -->
+											<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
+												<a class="list-quotes" href="">
+													<!-- Recommended size 360X360 -->
+													<img class='img-responsive' alt="img" src="images/<?php echo $event['image'] ?>">
+													<div class="quotes">
+														<h1>Votes: <span style="color: lime">
+															<?php $votes=$voteClass->getEventVoteCount($event['event_id'])["vote_count"]; 
+															if ($votes) {
+																echo $votes;
+															}
+															else
+															{
+																echo '0';
+															}
+															?>	
+														</span>
+													</h1>
+													<p>
+														<?php echo $event['name']?><br><span>...Read More</span>
+													</p>
+												</div>
+											</a>
+										</div>
+										<?php 
+									}
+								} 
+								?>
+
 								<!-- end of first row -->
 								<!-- second row -->
 <!-- 								<div>
@@ -284,13 +348,6 @@ else
 
 </form>
 </div>
-
-
-
-
-
-
-
 
 <?php 
 require_once 'views/layouts/footer.php';
