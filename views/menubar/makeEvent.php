@@ -135,7 +135,8 @@ if(isset($_POST['registerEvent']))
                           <div class='form-group'>
                             <label class="col-md-2 control-label">Image</label>
                             <div class="col-md-4"> 
-                              <input type="file" accept="image/png, image/jpeg" class='form-control' name='image'>
+                              <input type="file" id="imgInp" accept="image/png, image/jpeg" class='form-control' name='image'>
+                              <img id="blah" src="#" alt="Image Preview" style="width: 480px" />
                             </div>
                           </div>
 
@@ -166,7 +167,7 @@ if(isset($_POST['registerEvent']))
                          <button type="submit" name="registerEvent" class="btn btn-info" style="float: right; margin-right: 35%; width: 25%;">
                            Create Event
                          </button>
-                         <button type="submit" class="btn btn-default col-sm-3" name="registerEvent">
+                         <button type="button" class="btn btn-default col-sm-3" name="registerEvent">
                           Back
                         </button>
                         

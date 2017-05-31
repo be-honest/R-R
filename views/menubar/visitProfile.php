@@ -2,6 +2,14 @@
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
 
+if(isset($_POST['updateProfile']))
+{
+  $img=$_FILES['image'];
+  $uid=$userClass->updateUserProfileImage($session_uid,$img);
+
+}
+
+
 if (!isset($_GET['id'])) {
   $user = $userDetails;
   $name = $user['first_name'] . ' ' . $user['last_name'];
@@ -50,10 +58,10 @@ elseif (isset($_GET['id'])) {
     { ?>
     <div class="card text-center">
       <img src="assets/img/users/<?php echo $profilePicture?>" style="width: 100%;">
+      <h1 class="prof-name"><?php echo $name;?></h1>
       
       <div class="p-container">
 
-        <h1 class="prof-name"><?php echo $name;?></h1>
         <p><?php echo $username ?></p>
         <p class="type">Type : 
           <?php if ($userStatus==1) {
@@ -75,10 +83,23 @@ elseif (isset($_GET['id'])) {
               <b style="color:#e52325;">Inactive</b></p>
               <?php } ?>
               <div class="form-group">
-                <?php if($id==$session_uid)
-                { ?>
-                <p><button type="file" accept="image/png, image/jpeg" class="btn btn-primary p">Change Profile Picture</button></p>
-                <?php } ?>
+
+                <button id="myButton" type="button" accept="image/png, image/jpeg" class="btn btn-primary p" 
+                name="updateProfile" onclick="myFunction()">Change Profile Picture</button>
+
+                <div id="myDIV" style="display: none;">
+                  <span onclick="myFunction()" style="float:right; padding: 0;"><button class="btn btn-default p">x</button></span>
+                  <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+
+                    <?php if($id==$session_uid)
+                    { ?>
+                    <input type="file" id="imgInp" accept="image/png, image/jpeg" class='form-control' name='image'>
+                    <img id="blah" src="#" alt="Image Preview" style="width: 230px" />
+                    <button type="submit" accept="image/png, image/jpeg" class="btn btn-primary p" name="updateProfile">Change Profile Picture</button>
+                    <?php } ?>
+
+                  </form>
+                </div>
               </div>
           <!-- <div>
             <a href=""><span class="icon icon-facebook"></span></a>
@@ -88,10 +109,11 @@ elseif (isset($_GET['id'])) {
             <a href=""><span class="icon icon-github"></span></a>
           </div> -->
           <br>
+
         </div>
       </div>
       <?php } ?>
-      <br>
+      <br><br><br><br>
 
 
 

@@ -215,8 +215,34 @@ public function getActiveUserCount()
 } catch (PDOException $e) {
 
 }
-
 }
+
+public function updateUserProfileImage($id,$img)
+{
+  try{
+    $db = getDB();
+
+    $imgName = $img['name'];
+
+    $image_info = getimagesize($img["tmp_name"]);
+    $image_width = $image_info[0];
+    $image_height = $image_info[1];
+
+    $st = $db->prepare("UPDATE users
+      SET profile_picture=?
+      WHERE id=?;");
+    $st->execute(array($imgName,$id));
+    echo "<meta http-equiv='refresh' content='0'>";
+    move_uploaded_file($img['tmp_name'], "assets/img/users/" . $imgName);
+    $db = null;
+    return true;
+
+  }catch (PDOException $e) {
+  }
+
+} 
+
+
 
 }
 ?>

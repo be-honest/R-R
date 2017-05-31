@@ -1,32 +1,33 @@
 <?php 
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
-
 include('class/eventClass.php');
 include('class/voteClass.php');
 include('class/eventPeriodClass.php');
-
 $eventClass = new eventClass();
 $eventPeriodClass = new eventPeriodClass();
 $voteClass = new voteClass();
-
 //get EVP note: Only Local (computer Time) Conditioned
+$evp_status="";
+$events="";
+$userVote="";
+
 $EVP=$eventPeriodClass->getCurrentEventPeriod();
+
+
+if($EVP)
+{
 $evp_status=$EVP['event_status_id'];
 $evp_id=$EVP['evp_id'];	
 $events = $eventClass->getEventsByEVP($evp_id);
 $NumOfEvents=$eventPeriodClass->getEventsCountByEVP($evp_id)["count"];
 $approvedEvent=$eventPeriodClass->getApprovedEventByEVP($evp_id);
-
 $userVote = $voteClass->checkUserVote($session_uid,$evp_id);
 $userCount=$userClass->getActiveUserCount();
 $voteCount=$voteClass->getVoteCount($evp_id);
+}
 // var_dump($mm=$voteClass->getMaxVoteByEvp($evp_id)["event_id"]); get event_id of the most voted event
-
 // var_dump($sumEvents);
-
-
-
 if (isset($_POST['voteEvent'])) 
 {
 	$event_id=$_POST['voteEvent'];
@@ -56,10 +57,6 @@ else
 	// echo "<meta http-equiv='refresh' content='0'>";
 	// print_r($uid);
 }
-
-
-
-
 ?>
 
 
@@ -67,7 +64,32 @@ else
 	copied to header.php -->
 	<br>
 	<div class="container">
+			<?php if (!$EVP&&$user_type==1){ ?>
+			<div class="container">
+				<br>
+				<div class="alert alert-warning">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<span><strong>Oops,</strong> It looks like there is no Events to be voted on.<br>Click <a href="CreateEvent.php">here</a> to make events for this voting period.</span>
+				</div>
+			</div>
+			<?php }
+			elseif(!$EVP&&$user_type==2)
+				{?>
+			<div class="container">
+				<br>
+				<div class="alert alert-warning">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<span><strong>Oops,</strong> It looks like there is no Events to be voted on.</span>
+				</div>
+			</div>
+			<?php }
+			else
+				{?>
 		<form method="post" class="form-horizontal" role="form">
+					<?php }?>
+
+	
+
 			<?php if($EVP&&!$userVote)
 			{?>
 
@@ -85,7 +107,6 @@ else
 				$c=0;
 				foreach($events as $event)
 				{
-
 					if ($i>$c&&$i%2==1) {
 						?>
 
@@ -94,7 +115,6 @@ else
 					<div class="v-event">
 						<?php
 					}
-
 					?>
 					<div class="c-hover">
 						<label class="poll first" for="event1"
@@ -151,7 +171,7 @@ else
 				else
 				{
 					?>
-					<?php if ($evp_status==2): ?>
+					<?php if ($evp_status==3): ?>
 						<!-- modal -->
 						<div class="container">
 							<div class="row">
@@ -199,6 +219,8 @@ else
 
 				<!-- <h1>You have voted for</h1> -->
 				<div class="v-event">
+					<?php if ($userVote) {
+						 ?>
 					<div class="c-hover">
 						<!-- Voted event -->
 						<!-- <span class="eventTitle">&nbsp;&nbsp;</span> -->
@@ -228,6 +250,8 @@ else
 
 								</div>
 							</div>
+							<?php } ?>
+							
 
 							<!-- end of voted event -->
 
@@ -235,13 +259,14 @@ else
 							<div>
 								<div>
 									<?php 
+									if($events)
+									{
 									$i=1;
 									$c=0;
 									foreach($events as $event)
 									{ 
 										if ($event['event_id']!=$userVote['event_id'])
 										{
-
 											?>
 											<!-- first row -->
 											<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
@@ -270,6 +295,7 @@ else
 										<?php 
 									}
 								} 
+							}
 								?>
 
 								<!-- end of first row -->

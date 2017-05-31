@@ -106,7 +106,7 @@ class eventPeriodClass
 		try {
 			$db = getDB();      
 			$st = $db->prepare("UPDATE event_voting_period, EVENTS
-				SET event_status_id=2, isApproved=1
+				SET event_status_id=3, isApproved=1
 				WHERE event_voting_period.`evp_id`=? AND event_id=?
 				");
 			$st->execute(array($evp_id,$event_id));

@@ -156,7 +156,26 @@ $(document).ready(function(){
 });
 
 </script>
+  
+  <!-- preview image upload -->
+  <script>
+    function readURL(input) {
 
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+  </script>
 
     <!-- voting period datatable -->
     <script>
@@ -208,6 +227,23 @@ $(document).ready(function(){
    
     
   </script>
+
+<!-- Profile toggle update profile image -->
+<script>
+  function myFunction() {
+    var x = document.getElementById('myDIV');
+    var y = document.getElementById('myButton');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+        y.style.display = 'none';
+    } else {
+        x.style.display = 'none';
+        y.style.display = 'inline';
+    }
+}
+</script>
+
+
 
   <script type="text/javascript">
     $(function () {

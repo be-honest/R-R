@@ -80,6 +80,43 @@ $events = $eventClass->getAllEvents();
   
 
 <?php @require_once('views/layouts/nav.php') ?>
+<div class="container">
+              <div class="row">
+                <div class='modal fade' id='myModal'>
+                  <div class='modal-dialog'>
+                    <div class='modal-content'>
+                      <div class='modal-header'>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class='modal-title'>
+                          <strong>EVENT VOTING PERIOD IS NOW CLOSED</strong>
+                        </h4>
+                      </div>
+                      <!-- / modal-header -->
+                      <div class='modal-body'>
+                        This month's R&R will be <?php echo $approvedEvent['name'] ?>
+                        <img class="img-responsive" src="images/
+                        <?php echo $approvedEvent['image']?>"/>
+                      </div>
+                      <!-- / modal-body -->
+                    <!-- <div class='modal-footer'>
+                      <div class="checkbox pull-right">
+                        <label>
+                          <input class='modal-check' name='modal-check' type="checkbox"> 
+                        <span style="font-size: 14px;">Don't Show</span>
+                        </label>
+                      </div>
+                      <!--/ checkbox
+                    </div> --> 
+                    <!--/ modal-footer -->
+                  </div>
+                  <!-- / modal-content -->
+                </div>
+                <!--/ modal-dialog -->
+              </div>
+              <!-- / modal -->
+            </div>
+            <!-- / row -->
+          </div>
 <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
