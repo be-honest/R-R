@@ -60,7 +60,7 @@
     <br><br>
     <h1 style="font-size: 60px;">Forbidden <span style="font-size: 25px; color: red">Error 403</span></h1>
     <p style="font-size: 16px;"">The page you requested is not accessible to non-Admin users. 
-    <br>Use your browsers Back button to navigate to the page you have prevously come from.</p>
+    <br>Use your browser's Back button to navigate to the page you have prevously come from.</p>
     <p><b>OR, Click the button below.<br></p>
     
   <!--  <p><i>404 - page not found</i></p>

@@ -122,7 +122,7 @@ class eventPeriodClass
 			$db = getDB();      
 			$st = $db->prepare("SELECT *
 				FROM EVENTS
-				WHERE evp_id=3 AND isApproved=1");
+				WHERE evp_id=? AND isApproved=1");
 			$st->execute(array($evp_id));
 			$count=$st->rowCount(); 
 			if($count)

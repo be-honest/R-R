@@ -161,20 +161,20 @@ if (isset($_POST['registerAdmin']))
        <div class="form-group">
         <label for="firstName" class="col-sm-4 control-label">First Name</label>
         <div class="col-sm-5" >
-          <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus >
+          <input type="text" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus value="Kryce Earl">
           <!-- <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span> -->
         </div>
       </div>
       <div class="form-group">
         <label for="lastName" class="col-sm-4 control-label">Last Name</label>
         <div class="col-sm-5">
-          <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" >
+          <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" value="Martus" >
         </div>
       </div>
       <div class="form-group">
         <label for="middleName" class="col-sm-4 control-label">Middle Name</label>
         <div class="col-sm-5">
-          <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control"  >
+          <input type="text" id="middleName" name="middleName" placeholder="Middle Name" class="form-control" value="A" >
         </div>
       </div>
 
@@ -182,13 +182,13 @@ if (isset($_POST['registerAdmin']))
       <div class="form-group">
         <label for="username" class="col-sm-4 control-label">Username</label>
         <div class="col-sm-5">
-          <input type="text" id="username" name="username" placeholder="Username" class="form-control" >
+          <input type="text" id="username" name="username" placeholder="Username" class="form-control" value="admin" >
         </div> 
       </div>
       <div class="form-group">
         <label for="password" class="col-sm-4 control-label">Password</label>
         <div class="col-sm-5">
-          <input type="password" id="password" name="password" placeholder="Password" class="form-control" >
+          <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="admin">
         </div>
       </div>
 

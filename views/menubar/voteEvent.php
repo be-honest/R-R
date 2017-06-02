@@ -26,6 +26,7 @@ $userVote = $voteClass->checkUserVote($session_uid,$evp_id);
 $userCount=$userClass->getActiveUserCount();
 $voteCount=$voteClass->getVoteCount($evp_id);
 }
+
 // var_dump($mm=$voteClass->getMaxVoteByEvp($evp_id)["event_id"]); get event_id of the most voted event
 // var_dump($sumEvents);
 if (isset($_POST['voteEvent'])) 
@@ -57,40 +58,49 @@ else
 	// echo "<meta http-equiv='refresh' content='0'>";
 	// print_r($uid);
 }
-?>
 
+
+?>
 
 <!-- <link rel="stylesheet" href="assets/css/polls.css">
 	copied to header.php -->
 	<br>
 	<div class="container">
-			<?php if (!$EVP&&$user_type==1){ ?>
+			<?php if (!$events){ ?>
 			<div class="container">
 				<br>
 				<div class="alert alert-warning">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					<span><strong>Oops,</strong> It looks like there is no Events to be voted on.<br>Click <a href="CreateEvent.php">here</a> to make events for this voting period.</span>
+					<span><strong>Oops,</strong> 
+					<?php if ($user_type!=1) { ?>
+						It looks like there is no Events to be voted on. <br> Please come back later.
+						</span>
+					<?php }
+					elseif (!$EVP&&$user_type==1) { ?>
+					There is no currently no Event Voting 
+					<br>Click <a href="eventVotingPeriod.php">here</a> to open an Event Voting Period.</span>
+					 <?php } 
+
+					 elseif ($EVP&&$user_type==1) { ?>
+					It looks like there is no Events to be voted on.
+					<br>Click <a href="CreateEvent.php">here</a> to make events for this voting period.</span>
+					 <?php } 
+					  ?>
 				</div>
 			</div>
 			<?php }
-			elseif(!$EVP&&$user_type==2)
-				{?>
-			<div class="container">
-				<br>
-				<div class="alert alert-warning">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					<span><strong>Oops,</strong> It looks like there is no Events to be voted on.</span>
-				</div>
-			</div>
-			<?php }
-			else
-				{?>
-		<form method="post" class="form-horizontal" role="form">
-					<?php }?>
+
+			
+			elseif($EVP&&$events)
+			{
+			?>
+					<form method="post" class="form-horizontal" role="form">
+			<?php } 
+
 
 	
 
-			<?php if($EVP&&!$userVote)
+			 if($EVP&&!$userVote)
 			{?>
 
 			
@@ -160,18 +170,19 @@ else
 					<br>
 					<?php
 				}
-				else
-				{
-					echo 'No events';
-					?><?php
-				}
+				// else
+				// {
+				// 	echo 'No events';
+					
+				// }
 				?>
 
 				<?php }
 				else
 				{
 					?>
-					<?php if ($evp_status==3): ?>
+					<?php if ($evp_status==3 && ($voteCount==$userCount)): ?>
+
 						<!-- modal -->
 						<div class="container">
 							<div class="row">

@@ -83,10 +83,11 @@ elseif (isset($_GET['id'])) {
               <b style="color:#e52325;">Inactive</b></p>
               <?php } ?>
               <div class="form-group">
-
+<?php if($id==$session_uid)
+                    { ?>
                 <button id="myButton" type="button" accept="image/png, image/jpeg" class="btn btn-primary p" 
                 name="updateProfile" onclick="myFunction()">Change Profile Picture</button>
-
+<?php } ?>
                 <div id="myDIV" style="display: none;">
                   <span onclick="myFunction()" style="float:right; padding: 0;"><button class="btn btn-default p">x</button></span>
                   <form method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -96,9 +97,9 @@ elseif (isset($_GET['id'])) {
                     <input type="file" id="imgInp" accept="image/png, image/jpeg" class='form-control' name='image'>
                     <img id="blah" src="#" alt="Image Preview" style="width: 230px" />
                     <button type="submit" accept="image/png, image/jpeg" class="btn btn-primary p" name="updateProfile">Change Profile Picture</button>
-                    <?php } ?>
 
                   </form>
+                    <?php } ?>
                 </div>
               </div>
           <!-- <div>

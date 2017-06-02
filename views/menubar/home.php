@@ -33,7 +33,7 @@ $events = $eventClass->getAllEvents();
     
     <style>
       body{
-        width: 1px;
+        width: 1px; 
         min-width: 100%;
         *width: 100%;
       }
@@ -80,7 +80,8 @@ $events = $eventClass->getAllEvents();
   
 
 <?php @require_once('views/layouts/nav.php') ?>
-<div class="container">
+
+<!-- <div class="container">
               <div class="row">
                 <div class='modal fade' id='myModal'>
                   <div class='modal-dialog'>
@@ -91,32 +92,17 @@ $events = $eventClass->getAllEvents();
                           <strong>EVENT VOTING PERIOD IS NOW CLOSED</strong>
                         </h4>
                       </div>
-                      <!-- / modal-header -->
                       <div class='modal-body'>
-                        This month's R&R will be <?php echo $approvedEvent['name'] ?>
+                        This month's R&R will be <?php //echo $approvedEvent['name'] ?>
                         <img class="img-responsive" src="images/
-                        <?php echo $approvedEvent['image']?>"/>
+                        <?php //echo $approvedEvent['image']?>"/>
                       </div>
-                      <!-- / modal-body -->
-                    <!-- <div class='modal-footer'>
-                      <div class="checkbox pull-right">
-                        <label>
-                          <input class='modal-check' name='modal-check' type="checkbox"> 
-                        <span style="font-size: 14px;">Don't Show</span>
-                        </label>
-                      </div>
-                      <!--/ checkbox
-                    </div> --> 
-                    <!--/ modal-footer -->
                   </div>
-                  <!-- / modal-content -->
                 </div>
-                <!--/ modal-dialog -->
               </div>
-              <!-- / modal -->
             </div>
-            <!-- / row -->
-          </div>
+          </div>   -->
+
 <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -156,7 +142,7 @@ $events = $eventClass->getAllEvents();
 <?php 
 $i=1;
 
-foreach($events as $event) 
+foreach(array_reverse($events) as $event) 
 {
 
     if($i%2==0&&$event['isApproved']==1)
