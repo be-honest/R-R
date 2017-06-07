@@ -115,7 +115,7 @@ class eventClass
 	{
 		try {
 			$db = getDB();      
-			$st = $db->prepare("SELECT * FROM events WHERE event_id=?");
+			$st = $db->prepare("SELECT * FROM events,event_voting_period WHERE events.evp_id = event_voting_period.evp_id and event_id=?");
 			// $st->bindParam("event_id", $id,PDO::PARAM_STR);
 			$st->execute(array($id));
 			$count=$st->rowCount(); 

@@ -47,6 +47,20 @@ class checklistClass
           }
      }
 
+     public function getChecklistbyEventID($event_id)
+     {
+          try {
+               $db = getDB();
+               $st = $db->prepare("SELECT *
+                    FROM checklist
+                    WHERE event_id=?");
+               $st->execute(array($event_id));
+               $data=$st->fetchAll();
+          } catch (PDOException $e) {
+          }
+          return $data;
+     }
+
 
 }
 ?>

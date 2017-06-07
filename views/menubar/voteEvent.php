@@ -197,10 +197,11 @@ else
 											</div>
 											<!-- / modal-header -->
 											<div class='modal-body'>
-												This month's R&R will be <?php echo $approvedEvent['name'] ?>
-												<img class="img-responsive" src="images/
+												This month's R&R will be <?php echo $approvedEvent['name'] ?>. <br>Click <a href="EventProfile.php?id=<?php echo $approvedEvent['event_id'] ?>">here</a> for more info.
+												<a href="EventProfile.php?id=<?php echo $approvedEvent['event_id'] ?>">												<img class="img-responsive" src="images/
 												<?php echo $approvedEvent['image']?>"/>
-											</div>
+											</div></a>
+
 											<!-- / modal-body -->
 										<!-- <div class='modal-footer'>
 											<div class="checkbox pull-right">
@@ -255,9 +256,9 @@ else
 										}
 										?></span> </div>
 									</div>
-
+									<a href="EventProfile.php?id=<?php echo $userVote['event_id'] ?>">
 									<button type="button" class="btn btn-default-outline vote" id="voteBtn">More...
-									</button>
+									</button></a>
 
 								</div>
 							</div>
@@ -281,10 +282,10 @@ else
 											?>
 											<!-- first row -->
 											<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
-												<a class="list-quotes" href="">
+												<a class="list-quotes" href="EventProfile.php?id=<?php echo $event['event_id']?>">
 													<!-- Recommended size 360X360 -->
 													<img class='img-responsive' alt="img" src="images/<?php echo $event['image'] ?>">
-													<div class="quotes">
+													<div class="q`uotes">
 														<h1>Votes: <span style="color: lime">
 															<?php $votes=$voteClass->getEventVoteCount($event['event_id'])["vote_count"]; 
 															if ($votes) {
