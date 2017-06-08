@@ -33,7 +33,7 @@ $events = $eventClass->getAllEvents();
 								<th><?php echo $event['event_id'];?></th>
 								<th><?php echo $event['evp_id']; ?></th>
 								<th><?php echo $event['start_event_date']; ?></th>
-								<th><?php echo $event['name']; ?></th>
+								<th><a href="EventProfile.php?id=<?php echo $event['event_id']?>"><?php echo $event['name']; ?></a></th>
 								<th><?php echo $event['description']; ?></th>
 							</tr>
 							<?php } ?>

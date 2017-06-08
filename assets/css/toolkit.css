@@ -4827,6 +4827,16 @@ button.list-group-item-danger.active:focus {
   background-color: #3097d1;
   border-color: #3097d1;
 }
+.panel-primary > .panel-activities {
+  color: #ffffff;
+  background-color: #e9967a;
+  border-color: #e9967a;
+}
+.panel-primary > .panel-checklist {
+  color: #ffffff;
+  background-color: darkseagreen;
+  border-color: darkseagreen;
+}
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #3097d1;
 }

@@ -34,6 +34,20 @@ class activityClass
           }
      }
 
+     public function getActivitiesbyEventID($event_id)
+     {
+          try {
+               $db = getDB();
+               $st = $db->prepare("SELECT *
+                    FROM activities
+                    WHERE event_id=?");
+               $st->execute(array($event_id));
+               $data=$st->fetchAll();
+          } catch (PDOException $e) {
+          }
+          return $data;
+     }
+
 
 }
 ?>

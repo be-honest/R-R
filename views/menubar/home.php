@@ -103,18 +103,6 @@ $events = $eventClass->getAllEvents();
             </div>
           </div>   -->
 
-<div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg"><i class="fa fa-plus-square-o"></i>  Add new poll</button>
-        <h4 class="modal-title">Polls</h4>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- <div class="block block-inverse text-center p-b">
   <h1 class="block-title p-a" >Rest and Recreation Portal</h1>
   <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
@@ -141,7 +129,6 @@ $events = $eventClass->getAllEvents();
 
 <?php 
 $i=1;
-
 foreach(array_reverse($events) as $event) 
 {
 
@@ -156,13 +143,14 @@ foreach(array_reverse($events) as $event)
   <div class="inner">
     <header>
       <h2 class="event-name">
-        <a href="#"><?php  echo $event['name']?></a>        
+        <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>"><?php echo $event['name']?></a>        
       </h2>
       <p class="event-meta"><?php echo date_format(date_create($event["start_event_date"]),"M d, Y")?></p>
       <p>Description: <?php echo $event["description"]?></p>
+      <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>">
       <button type="button" class="btn btn-default btn-md">
         <span class="icon icon-dots-three-horizontal"></span>
-      </button>
+      </button></a>
     </header>
   </div>
 </article>
@@ -179,13 +167,14 @@ foreach(array_reverse($events) as $event)
     <div class="inner">
       <header>
         <h2 class="event-name">
-          <a href="#"><?php echo $event['name']?></a>        
+          <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>"><?php echo $event['name']?></a>        
         </h2>
         <p class="event-meta"><?php echo date_format(date_create($event["start_event_date"]),"M d, Y")?></p>
         <p>Description: <?php echo $event["description"]?></p>
+        <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>">
         <button type="button" class="btn btn-default btn-md">
-          More
-        </button>
+        <span class="icon icon-dots-three-horizontal"></span>
+      </button></a>
       </header>
     </div>
   </article>
