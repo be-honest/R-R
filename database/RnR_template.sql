@@ -27,7 +27,7 @@ CREATE TABLE `activities` (
   PRIMARY KEY (`activity_id`),
   KEY `event_id` (`event_id`),
   CONSTRAINT `activities_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`event_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 /*Data for the table `activities` */
 
@@ -36,7 +36,9 @@ insert  into `activities`(`activity_id`,`event_id`,`name`) values
 (44,188,'Gather'),
 (45,188,'Dinner'),
 (46,188,'Games'),
-(47,188,'Contest');
+(47,188,'Contest'),
+(49,192,'Canoeing'),
+(50,192,'Race');
 
 /*Table structure for table `checklist` */
 
@@ -94,12 +96,9 @@ CREATE TABLE `event_votes` (
 /*Data for the table `event_votes` */
 
 insert  into `event_votes`(`event_id`,`user_id`) values 
-(187,1),
-(187,2),
-(187,3),
-(188,2),
-(191,1),
-(191,3);
+(171,2),
+(171,3),
+(192,1);
 
 /*Table structure for table `event_voting_period` */
 
@@ -118,16 +117,16 @@ CREATE TABLE `event_voting_period` (
   KEY `event_status_id` (`event_status_id`),
   CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_voting_period` */
 
 insert  into `event_voting_period`(`evp_id`,`user_id`,`event_status_id`,`start_date`,`end_date`,`start_event_date`,`end_event_date`) values 
 (1,1,2,'2017-03-01','2017-03-15','2017-03-23','2017-03-26'),
 (2,2,2,'2017-04-01','2017-04-15','2017-04-29','2017-04-30'),
-(3,2,3,'2017-05-01','2017-05-15','2017-05-15','2017-05-22'),
+(3,2,1,'2017-05-01','2017-05-15','2017-05-15','2017-05-22'),
 (4,3,3,'2017-06-01','2017-06-15','2017-06-15','2017-06-24'),
-(5,3,3,'2017-07-01','2017-07-15','2017-07-22','2017-07-29');
+(5,3,4,'2017-07-01','2017-07-15','2017-07-22','2017-07-29');
 
 /*Table structure for table `events` */
 
@@ -144,7 +143,7 @@ CREATE TABLE `events` (
   PRIMARY KEY (`event_id`),
   KEY `evp_id` (`evp_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=192 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=latin1;
 
 /*Data for the table `events` */
 
@@ -157,13 +156,14 @@ insert  into `events`(`event_id`,`evp_id`,`name`,`description`,`location`,`image
 (36,4,'Parasailing','Parasailing at Badian','http://localhost/RandR/Events.php','aj-garcia-225309.jpg',NULL),
 (37,1,'Micro R&R','Mini Sports Olympics @ Family Park','http://localhost/RandR/Events.php',NULL,NULL),
 (46,1,'Tree Planting','Tree Planting at Maghaway','http://localhost/RandR/Events.php',NULL,NULL),
-(171,4,'Trekking','Trekking at Mt. Kan Irag, Cebu','http://localhost/RandR/Events.php','ashim-d-silva-106271.jpg',NULL),
+(171,4,'Trekking','Trekking at Mt. Kan Irag, Cebu','<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9333.507708564139!2d123.86778911522136!3d10.401184185309663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9a193fe32c719%3A0x4b0cf2f473912222!2sSirao+Peak!5e0!3m2!1sen!2sph!4v1496982761514\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>','ashim-d-silva-106271.jpg',1),
 (172,3,'Scuba Diving','Scuba Diving at Cordova, Mactan Cebu','http://localhost/RandR/Events.php','marco-assmann-178084.jpg',NULL),
 (175,3,'Hiking','Hiking at SRP','http://localhost/RandR/Events.php','ashim-d-silva-106271.jpg',NULL),
-(187,5,'UI/UX story telling','UI/UX story telling','http://localhost/RandR/Events.php','markus-spiske-207946.jpg',1),
+(187,5,'UI/UX story telling','UI/UX story telling','http://localhost/RandR/Events.php','markus-spiske-207946.jpg',NULL),
 (188,4,'Bon Odori 2017','Japanese summer night festival at Kawit Point, SRP. Starts at 4 P.M.','<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6602.599857727373!2d123.88095872975632!3d10.267275254102438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9bf8a95ec0d4105c!2sKawit+Point!5e0!3m2!1sen!2sph!4v1496818004881\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>','anndrea-joiner-207885.jpg',NULL),
 (190,1,'Forest Exploration','Explore the wonders of nature and be one with the forest','<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6602.599857727373!2d123.88095872975632!3d10.267275254102438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9bf8a95ec0d4105c!2sKawit+Point!5e0!3m2!1sen!2sph!4v1496818004881\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>','anthony-gotter-670.jpg',NULL),
-(191,4,'Skiing','Skii at Alaska','https://cdn.datatables.net/1.10.14/css/jquery.dataTables.min.css','toa-heftiba-153852.jpg',1);
+(191,4,'Skiing','Skii at Alaska','https://cdn.datatables.net/1.10.14/css/jquery.dataTables.min.css','toa-heftiba-153852.jpg',NULL),
+(192,4,'Kayaking','Kayaking @ Dakak Park and Beach Resort','<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5577.612923441916!2d123.38972241017491!3d8.694596148485264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xec59715f06d907c!2sDakak+Park!5e0!3m2!1sen!2sph!4v1496976955764\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe','josh-trommel-147615.jpg',NULL);
 
 /*Table structure for table `user_status` */
 

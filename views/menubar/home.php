@@ -116,7 +116,7 @@ $events = $eventClass->getAllEvents();
     <h1 class="deco">Rest and Recreation <br> Portal</h1>
     <h3 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h3>
     <br>
-<?php if($user_type) 
+<?php if($user_type==1) 
             {?>
       <a href="eventVotingPeriod.php">  
         <button type="button" class="btn btn-default btn-lg" id="homeBtn">Get Started</button>
