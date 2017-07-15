@@ -27,7 +27,6 @@ if(!isset($_GET['id']))
 if(isset($_GET['id']))
 {
 	$ev = $eventClass->getEvent($_GET['id']);
-// var_dump($_GET['event_id']);
 	if ($ev) 
 	{
 		$eventTitle=$ev['name'];
@@ -35,14 +34,12 @@ if(isset($_GET['id']))
 	else
 	{
 		$eventTitle="Does not exist";
-	//event does not exist
 	}
 }
 
 if(isset($_GET['evp_id']))
 {
 	$evpt = $eventPeriodClass->getEventPeriod($_GET['evp_id']);
-// var_dump($_GET['event_id']);
 	if ($evpt) 
 	{
 		$evpTitle=date_format(date_create($evpt["start_date"]),"F Y");
@@ -87,7 +84,7 @@ if (isset($_POST['registerChecklist']))
 					{
 						foreach( $EVPs as $evp) 
 						{
-						if($evp['evp_id']!=$_GET['evp_id']) //checks the event id to the posted id to avoid repeat
+						if($evp['evp_id']!=$_GET['evp_id']) id to avoid repeat
 						{ ?>
 						<li><a href="Checklist.php?evp_id=<?php echo $evp['evp_id'] ?>"> 
 							<?php echo date_format(date_create($evp["start_date"]),"F Y"); 
@@ -135,7 +132,6 @@ if (isset($_POST['registerChecklist']))
 			{
 				$errorMsgReg = "This Event Period has passed and there were no recorded events.";
 			}
-			// var_dump($errorMsgReg);
 		} 
 	}
 

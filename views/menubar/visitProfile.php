@@ -102,13 +102,7 @@ elseif (isset($_GET['id'])) {
                     <?php } ?>
                 </div>
               </div>
-          <!-- <div>
-            <a href=""><span class="icon icon-facebook"></span></a>
-            <a href=""><span class="icon icon-twitter"></span></a>
-            <a href=""><span class="icon icon-instagram"></span></a>
-            <a href=""><span class="icon icon-google-plus"></span></a>
-            <a href=""><span class="icon icon-github"></span></a>
-          </div> -->
+
           <br>
 
         </div>

@@ -1,8 +1,7 @@
 <?php 	
 	$uname = $userClass->getUser($session_uid);
-	// $uname = $uname['first_name'];
 	$nav_picture=$userClass->getUser($session_uid)["profile_picture"];
-	//var_dump($user_type);
+
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
 	<div class="container">
@@ -25,10 +24,8 @@
 				</li>
 				<li class="dropdown">
          		   <a class="dropbtn" href="Profile.php">Profile</a>
-         		   		<!-- <span class="caret"></span> -->
          		   		<div class="dropdown-content">
          		   			<a href="Profile.php">View Profile</a>
-         		   			<!-- <a href="ProfileEdit.php">Edit Profile</a> -->
          		   		</div>
          		   			
          		   		
@@ -53,16 +50,13 @@
 				<?php } ?>
 				<li>
 					<a href="eventPoll.php">Poll</a>
-					<!-- <a data-toggle="modal" href="#msgModal">Polls</a> -->
 				</li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
 				<li >
 					<a href="Profile.php"><?php echo $uname['first_name'] . " " .$uname['last_name']?></a>
-					<!-- <a class="app-notifications" href="#">
-						<span class="icon icon-bell"></span>
-					</a> -->
+
 				</li>
 				<li>
 					<button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
@@ -71,11 +65,7 @@
 				</li>
 			</ul>
 
-			<!-- <form class="navbar-form navbar-right app-search" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" data-action="grow" placeholder="Search">
-				</div>
-			</form> -->
+
 <!-- navbar hidden -->
 			<ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
 				<li><a href="home.php">Home</a></li>
@@ -105,15 +95,7 @@
 				<button type="button" class="btn btn-sm btn-primary pull-right app-new-msg js-newMsg"><i class="fa fa-plus-square-o"></i>  Add new poll</button>
 				<h4 class="modal-title">Polls</h4>
 			</div>
-			<!-- <div class="modal-body p-a-0 js-modalBody">
-				<div class="modal-body-scroller">
-					<div class="media-list media-list-uders list-group js-msgGroup">
-						<a href="#">a</a>
-						<a href="#">b</a>
-						<a href="#">c</a>
-					</div>
-				</div>
-			</div> -->
+
 		</div>
 	</div>
 </div>

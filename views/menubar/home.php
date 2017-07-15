@@ -5,7 +5,6 @@ require_once 'views/layouts/nav.php';
 
   $eventClass = new eventClass();
 $events = $eventClass->getAllEvents();
-// var_dump($events);
  ?>
 
 <!DOCTYPE html>
@@ -27,8 +26,6 @@ $events = $eventClass->getAllEvents();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- decorative font -->
    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
-
-
 
     
     <style>
@@ -81,35 +78,6 @@ $events = $eventClass->getAllEvents();
 
 <?php @require_once('views/layouts/nav.php') ?>
 
-<!-- <div class="container">
-              <div class="row">
-                <div class='modal fade' id='myModal'>
-                  <div class='modal-dialog'>
-                    <div class='modal-content'>
-                      <div class='modal-header'>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class='modal-title'>
-                          <strong>EVENT VOTING PERIOD IS NOW CLOSED</strong>
-                        </h4>
-                      </div>
-                      <div class='modal-body'>
-                        This month's R&R will be <?php //echo $approvedEvent['name'] ?>
-                        <img class="img-responsive" src="images/
-                        <?php //echo $approvedEvent['image']?>"/>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>   -->
-
-<!-- <div class="block block-inverse text-center p-b">
-  <h1 class="block-title p-a" >Rest and Recreation Portal</h1>
-  <h4 class="text-muted"><a style="text-decoration: none" href="http://coredev.ph/">coreDev Solutions, Inc.</a></h4>
-    <a href="eventVotingPeriod.php">
-      <button class="btn btn-info m-t">Start opening an event.</button>
-    </a>
-</div> -->
 
 <div class="container bg-overlay">
   <div class="row text-center">
@@ -146,7 +114,7 @@ foreach(array_reverse($events) as $event)
         <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>"><?php echo $event['name']?></a>        
       </h2>
       <p class="event-meta"><?php echo date_format(date_create($event["start_event_date"]),"M d, Y")?></p>
-      <p>Description: <?php echo $event["description"]?></p>
+      <p><?php echo $event["description"]?></p>
       <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>">
       <button type="button" class="btn btn-default btn-md">
         <span class="icon icon-dots-three-horizontal"></span>
@@ -170,7 +138,8 @@ foreach(array_reverse($events) as $event)
           <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>"><?php echo $event['name']?></a>        
         </h2>
         <p class="event-meta"><?php echo date_format(date_create($event["start_event_date"]),"M d, Y")?></p>
-        <p>Description: <?php echo $event["description"]?></p>
+        <p>
+         <?php echo $event["description"]?></p>
         <a href="EventProfile.php?id=<?php echo $event['event_id'] ?>">
         <button type="button" class="btn btn-default btn-md">
         <span class="icon icon-dots-three-horizontal"></span>
@@ -182,26 +151,6 @@ foreach(array_reverse($events) as $event)
     }
   
 }?>
-
-
-
-
-
 <br>
 
 <?php @require_once('views/layouts/footer.php') ?>
-
-  <!--   <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/chart.js"></script>
-    <script src="assets/js/toolkit.js"></script>
-    <script src="assets/js/application.js"></script>
-    <script>
-      // execute/clear BS loaders for docs
-      $(function(){
-        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
-          while(BS.loader.length){(BS.loader.pop())()}
-        }
-      })
-    </script>
-  </body>
-</html> -->

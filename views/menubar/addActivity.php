@@ -27,7 +27,6 @@ if(!isset($_GET['id']))
 if(isset($_GET['id']))
 {
 	$ev = $eventClass->getEvent($_GET['id']);
-	// var_dump($_GET['event_id']);
 	if ($ev) 
 	{
 		$eventTitle=$ev['name'];
@@ -42,7 +41,6 @@ if(isset($_GET['id']))
 if(isset($_GET['evp_id']))
 {
 	$evpt = $eventPeriodClass->getEventPeriod($_GET['evp_id']);
-	// var_dump($_GET['event_id']);
 	if ($evpt) 
 	{
 		$evpTitle=date_format(date_create($evpt["start_date"]),"F Y");
@@ -57,9 +55,6 @@ if(isset($_GET['evp_id']))
 if (isset($_POST['registerActivity'])) 
 {
 	$activityClass->activityRegistration($_GET['id'],$_POST['activity']);
-	// $url='Activity.php';
-	// header("Location: $url . "?evp_id=" . $_GET['evp_id'] . "&id" . $_GET['id']");
-
 }
 ?>
 
@@ -106,7 +101,6 @@ if (isset($_POST['registerActivity']))
 							{?>
 						<li><a href="Activity.php?evp_id=<?php echo $evp['evp_id']?>"> 
 							<?php echo date_format(date_create($evp["start_date"]),"F Y");
-							//echo $evp['evp_id']; 
 						}?>
 					</a></li>
 
@@ -123,7 +117,6 @@ if (isset($_POST['registerActivity']))
 		{
 		$events = $eventClass->getEventsByEVP($_GET['evp_id']);
 		$currentEVP= $eventPeriodClass->getCurrentEventPeriod();
-		// var_dump($_GET['evp_id'] == $currentEVP['evp_id']);
 		if($events==false)
 		{
 			if ($_GET['evp_id'] == $currentEVP['evp_id']) {
@@ -136,7 +129,6 @@ if (isset($_POST['registerActivity']))
 			{
 				$errorMsgReg = "This Event Period has passed and there were no recorded events.";
 			}
-			// var_dump($errorMsgReg);
 		} 
 		}
 
@@ -199,15 +191,6 @@ if (isset($_POST['registerActivity']))
 		</div>
 		<?php } ?>
 
-		<!-- <?php //if($errorMsgReg)
-		//{?>
-		<div class="alert alert-danger fade in">
-			<button type="button" class="close close-alert" data-dismiss="alert" aria-hidden="Close">
-				<span aria-hidden="true" style="padding: 0; float: right;">×</span>
-			</button>
-			<strong>Oops! </strong><?php echo $errorMsgReg ?> 
-		</div>
-		<?php //} ?> -->
 		<!-- End of Activities -->
 
 		<!-- No events alert -->

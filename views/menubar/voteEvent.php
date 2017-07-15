@@ -11,10 +11,7 @@ $voteClass = new voteClass();
 $evp_status="";
 $events="";
 $userVote="";
-
 $EVP=$eventPeriodClass->getCurrentEventPeriod();
-
-
 if($EVP)
 {
 $evp_status=$EVP['event_status_id'];
@@ -26,9 +23,6 @@ $userVote = $voteClass->checkUserVote($session_uid,$evp_id);
 $userCount=$userClass->getActiveUserCount();
 $voteCount=$voteClass->getVoteCount($evp_id);
 }
-
-// var_dump($mm=$voteClass->getMaxVoteByEvp($evp_id)["event_id"]); get event_id of the most voted event
-// var_dump($sumEvents);
 if (isset($_POST['voteEvent'])) 
 {
 	$event_id=$_POST['voteEvent'];
@@ -55,15 +49,10 @@ else
 {
 	echo 'No!';
 }
-	// echo "<meta http-equiv='refresh' content='0'>";
-	// print_r($uid);
+
 }
-
-
 ?>
 
-<!-- <link rel="stylesheet" href="assets/css/polls.css">
-	copied to header.php -->
 	<br>
 	<div class="container">
 			<?php if (!$events){ ?>
@@ -80,7 +69,6 @@ else
 					There is no currently no Event Voting 
 					<br>Click <a href="eventVotingPeriod.php">here</a> to open an Event Voting Period.</span>
 					 <?php } 
-
 					 elseif ($EVP&&$user_type==1) { ?>
 					It looks like there is no Events to be voted on.
 					<br>Click <a href="CreateEvent.php">here</a> to make events for this voting period.</span>
@@ -89,17 +77,13 @@ else
 				</div>
 			</div>
 			<?php }
-
 			
 			elseif($EVP&&$events)
 			{
 			?>
 					<form method="post" class="form-horizontal" role="form">
 			<?php } 
-
-
 	
-
 			 if($EVP&&!$userVote)
 			{?>
 
@@ -170,18 +154,13 @@ else
 					<br>
 					<?php
 				}
-				// else
-				// {
-				// 	echo 'No events';
-					
-				// }
 				?>
 
 				<?php }
 				else
 				{
 					?>
-					<?php if ($evp_status==3 && ($voteCount==$userCount)): ?>
+					<?php if ($evp_status==2): ?>
 
 						<!-- modal -->
 						<div class="container">
@@ -202,17 +181,6 @@ else
 												<?php echo $approvedEvent['image']?>"/>
 											</div></a>
 
-											<!-- / modal-body -->
-										<!-- <div class='modal-footer'>
-											<div class="checkbox pull-right">
-												<label>
-													<input class='modal-check' name='modal-check' type="checkbox"> 
-												<span style="font-size: 14px;">Don't Show</span>
-												</label>
-											</div>
-											<!--/ checkbox
-										</div> --> 
-										<!--/ modal-footer -->
 									</div>
 									<!-- / modal-content -->
 								</div>
@@ -235,7 +203,6 @@ else
 						 ?>
 					<div class="c-hover">
 						<!-- Voted event -->
-						<!-- <span class="eventTitle">&nbsp;&nbsp;</span> -->
 						<label class="poll first" for="event1"
 						style="background-image:url('images/<?php echo $userVote['image'] ?>'); "
 						></label> 
@@ -309,33 +276,6 @@ else
 								} 
 							}
 								?>
-
-								<!-- end of first row -->
-								<!-- second row -->
-<!-- 								<div>
-									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
-										<a class="list-quotes" href="">
-											<img class='img-responsive' alt="img" src="https://img.sheroes.in/img/uploads/article/high_res/Woman-Traveling-Alone-1-1000x500.jpg">
-											<div class="quotes">
-												<h1>Lorem ipsum dolor</h1>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span>...Read More</span>
-												</p>
-											</div>
-										</a>
-									</div>
-									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-6">
-										<a class="list-quotes" href="">
-											<img class='img-responsive' alt="img" src="https://img.sheroes.in/img/uploads/article/high_res/Woman-Traveling-Alone-1-1000x500.jpg">
-											<div class="quotes">
-												<h1>Lorem ipsum dolor</h1>
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span>...Read More</span>
-												</p>
-											</div>
-										</a>
-									</div>
-								</div> -->
 								<!-- end of second row -->
 							</div>
 							<!-- end of unvoted event, first four xtra events -->
@@ -356,21 +296,12 @@ else
 									</button>
 									<h4 class="modal-title">Are you sure?</h4>
 								</div>
-			       <!--  <div class="modal-body">
-			            <h4>The event has been successfully created!</h4>
-			        </div> -->
-			        <div class="modal-body">
-			        	<p class="confirmMSG"></p>
-
-			        	<!-- <div class="modal-footer"> -->
 			        	<div style="display: flex; align-items: center; justify-content: space-around; ">
 			        		<button type="submit" class="btn btn-primary voteConfirm" name="voteEvent">
-			        			<!-- <span class="icon icon-thumbs-up"></span> -->
 			        			Yes 
-			        			<?php //$redirect="Activity.php" ?>
 			        		</button>
 			        		<button class="btn btn-default" data-dismiss="modal">
-			        			<!-- <span class="icon icon-thumbs-down"></span> -->
+
 			        			No
 			        		</button>
 			        	</div>
