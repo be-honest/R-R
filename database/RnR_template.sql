@@ -12,10 +12,6 @@ MySQL - 10.1.21-MariaDB : Database - rnr
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`rnr` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `rnr`;
-
 /*Table structure for table `activities` */
 
 DROP TABLE IF EXISTS `activities`;
@@ -104,7 +100,7 @@ CREATE TABLE `event_voting_period` (
   KEY `event_status_id` (`event_status_id`),
   CONSTRAINT `event_voting_period_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   CONSTRAINT `event_voting_period_ibfk_2` FOREIGN KEY (`event_status_id`) REFERENCES `event_status` (`event_status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `event_voting_period` */
 
@@ -123,7 +119,7 @@ CREATE TABLE `events` (
   PRIMARY KEY (`event_id`),
   KEY `evp_id` (`evp_id`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`evp_id`) REFERENCES `event_voting_period` (`evp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `events` */
 
@@ -179,14 +175,14 @@ CREATE TABLE `users` (
   KEY `status_id` (`status_id`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`),
   CONSTRAINT `users_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `user_status` (`status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`user_type_id`,`status_id`,`first_name`,`username`,`password`,`last_name`,`middle_name`,`profile_picture`) values 
 (1,1,1,'Kryce Earl','admin1','admin1','Martus','Arcena','default-user.jpg'),
 (2,1,2,'Honest','admin2','admin2','Aguanta','','default-user.jpg'),
-(3,2,1,'Kem','user1','user1','Juntilla','Arcena','default-user.jpg');
+(3,2,1,'Kem','user1','user1','Juntilla','Arcena','1.jpg');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
