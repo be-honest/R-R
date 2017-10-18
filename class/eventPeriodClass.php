@@ -55,5 +55,29 @@ class eventPeriodClass
 	}
 
 
+	//Get the Event Period as of today
+	public function getCurrentEventPeriod($dateToday)
+	{
+		try {
+			$db = getDB();      
+			$st = $db->prepare("SELECT *
+				FROM event_voting_period
+				WHERE start_date <= ? && end_date >= ?");
+			$st->execute(array($dateToday,$dateToday));
+			$count=$st->rowCount(); 
+			if($count)
+			{
+				$data = $st->fetch();
+				return $data;
+			}
+			else 
+				return false;
+		} catch (PDOException $e) {
+
+		}
+
+	}
+
+
 }
 ?>

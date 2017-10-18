@@ -61,6 +61,8 @@ if(isset($_GET['evp_id'])&&isset($_GET['id']))
 if (isset($_POST['registerActivity'])) 
 {
 	$activityClass->activityRegistration($_GET['id'],$_POST['activity']);
+	// $url='Activity.php';
+	// header("Location: $url . "?evp_id=" . $_GET['evp_id'] . "&id" . $_GET['id']");
 
 }
 	?>

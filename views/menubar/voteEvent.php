@@ -1,22 +1,34 @@
 <?php 
 require_once 'views/layouts/header.php';
 require_once 'views/layouts/nav.php';
+
 include('config.php');
 include('class/eventClass.php');
 include('class/voteClass.php');
+include('class/eventPeriodClass.php');
+
 $eventClass = new eventClass();
+$eventPeriodClass = new eventPeriodClass();
 $voteClass = new voteClass();
-$evp_id=1;//must be changed to current time
+
+
+
+//var_dump($today);
+
 if (isset($_POST['voteEvent'])) 
 {
 	$event_id=$_POST['event'];
-	$user_id=3;
+	$user_id=3;//must be change to session id
 	$uid=$voteClass->vote($event_id,$user_id);
 	print_r($uid);
 }
 
-$events = $eventClass->getEventsByEVP($evp_id);
-	// PRINT_r($events);
+//get EVP note: Only Local (computer Time) Conditioned
+$today = date("Y-m-d");
+$EVP=$eventPeriodClass->getCurrentEventPeriod($today);
+$events = $eventClass->getEventsByEVP($EVP['evp_id']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +44,11 @@ $events = $eventClass->getEventsByEVP($evp_id);
 		<form method="post" class="form-horizontal" role="form">
 				<!-- <div class="col-md-4">
 				<div class="col-md-6"> -->
+				<?php if($EVP!=false)
+						{ ?>
 					<h3>Vote an Event</h3>
 					<h5>Check an option to vote.</h5>
+					<br>
 					<div class="funkyradio">
 						<?php 
 						foreach($events as $event)
@@ -47,17 +62,7 @@ $events = $eventClass->getEventsByEVP($evp_id);
 									<?php echo $event['name']  . ' : ' . $event['description']?> 
 								</label>
 							</div>
-
-
 							<?php } ?>
-							    <!-- <div class="funkyradio-info">
-							        <input type="radio" name="radio" id="radio2"/>
-							        <label for="radio2">Second Option </label>
-							    </div> -->
-							    <!-- <div class="funkyradio-info">
-							        <input type="radio" name="radio" id="radio3" />
-							        <label for="radio3">Third Option</label>
-							    </div> -->
 
 							</div> <br>
 							<div class="form-group">
@@ -67,6 +72,8 @@ $events = $eventClass->getEventsByEVP($evp_id);
 									</button>
 								</div>
 							</div>
+
+						<?php } ?>
 						<!-- </div>
 					</div> -->
 				</form>
